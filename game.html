@@ -22,26 +22,26 @@
 
 <body>
 
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card-2" style="width:200px;" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-hide-large"
+<div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button"
   onclick="w3_close()">Close &times;</button>
   <a href="home.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
   <a href="settings.html" class="w3-bar-item w3-button w3-hover-green">Settings</a>
-  <a href="logout.php" class="w3-bar-item w3-button w3-hover-blue"></a>
+  <a href="logout.php" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
 </div>
 
 
-<div class="w3-main" style="margin-left:200px">
+<div zclass="w3-main" id="main">
     <div class="w3-grey">
-        <button class="w3-button w3-grey w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <button class="w3-button w3-grey w3-xlarge " onclick="w3_open()">&#9776;</button>
         <div class="w3-container">
             <h1>Lone Forest</h1>
+            <code>A Simple Text Adventure about Finding your way back through the forest.</code>
+            <br>
         </div>
     </div>
-    <article>
-        <p>
-            A Simple Text Adventure about Finding your way back through the forest.
-        <div id="leftcolumn"><code>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <article class="w3-container w3-row">
+        <div class="w3-twothird w3-mobile"><code class="w3-container w3-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Nam aliquam mauris quis elit ullamcorper pharetra. Nunc quis
             dolor eu lacus malesuada malesuada. Cras quis hendrerit nibh,
             sit amet sagittis justo. Pellentesque varius finibus consequat.
@@ -59,7 +59,7 @@
             mi semper sed. Suspendisse hendrerit feugiat urna, a ultricies
             lorem bibendum at.</code>
         </div>
-        <div id="rightcolumn">
+        <div class="w3-third w3-mobile">
             <form>
                 <button class="btn" id="Progress" value="0" onclick="Progress()">Do x</button>
                 <br>
@@ -74,7 +74,6 @@
             </form>
         </div>
         <div class="clear"></div>
-        </p>
     </article>
 </div>
 
