@@ -6,23 +6,21 @@
             "description": "The air is dusty and cold. The floor creeks beneath you as you move across the loft.There is an old wooden chest to your right and the ladder to the ground stands solumnly behind you.",
             "story_options": [
                 {
-                    "option": {
-                        "description": "Examine the chest",
-                        "node_id": "00000002",
-                        "requires": "",
-                        "chance_of_death": "05",
-                        "death_description": "As you step towards the chest, the seemingly ancient floor boards creeks and bends beneath you step. Unluckily, the boards give way. You fall to your death."
-                    }
+                    "description": "Examine the chest",
+                    "node_id": "00000002",
+                    "requires": "",
+                    "chance_of_death": "05",
+                    "death_description": "As you step towards the chest, the seemingly ancient floor boards creeks and bends beneath you step. Unluckily, the boards give way. You fall to your death."
                 },
+
                 {
-                    "option2": {
-                        "description": "",
-                        "node_id": "",
-                        "requires": "",
-                        "chance_of_death": "",
-                        "death_description": ""
-                    }
+                    "description": "",
+                    "node_id": "",
+                    "requires": "",
+                    "chance_of_death": "",
+                    "death_description": ""
                 }
+
             ]
         },
         {
@@ -31,22 +29,18 @@
             "description": "",
             "story_options": [
                 {
-                    "option": {
-                        "description": "",
-                        "node_id": "",
-                        "requires": "",
-                        "chance_of_death": "",
-                        "death_description": ""
-                    }
+                    "description": "",
+                    "node_id": "",
+                    "requires": "",
+                    "chance_of_death": "",
+                    "death_description": ""
                 },
                 {
-                    "option": {
-                        "description": "",
-                        "node_id": "",
-                        "requires": "",
-                        "chance_of_death": "",
-                        "death_description": ""
-                    }
+                    "description": "",
+                    "node_id": "",
+                    "requires": "",
+                    "chance_of_death": "",
+                    "death_description": ""
                 }
             ]
         }
