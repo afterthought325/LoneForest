@@ -1,88 +1,71 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
 
     <title>Lone Forest - A Simple Text Adventure</title>
 
-    <meta name="description" content="A Simple Text Adventure about Finding your way back through the forest.">
-    <meta name="author" content="Chaise Farrar">
+    <meta name="description" content="A simple text adventure about finding your way back through the forest.">
+    <meta name="author" content="DCSP Spring 2017 Group A">
 
-    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'
-          type='text/css'>
+    <!--  Nice Web Font --> 
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-     <link rel="stylesheet" href="css/styles.css"> 
+    <!-- Our Custom stylesheet 
+    <link rel="stylesheet" href="css/styles.css"> 
+    -->
+    <!-- W3schools W3.css library -->
     <link rel="stylesheet" href="css/w3.css">
+
+    <!-- Jquiry and our JS Libs -->
     <script src="js/jquery.js"></script>
     <script src="js/helperfunctions.js"></script>
 </head>
 
 <body>
-
-<div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button"
-  onclick="w3_close()">Close &times;</button>
-  <a href="home.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
-  <a href="settings.html" class="w3-bar-item w3-button w3-hover-green">Settings</a>
-  <a href="logout.php" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
-</div>
-
-
-<div zclass="w3-main" id="main">
-    <div class="w3-grey">
-        <button class="w3-button w3-grey w3-xlarge " onclick="w3_open()">&#9776;</button>
-        <div class="w3-container">
-            <h1>Lone Forest</h1>
-            <code>A Simple Text Adventure about Finding your way back through the forest.</code>
-            <br>
+    <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2" style="display:none" id="mySidebar">
+      <button class="w3-bar-item w3-button"
+      onclick="w3_close()">Close &times;</button>
+      <a href="home.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
+      <a href="settings.html" class="w3-bar-item w3-button w3-hover-green">Settings</a>
+      <a href="logout.php" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
+    </div>
+    
+    <div zclass="w3-main" id="main">
+        <div class="w3-grey">
+            <button class="w3-button w3-grey w3-xlarge " onclick="w3_open()">&#9776;</button>
+            <div class="w3-container">
+                <h1>Lone Forest</h1>
+                <code>A Simple Text Adventure about Finding your way back through the forest.</code>
+                <br>
+            </div>
+        </div>
+        <div class="w3-cell-row" style="padding:5px">
+            <div class="w3-container w3-cell w3-mobile">
+                <h3 id="Location">Location</h3>
+                <code id="Description">Description </code>
+            </div>
+            <div class="w3-container w3-cell w3-mobile">
+                    <button class="w3-btn w3-block w3-grey" id="Progress" value="0" onclick="StoryTeller.update_story_node(0)"></button>
+                    <br>
+                    <button class="w3-btn w3-block w3-grey" id="Progress" value="1" onclick="StoryTeller.update_story_node(1)"></button>
+                    <br>
+                    <button class="w3-btn w3-block w3-grey" id="Progress" value="2" onclick="StoryTeller.update_story_node(2)"></button>
+                    <br>
+                    <button class="w3-btn w3-block w3-grey" id="Progress" value="3" onclick="StoryTeller.update_story_node(3)"></button>
+                    <br>
+            </div>
         </div>
     </div>
-    <article class="w3-container w3-row">
-        <div class="w3-twothird w3-mobile"><code class="w3-container w3-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nam aliquam mauris quis elit ullamcorper pharetra. Nunc quis
-            dolor eu lacus malesuada malesuada. Cras quis hendrerit nibh,
-            sit amet sagittis justo. Pellentesque varius finibus consequat.
-            Donec ex velit, ullamcorper id mattis sit amet, dapibus et leo.
-            Morbi aliquam odio ac urna consectetur, at dignissim libero
-            vestibulum. Nam congue arcu a est mattis, vitae feugiat nunc
-            cursus. Sed consectetur, metus vel fermentum elementum, nibh ipsum
-            luctus lorem, et ullamcorper libero nulla non quam. Vestibulum
-            malesuada aliquam urna, a molestie est viverra id. Curabitur
-            tempus, augue vitae tincidunt gravida, lorem urna molestie magna,
-            in facilisis nunc massa eu sem. Integer ornare odio in urna
-            aliquam venenatis. Pellentesque non est laoreet nulla ultricies
-            malesuada. Vestibulum fringilla est nunc, tincidunt tristique
-            erat tempor molestie. Maecenas tristique orci odio, quis semper
-            mi semper sed. Suspendisse hendrerit feugiat urna, a ultricies
-            lorem bibendum at.</code>
-        </div>
-        <div class="w3-third w3-mobile">
-            <form>
-                <button class="btn" id="Progress" value="0" onclick="Progress()">Do x</button>
-                <br>
-                <button class="btn" id="Progress" value="1" onclick="Progress()"> Do y</button>
-                <br>
-                <button class="btn" id="Progress" value="2" onclick="Progress()"> Do z</button>
-                <br>
-                <button class="btn" id="Progress" value="3" onclick="Progress()"> Do.... I don't know, just something
-                    else...
-                </button>
-                <br>
-            </form>
-        </div>
-        <div class="clear"></div>
-    </article>
-</div>
 
-
-<script>
-    $( document ).ready(function() {
-        alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
-
-    });
-</script>
+    <script>
+        $( document ).ready(function() {
+            alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
+            StoryTeller1 = StoryTeller(); 
+        });
+    </script>
 </body>
 </html>
