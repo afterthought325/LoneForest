@@ -11,7 +11,7 @@
                     "requires": "",
                     "chance_of_death": "05",
                     "death_description": "As you step towards the chest, the seemingly ancient floor boards creeks and bends beneath you step. Unluckily, the boards give way. You fall to your death."
-                },
+                }]
 
         // {
         //     "id":"00000001",
@@ -33,7 +33,7 @@
         //             "death_description":
         //         }
         //     ]
-        // },
+        },
 
         {
             "id":"00000001",
@@ -193,8 +193,7 @@
                     "death_description": "You immediately trip and curse your father's inheritable lack of coordination. The figure races towards you and slams an axe into a vital artery which causes your death."
                 }
             ]
-        },
+        }
         
     ]//end of StoryNode
 }
-
