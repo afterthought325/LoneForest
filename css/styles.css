@@ -104,26 +104,3 @@ h2 {
     clear: both;
 }
 
-.btn {
-    color: black;
-    background: lightgray;
-    font-family: 'Lato', Helvetica, sans-serif;
-    font-size: 16px;
-    text-decoration: none;
-    position: relative;
-    padding: 15px 30px;
-    display: block;
-    width: 75%;
-    -webkit-box-shadow: 2px 2px 0 #666;
-    -moz-box-shadow: 2px 2px 0 #666;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    margin: 5px 10px 0 0;
-}
-
-.btn:hover {
-    -webkit-box-shadow: 0px 0px 0 #666;
-    -moz-box-shadow: 0px 0px 0 #666;
-    top: 2px;
-    left: 2px;
-}
