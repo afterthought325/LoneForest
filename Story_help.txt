@@ -1,0 +1,24 @@
+Story Help:
+01: side of road: 2 or 3
+02: Investigate tire: 4 or 5
+03: Got flashlight: 5 or 6 
+04: Waiting in Car: 7
+05: Walking away from car: 7
+06: Investigate tire with Light: 7
+07: Wake up in woods: 9 or 22 or 14 or 11
+08: Wake up spot: 9 or 14 or 11 or 22
+09: Pond: Pit, 15, 8, 26
+10: Normal woods: Town, 17, Pit, 28
+11: Normal woods: 8, 19, 12, 23
+12: Normal woods: 11, 20, 13, 24
+13: Car: 12, car get-away
+14: Normal woods/river: 15, 19, 8
+15: Normal woods/river: 16, 14, Pit
+16: Cave: 17, 33, 15, Pit
+17: Campsite: 18, 34, 16, 10
+18: Normal woods/Bear_trap_right: 32, Bear Trap, 17, Town
+19: Flare gun/river: 14, 20, 11
+20: Normal woods/river: 19, 21, 12 
+21: Road/East: 20, Die going east, 13
+22: Hacksaw: 26, 8, 23(Pit), Bear Trap
+  
