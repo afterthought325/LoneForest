@@ -5,70 +5,71 @@ Van Kingma
 4/3/17
 */
 
-class userClass {
+/*
+ * Good Reference for defining Javascript Objects/Classes
+ * http://www.phpied.com/3-ways-to-define-a-javascript-class/
+ */
 
-    constructor() {
-        this.firstname = null;
-        this.surname = null;
-        this.hash_pass = null;
-        this.inventory_list = null;
-        this.admin_access_enabled = null;
-        this.current_location = null;
+function User() {
 
-        //sends get requests to user.php to find the needed initial user information
-        if (window.XMLHttpRequest) {
-            xmlhttp = new XMHttpRequest();
-        }
-        else {
-            xmlhttp = newActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                return this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "user.php?get_first_name=true", true);
-        xmlhttp.send();
-        this.firstname = this.responseText;
-        xmlhttp.open("GET", "user.php?get_last_name=true", true);
-        xmlhttp.send();
-        this.surname = this.responseText;
-        xmlhttp.open("GET", "user.php?get_hash_pass=true", true);
-        xmlhttp.send();
-        this.hash_pass = this.responseText;
-        xmlhttp.open("GET", "user.php?get_inventory=true", true);
-        xmlhttp.send();
-        this.inventory_list = this.responseText;
-        xmlhttp.open("GET", "user.php?get_current_location=true", true);
-        xmlhttp.send();
-        this.current_location = this.responseText;
-
-
+    this.firstname = null;
+    this.surname = null;
+    this.hash_pass = null;
+    this.inventory_list = null;
+    this.admin_access_enabled = null;
+    this.current_location = null;
+    
+    //sends get requests to user.php to find the needed initial user information
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMHttpRequest();
     }
+    else {
+        xmlhttp = newActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            return this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "user.php?get_first_name=true", true);
+    xmlhttp.send();
+    this.firstname = this.responseText;
+    xmlhttp.open("GET", "user.php?get_last_name=true", true);
+    xmlhttp.send();
+    this.surname = this.responseText;
+    xmlhttp.open("GET", "user.php?get_hash_pass=true", true);
+    xmlhttp.send();
+    this.hash_pass = this.responseText;
+    xmlhttp.open("GET", "user.php?get_inventory=true", true);
+    xmlhttp.send();
+    this.inventory_list = this.responseText;
+    xmlhttp.open("GET", "user.php?get_current_location=true", true);
+    xmlhttp.send();
+    this.current_location = this.responseText;
 
 
-    get_first_name() {
+    this.get_first_name = function() {
         return this.firstname;
-    }
+    };
 
-    get_last_name() {
+    this.get_last_name = function(){
         return this.surname
-    }
+    };
 
-    set_name (newName) {
+    this.set_name = function(newName) {
         this.name = newName;
         return true;
-    }
+    };
 
-    get_hashed_password() {
+    this.get_hashed_password = function() {
         return this.hash_pass;
-    }
+    };
 
-    get_inventory () {
+    this.get_inventory = function() {
             return this.inventory_list;
-    }
+    };
 
-    override_inventory (inventory) {
+    this.override_inventory = function(inventory) {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMHttpRequest();
         }
@@ -85,9 +86,9 @@ class userClass {
         xmlhttp.send();
         if (this.responseText == "true") return true;
         else return false;
-    }
+    };
 
-    add_item (item) {
+    this.add_item = function(item) {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMHttpRequest();
         }
@@ -103,9 +104,9 @@ class userClass {
         //user.php will add user's inventory table (probably parsed in json format), and return a boolean
         //methodology could be calling get_inventory, append item to the json style list, and call override_inventory with new json.
         xmlhttp.send();
-    }
+    };
 
-    remove_item (item) {
+    this.remove_item = function(item) {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMHttpRequest();
         }
@@ -121,9 +122,9 @@ class userClass {
         //user.php will add user's inventory table (probably parsed in json format), and return a boolean
         //methodology could be calling get_inventory, append item to the json style list, and call override_inventory with new json.
         xmlhttp.send();
-    }
+    };
 
-    update_location (locationID) {
+    this.update_location = function(locationID) {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMHttpRequest();
         }
@@ -139,9 +140,9 @@ class userClass {
         //user.php will update user's location ID stored in mySQL
         xmlhttp.send();
         this.current_location = locationID;
-    }
+    };
 
-    is_admin () {
+    this.is_admin = function() {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMHttpRequest();
         }
@@ -156,8 +157,9 @@ class userClass {
         xmlhttp.open("GET", "user.php?is_admin=true", true);
         //user.php will return the boolean value of whether the user is an administrator
         xmlhttp.send();
-    }
+    };
 
-    get_current_location () {
+    this.get_current_location = function() {
         return this.current_location;
-}
+    };
+};
