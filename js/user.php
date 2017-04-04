@@ -7,6 +7,11 @@ if ($connection->connect_error) die($connection->connect_error);
 
 $username = "AUsername";
 
+session_start();
+if ( isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    }
+
 //Return First name upon request
 if(isset(GET['get_first_name'])){
     $status = GET['get_first_name'];
