@@ -15,11 +15,12 @@
   <div class="login-page">
   <div class="form">
     <form method="post" action="testRegister/" class="register-form">
-      <input type="text" placeholder="first name" required/>
-      <input type="text" placeholder="username" required/>
-      <input type="password" placeholder="password" required/>
-      <input type="text" placeholder="What is your mother's maiden name?" required/>
-      <input type="text" placeholder="What street did you grow up on?" required/>
+      <input type="text" placeholder="first name" name="firstname" required/>
+      <input type="text" placeholder="last name" name="surname" required/>
+      <input type="text" placeholder="username" name="username" required/>
+      <input type="password" placeholder="password" name="password" required/>
+      <input type="text" placeholder="What is your mother's maiden name?" name="security1" required/>
+      <input type="text" placeholder="What street did you grow up on?" name="security2" required/>
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
