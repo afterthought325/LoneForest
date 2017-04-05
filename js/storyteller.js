@@ -4,20 +4,26 @@
  * Good Reference for defining Javascript Objects/Classes
  * http://www.phpied.com/3-ways-to-define-a-javascript-class/
  */
+//import { StoryNode } from 'js/storynode.js';
+//import { User } from 'js/user.js';
 
-function StoryTeller() {
-    this.story = null;
-    this.user = null;
-    this.json_story = null;
-    this.process_json_story = function (json_story) {
-        this.json_story = json_story;
+
+Class StoryTeller() {
+    constructor(){
+        var this.json_story = (function() {
+            $.getJSON( "Story.json")
+                .done(function( json ) {
+                    console.log("Story.json Loaded");
+                    this.json_story = json;
+                })
+                .fail(function( jqxhr, textStatus, error ) {
+                    var err = textStatus + ", " + error;
+                    console.log( "Request Failed: " + err );
+            });
+        })();
+        var this.user = new User();
+        var this.story = new StoryNode(User.current_location,this.json_story); 
     }
-}
 
-StoryTeller.prototype.get_json_story = function(){
-    this.json_story = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
 };
 
-StoryTeller.prototype.process_json_story = function (json_story) {
-    this.json_story = json_story;
-};
