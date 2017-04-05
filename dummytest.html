@@ -1,0 +1,31 @@
+<!--This is the dummy file I used to demonstrate JSON retrieval by the storyteller class. Feel free
+ to shame me about the piss-poor code quality.
+ Author: Trey Franklin-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DummyFiles!</title>
+    <script src="js/storyteller.js"></script>
+    <script src="js/storynode.js"></script>
+    <script src="js/helperfunctions.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<p>
+    test test test
+</p>
+<br>
+<div id="test">
+
+</div>
+
+<script>
+    var test_object = new StoryTeller();
+    test_object.get_json_story();
+    document.getElementById('test').innerHTML = test_object.json_story;
+</script>
+
+</body>
+</html>
