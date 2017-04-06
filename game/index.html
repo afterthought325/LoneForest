@@ -14,15 +14,17 @@
     <!--  Nice Web Font --> 
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-    <!-- Our Custom stylesheet 
-    <link rel="stylesheet" href="css/styles.css"> 
-    -->
     <!-- W3schools W3.css library -->
     <link rel="stylesheet" href="../css/w3.css">
 
-    <!-- Jquiry and our JS Libs -->
+    <!-- Jquery and our JS Libs -->
     <script src="../js/jquery.js"></script>
     <script src="../js/helperfunctions.js"></script>
+    <script src="../js/Story.json"></script>
+    <script src="../js/storynode.js"></script>
+    <script src="../js/storyteller.js"></script>
+    <script src="../js/user.js"></script>
+
 </head>
 
 <body>
@@ -49,7 +51,7 @@
                 <code id="Description">Description </code>
             </div>
             <div class="w3-container w3-cell w3-mobile" id="StoryOptions">
-                    <button class="w3-btn w3-block w3-grey" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>
+                    <button class="w0-btn w3-block w3-grey" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>
                     <br>
                     <button class="w3-btn w3-block w3-grey" value="1" onclick="StoryTeller.update_story_node(this.value)"></button>
                     <br>
