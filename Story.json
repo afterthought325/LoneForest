@@ -1,9 +1,11 @@
 {
     "StoryNodes": [
+        
         {
             "id":"00000001",
             "location":"Side of the road",
             "description":"You step out of your car unto the dark, lonely road lit only by the full moon above you. You have a flat tire.",
+
             "story_options":[
                 {
                     "description":"Investigate tire",
@@ -22,6 +24,7 @@
 
             ]
         },
+        
         {
             "id":"00000002",
             "location":"Investigating Tire",
@@ -46,7 +49,7 @@
 
         {
             "id":"00000003",
-            "location":"Outside of car after retrieving flashlight.",
+            "location":"Outside of car",
             "description":"You turn on the light and check your surroundings. The forest is quite with no signs of life. You hear a scraping noise. You shine the light over the road and your car, but nothing's there.",
             "story_options":[
                 {
@@ -116,7 +119,7 @@
 
         {
             "id":"00000006",
-            "location":"Investigate tire with light",
+            "location":"Investigating tire with light",
             "description":"You shine the light on the flat tire exposing a black strip. Placing the flashlight in your mouth, you pull it out. It's a spike strip made from bones. Another noise comes from under the car.",
             "story_options":[
                 {
@@ -137,25 +140,86 @@
         },
         {
             "id":"00000007",
-            "location":"Running deeply into the woods",
-            "description":"You run and run deeper into woods. You hit branches, trip on roots, but you keep running until your breath is heavy and you wish you had never quit cross country back in highschool. You trip on a rock and slam your head on another one, blacking out... You come to with light breaking through the trees. You look around, but there's nothing but trees. You're alone.",
+            "location":"Running deeply into the forest",
+            "description":"You run and run deeper into the woods. You hit branches, trip on roots, but you keep running until your breath is heavy and you wish you had never quit cross country back in highschool. You trip on a rock and slam your head on another one, blacking out... You come to with light breaking through the trees. You look around, but there's nothing but trees. You're alone.",
             "story_options":[
                 {
-                    "description":"Go ",
                     "description":"",
                     "next_node_id": "00000008",
                     "requires":"",
-                    "chance_of_death": "100",
-                    "death_description":"The figure responds to your courteous gesture with an arrow through your heart. You have lost of your hearts A.K.A dead."
-                },
-                {
-                    "description": "Run deeply into the woods",
-                    "next_node_id": "00000007",
-                    "requires":"",
-                    "chance_of_death": "05",
-                    "death_description": "You immediately trip and curse your father's inheritable lack of coordination. The figure races towards you and slams an axe into a vital artery which causes your death."
                     "chance_of_death": "0",
                     "death_description":""
+                }
+            ]
+        }, 
+        {
+            "id":"00000008",
+            "location":"Lone Forest",
+            "description":"There's nothing here but trees...",
+            "story_options":[
+                {
+                    "description":"Go north",
+                    "next_node_id": "00000009",
+                    "requires":"",
+                    "chance_of_death": "02",
+                    "death_description":"Your foot hits a trip-wire causing a log to swing into your skull. You bleed to death on the cold forest floor. Boo hoo."
+                },
+                {
+                    "description": "Go east",
+                    "next_node_id": "00000014",
+                    "requires":"",
+                    "not_requires":"",
+                    "chance_of_death": "02",
+                    "death_description": "A meteorite fragment collides with your head, ending it's billion year journey. It ends your journey too."
+                }, 
+                {
+                    "description":"Go south",
+                    "next_node_id":"00000011", 
+                    "requires":"",
+                    "chance_of_death": "02",
+                    "death_description":"You take another step and fall through the leaves. You land in a warm pit of snakes. Yes. It's a legitimate pit of snakes. No, you do not live."
+                },
+                {
+                    "description": "Go west",
+                    "next_node_id": "00000022",
+                    "requires":"",
+                    "chance_of_death": "02",
+                    "death_description": "You walk into a spider web. As you fumble to swipe the web off, the black widow had already bitten you. Only 5% of black widow bites are fatal; however, your deadly allergic to the venom. Your throat closes up and you die."
+                }
+            ]
+        },
+        {
+            "id":"00000009",
+            "location":"Pond",
+            "description":"You come across a pond.",
+            "story_options":[
+                {
+                    "description":"Go north",
+                    "requires":"",
+                    "chance_of_death": "100",
+                    "death_description":"You fall into a pit full of spikes.  Yes, the cliche pit of spikes. And yes, you died falling into the pit of cliche spikes."
+                },
+                {
+                    "description": "Go east",
+                    "next_node_id": "00000014",
+                    "requires":"",
+                    "not_requires":"",
+                    "chance_of_death": "02",
+                    "death_description": "A meteorite fragment collides with your head, ending it's billion year journey. It ends your journey too."
+                }, 
+                {
+                    "description":"Go south",
+                    "next_node_id":"00000011", 
+                    "requires":"",
+                    "chance_of_death": "02",
+                    "death_description":"You take another step and fall through the leaves. You land in a warm pit of snakes. Yes. It's a legitimate pit of snakes. No, you do not live."
+                },
+                {
+                    "description": "Go west",
+                    "next_node_id": "00000022",
+                    "requires":"",
+                    "chance_of_death": "02",
+                    "death_description": "You walk into a spider web. As you fumble to swipe the web off, the black widow had already bitten you. Only 5% of black widow bites are fatal; however, your deadly allergic to the venom. Your throat closes up and you die."
                 }
             ]
         }
