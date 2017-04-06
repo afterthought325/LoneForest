@@ -121,6 +121,7 @@
             "story_options":[
                 {
                     "description":"Poop your pants",
+                    "description":"Soil self",
                     "requires":"",
                     "chance_of_death": "100",
                     "death_description":"After soiling yourself, the man crawls out from underneath the car and whiffs the air. His face turns from disgusted to enraged as he slams the axe down on your neck."
@@ -141,6 +142,8 @@
             "story_options":[
                 {
                     "description":"Go ",
+                    "description":"",
+                    "next_node_id": "00000008",
                     "requires":"",
                     "chance_of_death": "100",
                     "death_description":"The figure responds to your courteous gesture with an arrow through your heart. You have lost of your hearts A.K.A dead."
@@ -151,6 +154,8 @@
                     "requires":"",
                     "chance_of_death": "05",
                     "death_description": "You immediately trip and curse your father's inheritable lack of coordination. The figure races towards you and slams an axe into a vital artery which causes your death."
+                    "chance_of_death": "0",
+                    "death_description":""
                 }
             ]
         }
