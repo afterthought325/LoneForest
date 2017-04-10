@@ -6,18 +6,71 @@
  */
 
 function StoryTeller() {
-    this.story = null;
-    this.user = null;
     this.json_story = null;
-    this.process_json_story = function (json_story) {
-        this.json_story = json_story;
-    }
+    this.current_user = null;
+    this.current_story_node = null;
+    this.current_story_node_uid = null;
+
+    this.selected_option = null;
 }
 
 StoryTeller.prototype.get_json_story = function(){
-    this.json_story = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
+    var response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
+    if (response) {
+        this.json_story = JSON.parse(response);
+        return true;
+    } else {
+        return false;
+    }
 };
 
-StoryTeller.prototype.process_json_story = function (json_story) {
-    this.json_story = json_story;
+
+StoryTeller.prototype.create_story_node = function(current_story_node_uid){
+    if (this.json_story === null){
+        return false;
+    }
+
+    var result = $.grep(this.json_story.StoryNodes, function(story_node){ return story_node.id === current_story_node_uid; });
+
+    if (result.length === 0) {
+        // no results found, error
+        return false;
+
+    } else if (result.length === 1 ){
+        // found the requested story node
+        this.current_story_node = result[0];
+        this.selected_option = null;
+
+    } else {
+        // another error because we found more than one...
+        return false;
+    }
+
+};
+
+
+StoryTeller.prototype.create_user = function(name){
+    this.current_user = new User(name);  // TODO: How do we update the name of the User?
+    return true;  // TODO: This needs to check for successful creation of the User.
+};
+
+
+StoryTeller.prototype.update_story_node = function(story_option) {
+    // story_option is an integer corresponding to a location in the options array
+    if (story_option >= this.current_story_node.story_options.length) {
+        // story option isn't present
+        return false;
+    }
+    this.selected_option = this.current_story_node.story_options[story_option];
+    return true;
+};
+
+
+StoryTeller.prototype.proceed_to_next_node = function(){
+    // is this necessary? How do we want to handle going to the next node?
+    if (this.selected_option === null) {
+        return false;
+    }
+    var next_node_id = this.selected_option.next_node_id;
+    this.create_story_node(next_node_id);
 };
