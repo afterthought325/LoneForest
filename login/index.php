@@ -1,3 +1,14 @@
+<?php
+session_start();
+set_include_path('/home/dcspa/public_html/LoneForest/');
+
+if ($_SESSION[logged_in] = True)
+{
+   header("Location: game/");
+   exit();
+}
+?>
+
 <!DOCTYPE html>
 <html >
 <head>
