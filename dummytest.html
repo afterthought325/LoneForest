@@ -17,14 +17,24 @@
     test test test
 </p>
 <br>
+<p>Node 1</p>
 <div id="test">
 
 </div>
+<br>
+<p>Node 2</p>
+<div id="test2">
 
+</div>
 <script>
     var test_object = new StoryTeller();
     test_object.get_json_story();
-    document.getElementById('test').innerHTML = test_object.json_story;
+    test_object.create_story_node("00000001");
+    document.getElementById('test').innerHTML = test_object.current_story_node.description;
+    test_object.update_story_node(1);
+    test_object.proceed_to_next_node();
+    document.getElementById('test2').innerHTML = test_object.current_story_node.description;
+
 </script>
 
 </body>
