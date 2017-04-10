@@ -1,4 +1,4 @@
-function httpGet(theUrl)
+function httpGet(theUrl)  // TODO: I feel like we can probably find a better way to do this, but this does 'work' -TF
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
