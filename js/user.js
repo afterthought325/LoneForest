@@ -14,6 +14,7 @@ class User {
         this.inventory_list = null;
         this.admin_access_enabled = null;
         this.current_location = null;
+        this.username = null;
 
         $.get("user.php",{get_first_name : true})
             .done(function(data) {
@@ -26,7 +27,12 @@ class User {
                 console.log("User.js: Received Last name (username)");
                 this.firstname = data;
             });
-        
+
+        $.get("user.php", {get_user_name : true})
+            .done(function(data) {
+                console.log("User.js: Received username (username)");
+                this.username = data;
+            })
 
         ////sends get requests to user.php to find the needed initial user information
         //if (window.XMLHttpRequest) {
