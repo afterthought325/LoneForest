@@ -2,7 +2,7 @@
 session_start();
 set_include_path('/home/dcspa/public_html/LoneForest/');
 
-if ($_SESSION[logged_in] = False)
+if ($_SESSION[logged_in] === False)
 {
    header("Location: ../login/");
    exit();
