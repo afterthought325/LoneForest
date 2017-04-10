@@ -7,23 +7,72 @@
 //import { StoryNode } from 'js/storynode.js';
 //import { User } from 'js/user.js';
 
+function StoryTeller() {
+    this.json_story = null;
+    this.current_user = null;
+    this.current_story_node = null;
+    this.current_story_node_uid = null;
 
-Class StoryTeller() {
-    constructor(){
-        var this.json_story = (function() {
-            $.getJSON( "Story.json")
-                .done(function( json ) {
-                    console.log("Story.json Loaded");
-                    this.json_story = json;
-                })
-                .fail(function( jqxhr, textStatus, error ) {
-                    var err = textStatus + ", " + error;
-                    console.log( "Request Failed: " + err );
-            });
-        })();
-        var this.user = new User();
-        var this.story = new StoryNode(User.current_location,this.json_story); 
+    this.selected_option = null;
+}
+
+StoryTeller.prototype.get_json_story = function(){
+    var response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
+    if (response) {
+        this.json_story = JSON.parse(response);
+        return true;
+    } else {
+        return false;
+    }
+};
+
+
+StoryTeller.prototype.create_story_node = function(current_story_node_uid){
+    if (this.json_story === null){
+        return false;
+    }
+
+    var result = $.grep(this.json_story.StoryNodes, function(story_node){ return story_node.id === current_story_node_uid; });
+
+    if (result.length === 0) {
+        // no results found, error
+        return false;
+
+    } else if (result.length === 1 ){
+        // found the requested story node
+        this.current_story_node = result[0];
+        this.selected_option = null;
+
+    } else {
+        // another error because we found more than one...
+        return false;
     }
 
 };
 
+
+StoryTeller.prototype.create_user = function(name){
+    this.current_user = new User(name);  // TODO: How do we update the name of the User?
+    return true;  // TODO: This needs to check for successful creation of the User.
+};
+
+
+StoryTeller.prototype.update_story_node = function(story_option) {
+    // story_option is an integer corresponding to a location in the options array
+    if (story_option >= this.current_story_node.story_options.length) {
+        // story option isn't present
+        return false;
+    }
+    this.selected_option = this.current_story_node.story_options[story_option];
+    return true;
+};
+
+
+StoryTeller.prototype.proceed_to_next_node = function(){
+    // is this necessary? How do we want to handle going to the next node?
+    if (this.selected_option === null) {
+        return false;
+    }
+    var next_node_id = this.selected_option.next_node_id;
+    this.create_story_node(next_node_id);
+};
