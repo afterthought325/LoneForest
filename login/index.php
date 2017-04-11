@@ -18,17 +18,19 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Flat HTML5/CSS3 Login Form</title>
+  <title>Login to Lone Forest</title>
 
 
 
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="../css/w3.css">
 
 
 </head>
 
 <body>
   <div class="login-page">
+     <p class="w3-extra-large w3-center">Welcome to Lone Forest. Please Log In.</p>
   <div class="form">
     <form method="post" action="testRegister/" class="register-form">
       <input type="text" placeholder="first name" name="firstname" required/>
