@@ -76,7 +76,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 
     <script>
         $( document ).ready(function() {
-            alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
+            // alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
             StoryTeller1 = StoryTeller();
         });
     </script>
