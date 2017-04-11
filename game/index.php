@@ -43,7 +43,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
       <button class="w3-bar-item w3-button"
       onclick="w3_close()">Close &times;</button>
       <a href="home.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
-      <a href="settings.php" class="w3-bar-item w3-button w3-hover-green">Settings</a>
+      <a href="/game/settings.php" class="w3-bar-item w3-button w3-hover-green">Settings</a>
       <a href="../login/index.php?logout=True" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
     </div>
 

@@ -9,6 +9,7 @@
     <title>DummyFiles!</title>
     <script src="js/storyteller.js"></script>
     <script src="js/storynode.js"></script>
+    <script src="js/user.js"></script>
     <script src="js/helperfunctions.js"></script>
     <script src="js/jquery.js"></script>
 </head>
@@ -33,8 +34,6 @@
 </div>
 <script>
     var test_object = new StoryTeller();
-    test_object.get_json_story();
-    test_object.create_story_node(1);
     document.getElementById('test').innerHTML = test_object.current_story_node.description;
     test_object.update_story_node(1);
     test_object.proceed_to_next_node();
