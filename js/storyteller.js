@@ -16,6 +16,31 @@ function StoryTeller() {
     this.selected_option = null;
 }
 
+class StoryTeller() {
+
+    constructor(){
+        this.json_story = null;
+        this.current_user = null;
+        this.current_story_node = null;
+        this.current_story_node_uid = null;
+        this.get_json_story();
+        this.create_story_node();
+
+    }
+
+    get_json_story() {
+        var response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
+        if (response) {
+            this.json_story = JSON.parse(response);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    create_story_node
+}
+
 StoryTeller.prototype.get_json_story = function(){
     var response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
     if (response) {
