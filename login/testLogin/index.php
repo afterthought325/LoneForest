@@ -30,9 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
          $token = hash($algo, "$salt1$pw_temp$salt2");
          if ($token == $row[3])
          {
-            echo "$row[0] $row[1] : Hi $row[0], you are now logged in as '$row[2]'";
             $_SESSION["logged_in"] = True;
             $_SESSION["username"] = $row[2];
+            header("Location: ../../game/");
+            exit();
          }
          else die("Invalid username/password combination");
       }

@@ -4,6 +4,7 @@
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+  font-size: 22px;
 }
 .form {
   position: relative;
@@ -88,6 +89,13 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+.title-text {
+   font-family: "Roboto", sans-serif;
+   width: 50%;
+   padding: 15px;
+   color: #FFFFFF;
+   font-size: 18px;
+}
 body {
   background: #76b852; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #76b852, #8DC26F);
@@ -96,5 +104,5 @@ body {
   background: linear-gradient(to left, #76b852, #8DC26F);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;
 }
