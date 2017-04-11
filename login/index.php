@@ -1,6 +1,5 @@
 <?php
 session_start();
-set_include_path('/home/dcspa/public_html/LoneForest/');
 
 if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET['logout'])) && ($_GET['logout'] == True))
 {

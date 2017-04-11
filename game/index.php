@@ -1,6 +1,5 @@
 <?php
 session_start();
-set_include_path('/home/dcspa/public_html/LoneForest/');
 
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 {

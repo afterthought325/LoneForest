@@ -1,8 +1,8 @@
 <?php
 session_start();
-set_include_path('/home/dcspa/public_html/LoneForest/');
+// set_include_path('/home/dcspa/public_html/LoneForest/');
 // set_include_path('D:\xampp\htdocs\TestLoneForest\LoneForest');
-require_once 'login.php';
+require_once '../../login.php';
 
 $connection = new mysqli($hn, $un, $pw, $db);
 
