@@ -26,10 +26,15 @@
 <div id="test2">
 
 </div>
+<br>
+<p>Node 3</p>
+<div id="test3">
+
+</div>
 <script>
     var test_object = new StoryTeller();
     test_object.get_json_story();
-    test_object.create_story_node("00000001");
+    test_object.create_story_node(1);
     document.getElementById('test').innerHTML = test_object.current_story_node.description;
     test_object.update_story_node(1);
     test_object.proceed_to_next_node();

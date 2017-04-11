@@ -32,7 +32,7 @@ StoryTeller.prototype.create_story_node = function(current_story_node_uid){
         return false;
     }
 
-    var result = $.grep(this.json_story.StoryNodes, function(story_node){ return story_node.id === current_story_node_uid; });
+    var result = $.grep(this.json_story.StoryNodes, function(story_node){ return story_node.id == current_story_node_uid; });
 
     if (result.length === 0) {
         // no results found, error
@@ -42,6 +42,7 @@ StoryTeller.prototype.create_story_node = function(current_story_node_uid){
         // found the requested story node
         this.current_story_node = result[0];
         this.selected_option = null;
+        return true;
 
     } else {
         // another error because we found more than one...
@@ -51,8 +52,8 @@ StoryTeller.prototype.create_story_node = function(current_story_node_uid){
 };
 
 
-StoryTeller.prototype.create_user = function(name){
-    this.current_user = new User(name);  // TODO: How do we update the name of the User?
+StoryTeller.prototype.create_user = function(){
+    this.current_user = new User();  // TODO: How do we update the name of the User?
     return true;  // TODO: This needs to check for successful creation of the User.
 };
 
@@ -63,7 +64,15 @@ StoryTeller.prototype.update_story_node = function(story_option) {
         // story option isn't present
         return false;
     }
+
     this.selected_option = this.current_story_node.story_options[story_option];
+    let death = getRandomInt(0, 100);  // play with fate and determine the death rate
+
+    if (this.selected_option.chance_of_death >= death) {
+        alert("You died. Restart?");
+        this.create_story_node(0);
+        this.selected_option = null;
+    }
     return true;
 };
 
@@ -73,6 +82,6 @@ StoryTeller.prototype.proceed_to_next_node = function(){
     if (this.selected_option === null) {
         return false;
     }
-    var next_node_id = this.selected_option.next_node_id;
+    let next_node_id = this.selected_option.next_node_id;
     this.create_story_node(next_node_id);
 };
