@@ -30,7 +30,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 <body>
   <div class="login-page">
-     <p class="w3-extra-large w3-center">Welcome to Lone Forest. Please Log In.</p>
+     <p class="w3-extra-large w3-center">Welcome to Lone Forest.<br />Please Log In.</p>
   <div class="form">
     <form method="post" action="testRegister/" class="register-form">
       <input type="text" placeholder="first name" name="firstname" required/>
