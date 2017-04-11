@@ -1,3 +1,14 @@
+<?php
+session_start();
+set_include_path('/home/dcspa/public_html/LoneForest/');
+
+if ($_SESSION[logged_in] === False)
+{
+   header("Location: ../login/");
+   exit();
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--  Nice Web Font --> 
+    <!--  Nice Web Font -->
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
     <!-- W3schools W3.css library -->
@@ -35,7 +46,7 @@
       <a href="settings.html" class="w3-bar-item w3-button w3-hover-green">Settings</a>
       <a href="logout.php" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
     </div>
-    
+
     <div zclass="w3-main" id="main">
         <div class="w3-grey">
             <button class="w3-button w3-grey w3-xlarge " onclick="w3_open()">&#9776;</button>
@@ -66,7 +77,7 @@
     <script>
         $( document ).ready(function() {
             alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
-            StoryTeller1 = StoryTeller(); 
+            StoryTeller1 = StoryTeller();
         });
     </script>
 </body>
