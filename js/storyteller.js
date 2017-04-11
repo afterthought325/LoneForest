@@ -70,4 +70,9 @@ class StoryTeller{
         return true;
         
     }
+
+    update_page(){
+        //Inputing the Name into the Header.
+        document.getElementById("Heading").innerhtml ="Will you survive, "+this.current_user.firstname+"?";
+    }
 }

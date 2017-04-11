@@ -51,7 +51,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             <button class="w3-button w3-grey w3-xlarge " onclick="w3_open()">&#9776;</button>
             <div class="w3-container">
                 <h1>Lone Forest</h1>
-                <code>A Simple Text Adventure about Finding your way back through the forest.</code>
+                <code id="Heading">A Simple Text Adventure about Finding your way back through the forest.</code>
                 <br>
             </div>
         </div>
