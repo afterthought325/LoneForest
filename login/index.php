@@ -2,19 +2,13 @@
 session_start();
 set_include_path('/home/dcspa/public_html/LoneForest/');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
+if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET['logout'])) && ($_GET['logout'] == True))
 {
-   if (isset($_POST['logout']))
-   {
-      if ($_POST['logout'] == True)
-      {
-         $_SESSION['logged_in'] = False;
-         $_SESSION['username'] = 'no username';
-      }
-   }
+   $_SESSION['logged_in'] = False;
+   $_SESSION['username'] = 'no username';
 }
 
-if ($_SESSION["logged_in"] === True)
+if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 {
    header("Location: ../game/");
    exit();
