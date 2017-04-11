@@ -16,7 +16,7 @@ class StoryTeller{
         this.current_story_node_uid = null;
         this.get_json_story();
         this.create_story_node();
-
+        this.update_page();
     }
 
     get_json_story() {
