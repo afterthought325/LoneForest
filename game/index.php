@@ -44,7 +44,7 @@ if ($_SESSION["logged_in"] === False)
       onclick="w3_close()">Close &times;</button>
       <a href="home.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
       <a href="settings.php" class="w3-bar-item w3-button w3-hover-green">Settings</a>
-      <a href="logout.php" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
+      <a href="login.php" onclick="$.post("login.php", {logout: True});" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
     </div>
 
     <div zclass="w3-main" id="main">
