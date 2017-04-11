@@ -28,10 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
          $row = $result->fetch_array(MYSQLI_NUM);
          $result->close();
          $token = hash($algo, "$salt1$pw_temp$salt2");
-         if ($token == $row[3]) echo "$row[0] $row[1] :
-            Hi $row[0], you are now logged in as '$row[2]'";
+         if ($token == $row[3])
+         {
+            echo "$row[0] $row[1] : Hi $row[0], you are now logged in as '$row[2]'";
             $_SESSION["logged_in"] = True;
             $_SESSION["username"] = $row[2];
+         }
          else die("Invalid username/password combination");
       }
       else die("Invalid username/password combination");
