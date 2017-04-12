@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" id = "ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
 </head>
+	<?php session_start(); ?>
 	<script>changeTheme();</script>
 	<body class = "w3-theme-d4 w3-card-3">
 
@@ -20,7 +21,7 @@
 			</div>
 	
         <?php
-               session_start();
+               
         
         //if (isset($_SESSION["username"]))
     	//{   =
@@ -59,8 +60,13 @@
     			window.history.back();
 		}
 		function updateTheme(theme) {
+			var now = new Date();
+			var time = now.getTime();
+			var expireTime = time + 1000*360000;
+			now.setTime(expireTime);
+			var tempExp = 'Wed, 31 Oct 2012 08:50:17 GMT';
 			document.getElementById("ourTheme").href ="https://www.w3schools.com/lib/w3-theme-"+theme+".css";
-			document.cookie = "theme="+theme;
+			document.cookie = 'theme='+theme+';expires='+now.toGMTString()+';path=/';
 		}
 		function updateSelect(){
 			var val = getCookie("theme");
@@ -70,12 +76,10 @@
 				if (opt.value == val) {
 					sel.selectedIndex = j;
 					break;
-			}
-		}
-			
+				}
+			}	
 		}
 		updateSelect();
-		
 	</script>
 		</div>
 	</div>

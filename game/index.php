@@ -26,29 +26,38 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 
     <!-- W3schools W3.css library -->
     <link rel="stylesheet" href="../css/w3.css">
+    
+    <!-- Theme colors -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" id = "ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
+    <!-- Script for changing Theme -->
+    <script src = "/LoneForest/js/changeTheme.js" type="text/javascript"></script>
+    <script>changeTheme();</script>
 
     <!-- Jquery and our JS Libs -->
     <script src="../js/jquery.js"></script>
     <script src="../js/helperfunctions.js"></script>
-    <script src="../js/Story.json"></script>
+    <script src="../Story.json"></script>
     <script src="../js/storynode.js"></script>
     <script src="../js/storyteller.js"></script>
     <script src="../js/user.js"></script>
+    
+    
 
 </head>
 
-<body>
-    <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2" style="display:none" id="mySidebar">
+<body class = "w3-theme-l2 w3-card-3">    
+    <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2 w3-theme-l4" style="display:none" id="mySidebar">
       <button class="w3-bar-item w3-button"
       onclick="w3_close()">Close &times;</button>
       <a href="home.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
-      <a href="/game/settings.php" class="w3-bar-item w3-button w3-hover-green">Settings</a>
+      <a href="../settings/index.php" class="w3-bar-item w3-button w3-hover-green">Settings</a>
       <a href="../login/index.php?logout=True" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
     </div>
 
     <div zclass="w3-main" id="main">
-        <div class="w3-grey">
-            <button class="w3-button w3-grey w3-xlarge " onclick="w3_open()">&#9776;</button>
+        <div class="w3-theme-d4">
+            <button class="w3-button w3-theme-d4 w3-xlarge " onclick="w3_open()">&#9776;</button>
             <div class="w3-container">
                 <h1>Lone Forest</h1>
                 <code id="Heading">A Simple Text Adventure about Finding your way back through the forest.</code>
@@ -61,13 +70,13 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
                 <code id="Description">Description </code>
             </div>
             <div class="w3-container w3-cell w3-mobile" id="StoryOptions">
-                    <button class="w0-btn w3-block w3-grey" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>
+                    <button class="w0-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>
                     <br>
-                    <button class="w3-btn w3-block w3-grey" value="1" onclick="StoryTeller.update_story_node(this.value)"></button>
+                    <button class="w3-btn w3-block w3-theme-d3" value="1" onclick="StoryTeller.update_story_node(this.value)"></button>
                     <br>
-                    <button class="w3-btn w3-block w3-grey" value="2" onclick="StoryTeller.update_story_node(this.value)"></button>
+                    <button class="w3-btn w3-block w3-theme-d3" value="2" onclick="StoryTeller.update_story_node(this.value)"></button>
                     <br>
-                    <button class="w3-btn w3-block w3-grey" value="3" onclick="StoryTeller.update_story_node(this.value)"></button>
+                    <button class="w3-btn w3-block w3-theme-d3" value="3" onclick="StoryTeller.update_story_node(this.value)"></button>
                     <br>
             </div>
         </div>
