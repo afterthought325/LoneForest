@@ -32,6 +32,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 	<link rel="stylesheet" id = "ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
     <!-- Script for changing Theme -->
     <script src = "/LoneForest/js/changeTheme.js" type="text/javascript"></script>
+    <script src = "../js/changeTheme.js"></script>
     <script>changeTheme();</script>
 
     <!-- Jquery and our JS Libs -->
