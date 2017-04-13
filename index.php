@@ -37,10 +37,11 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 <script>changeTheme();</script>
 
 <style>
-  .w3-btn{
+  .w3-button{
     -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.3s;
+    transition-duration: 0.4s;
   }
+
 </style>
 </head>
 <!--Yo Noah!!!!! change whatever's class color to "w3-theme-d1"" or that last bit to d2/d3/d4/d5/l1/l2/l3/l4/l5 which is darkest to lightest!-->
@@ -48,14 +49,14 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 <div class="w3-container">
   <h2>Welcome to Lone Forest</h2>
-  <button onclick="$('#login-box')[0].style.display='block'" class="w3-btn w3-theme-d3  w3-large">Login</button>
-  <button onclick="$('#register-box')[0].style.display='block'" class="w3-btn w3-theme-d3 w3-hover-theme:hover w3-large">Register</button>
+  <button onclick="$('#login-box')[0].style.display='block'" class="w3-button w3-hover-theme w3-theme-d3  w3-large">Login</button>
+  <button onclick="$('#register-box')[0].style.display='block'" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">Register</button>
 
   <div id="login-box" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-theme-d1" style="max-width:600px">
 
       <div class="w3-center"><br>
-        <span onclick="$('#login-box')[0].style.display='none'" class="w3-btn w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <span onclick="$('#login-box')[0].style.display='none'" class="w3-button w3-hover-theme w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
         <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
       </div>
 
@@ -65,13 +66,13 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
           <input class="w3-input w3-border w3-margin-bottom w3-theme-l4" type="text" placeholder="Enter Username" name="username" required>
           <label><b>Password</b></label>
           <input class="w3-input w3-border w3-theme-l4" type="password" placeholder="Enter Password" name="password" required>
-          <button class="w3-btn w3-block w3-theme-d3 w3-section w3-padding" type="submit">Login</button>
+          <button class="w3-button w3-hover-theme w3-block w3-theme-d3 w3-section w3-padding" type="submit">Login</button>
           <input class="w3-check w3-margin-top w3-theme-d3" type="checkbox" checked="checked"> Remember me
         </div>
       </form>
 
       <div class="w3-container w3-border-top w3-padding-16 w3-theme-l3">
-        <button onclick="$('#login-box')[0].style.display='none'" type="button" class="w3-btn w3-theme-d1">Cancel</button>
+        <button onclick="$('#login-box')[0].style.display='none'" type="button" class="w3-button w3-hover-theme w3-theme-d1">Cancel</button>
         <span class="w3-right w3-padding w3-hide-small w3-border-theme w3-border-theme:hover">Forgot <a href="#">password?</a></span>
       </div>
 
@@ -81,7 +82,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
       <div class="w3-center"><br>
-        <span onclick="$('#register-box')[0].style.display='none'" class="w3-btn w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <span onclick="$('#register-box')[0].style.display='none'" class="w3-button w3-hover-theme w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
         <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
       </div>
 
@@ -91,13 +92,13 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
           <label><b>Password</b></label>
           <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="password" required>
-          <button class="w3-btn w3-block w3-theme-d3 w3-section w3-padding" type="submit">Login</button>
+          <button class="w3-button w3-hover-theme w3-block w3-theme-d3 w3-section w3-padding" type="submit">Login</button>
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
         </div>
       </form>
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <button onclick="$('#register-box')[0].style.display='none'" type="button" class="w3-btn w3-red">Cancel</button>
+        <button onclick="$('#register-box')[0].style.display='none'" type="button" class="w3-button w3-hover-theme w3-red">Cancel</button>
         <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
       </div>
 
