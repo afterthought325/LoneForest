@@ -9,6 +9,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <meta name="description" content="A simple text adventure about finding your way back through the forest.">
@@ -25,12 +26,22 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 <!-- Jquery and our JS Libs -->
 <script src="js/jquery.js"></script>
 
-<body>
+
+<!-- Theme colors -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" id = "ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
+
+<!-- Script for changing Theme -->
+<script src = "/LoneForest/js/changeTheme.js" type="text/javascript"></script>
+<script>changeTheme();</script>
+
+<!--Yo Noah!!!!! change whatever's class color to "w3-theme-d1"" or that last bit to d2/d3/d4/d5/l1/l2/l3/l4/l5 which is darkest to lightest!-->
+<body class = "w3-theme-l1">
 
 <div class="w3-container">
   <h2>Welcome to Lone Forest</h2>
-  <button onclick="$('#login-box')[0].style.display='block'" class="w3-button w3-green w3-large">Login</button>
-  <button onclick="$('#register-box')[0].style.display='block'" class="w3-button w3-green w3-large">Register</button>
+  <button onclick="$('#login-box')[0].style.display='block'" class="w3-button w3-theme-d3 w3-large">Login</button>
+  <button onclick="$('#register-box')[0].style.display='block'" class="w3-button w3-theme-d3 w3-large">Register</button>
 
   <div id="login-box" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
