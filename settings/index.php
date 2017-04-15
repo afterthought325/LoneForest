@@ -28,13 +28,13 @@
 		echo"<div style = 'padding:20px'class = 'w3-cell-row w3-theme-d3'>";
    		echo"<br><p>Change color theme: 
 		<select class = 'w3-theme-d3' id='mySelect' onchange = 'updateTheme(this.value)'>
-			<option value='grey'>Grey</option>
-			<option value='blue-grey'>Blue-Grey</option>
-  			<option value='red'>Red</option>
-			<option value='pink'>Pink</option>
-  			<option value='deep-purple'>Purple</option>
- 			<option value='teal'>Teal</option>
-			<option value='cyan'>Cyan</option>
+            <option class='w3-btn' value='grey'>Grey</option>
+			<option class='w3-btn' value='blue-grey'>Blue-Grey</option>
+  			<option class='w3-btn' value='red'>Red</option>
+			<option class='w3-btn' value='pink'>Pink</option>
+  			<option class='w3-btn' value='deep-purple'>Purple</option>
+ 			<option class='w3-btn' value='teal'>Teal</option>
+			<option class='w3-btn' value='cyan'>Cyan</option>
   			
 			
   			

@@ -1,22 +1,28 @@
 <?php
 //set_include_path('/home/dcspa/public_html/LoneForest/');
 // set_include_path('C:\xampp\htdocs\TestLoneForest\LoneForest');
-require_once 'login.php';
+require_once '../login.php';
 $connection = new mysqli($hn, $un, $pw, $db);
 if ($connection->connect_error) die($connection->connect_error);
-
-$username = "AUsername";
 
 session_start();
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     }
+else die("ERROR: USERNAME MISSING FROM SESSION");
+
+if(isset($_GET['get_username'])){
+    $status = $_GET['get_username'];
+    if($status == "true"){
+        echo $username;
+    }
+}
 
 //Return First name upon request
-if(isset($_GET['get_first_name'])){
-    $status = $_GET['get_first_name'];
+if(isset($_GET['get_forename'])){
+    $status = $_GET['get_forename'];
     if($status == "true"){
-        $query = "FROM users SELECT forename WHERE username=$username";
+        $query = "SELECT forename FROM `users` WHERE username='$username';";
         $result = $connection->query($query);
         if(!$result) die($connection->error);
         $rows = $result->num_rows;
@@ -27,10 +33,10 @@ if(isset($_GET['get_first_name'])){
 }
 
 //Request Last Name upon request
-if(isset($_GET['get_last_name'])){
-    $status = $_GET['get_last_name'];
+if(isset($_GET['get_surname'])){
+    $status = $_GET['get_surname'];
     if($status == "true"){
-        $query = "FROM users SELECT surname WHERE username=$username";
+        $query = "SELECT surname FROM `users` WHERE username='$username';";
         $result = $connection->query($query);
         if(!$result) die($connection->error);
         $rows = $result->num_rows;
@@ -44,7 +50,7 @@ if(isset($_GET['get_last_name'])){
 if(isset($_GET['get_hash_pass'])){
     $status = $_GET['get_hash_pass'];
     if($status == "true"){
-        $query = "FROM users SELECT password WHERE username=$username";
+        $query = "SELECT password FROM `users` WHERE username='$username';";
         $result = $connection->query($query);
         if(!$result) die($connection->error);
         $rows = $result->num_rows;
@@ -58,7 +64,7 @@ if(isset($_GET['get_hash_pass'])){
 if(isset($_GET['get_inventory'])){
     $status = $_GET['get_inventory'];
     if($status == "true"){
-        $query = "FROM users SELECT inventory WHERE username=$username";
+        $query = "SELECT inventory FROM `users` WHERE username='$username';";
         $result = $connection->query($query);
         if(!$result) die($connection->error);
         $rows = $result->num_rows;
@@ -72,7 +78,7 @@ if(isset($_GET['get_inventory'])){
 if(isset($_GET['get_current_location'])){
     $status = $_GET['get_current_location'];
     if($status == "true"){
-        $query = "FROM users SELECT location WHERE username=$username";
+        $query = "SELECT location FROM `users` WHERE username='$username';";
         $result = $connection->query($query);
         if(!$result) die($connection->error);
         $rows = $result->num_rows;
@@ -83,14 +89,22 @@ if(isset($_GET['get_current_location'])){
 }
 
 //updates inventory upon request
-if(isset($_GET['set_inventory'])){
-    $inventory = $_GET['set_inventory'];
-    $query = "UPDATE users SET inventory=$inventory WHERE username=$username";
+if(isset($_POST['set_inventory'])){
+    $inventory = $_POST['set_inventory'];
+    $query = "UPDATE users SET inventory=$inventory WHERE username='$username';";
     $result = $connection->query($query);
     if(!$result) die($connection->error);
     echo "true";
 }
 
+//updates inventory upon request
+if(isset($_POST['set_current_location'])){
+    $location = $_POST['set_current_location'];
+    $query = "UPDATE users SET location=$current_location WHERE username='$username';";
+    $result = $connection->query($query);
+    if(!$result) die($connection->error);
+    echo "true";
+}
 
 
 ?>

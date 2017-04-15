@@ -1,11 +1,10 @@
-
-
 /*
- * Good Reference for defining Javascript Objects/Classes
- * http://www.phpied.com/3-ways-to-define-a-javascript-class/
+storynode.js
+Holds the StoryTeller class 
+This is where all the magic happens, The creation of this class pulls down the Story and User data, Instantiates the user's current story node, and begins assembling the page.
+Trey Franklin
+Chaise Farrar
  */
-//import { StoryNode } from 'js/storynode.js';
-//import { User } from 'js/user.js';
 
 class StoryTeller{
 
@@ -20,13 +19,16 @@ class StoryTeller{
     }
 
     get_json_story() {
-        var response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
-        if (response) {
-            this.json_story = JSON.parse(response);
-            return true;
-        } else {
-            return false;
-        }
+        this.json_story = fetch("../Story.json").then(function(res){
+            return res.json();
+        });
+        //var response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
+        //if (response) {
+        //    this.json_story = JSON.parse(response);
+        //    return true;
+        //} else {
+        //    return false;
+        //}
     }
 
     create_story_node(story_node_uid){
@@ -34,21 +36,18 @@ class StoryTeller{
             return false;
         }
 
-        var result = $.grep(this.json_story.StoryNodes, function(story_node){ return story_node.id == story_node_uid; });
+        let result = this.json_story[story_node_uid];
+        //var result = $.grep(this.json_story.StoryNodes, function(story_node){ return story_node.id == story_node_uid; });
 
-        if (result.length === 0) {
+        if (result === null) {
             // no results found, error
             return false;
 
-        } else if (result.length === 1 ){
+        } else {
             // found the requested story node
-            this.current_story_node = result[0];
+            this.current_story_node = result;
             this.selected_option = null;
             return true;
-
-        } else {
-            // another error because we found more than one...
-            return false;
         }
     }
 
@@ -63,6 +62,7 @@ class StoryTeller{
         let death = getRandomInt(0, 100);  // play with fate and determine the death rate
 
         if (this.selected_option.chance_of_death >= death) {
+            //TODO: need to replace this with a sweetalert
             alert("You died. Restart?");
             this.create_story_node(0);
             this.selected_option = null;
@@ -73,6 +73,6 @@ class StoryTeller{
 
     update_page(){
         //Inputing the Name into the Header.
-        document.getElementById("Heading").innerhtml ="Will you survive, "+this.current_user.firstname+"?";
+        $("#subheading").text("Will you survive, "+this.current_user.firstname+"?");
     }
 }

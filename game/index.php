@@ -7,6 +7,17 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
    exit();
 }
 ?>
+<style>
+  .w3-button{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  .w3-btn{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+</style>
+
 
 <!doctype html>
 <html lang="en">
@@ -22,16 +33,16 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--  Nice Web Font -->
+<!--
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-
+-->
     <!-- W3schools W3.css library -->
     <link rel="stylesheet" href="../css/w3.css">
     
     <!-- Theme colors -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" id = "ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
+	<link rel="stylesheet" id = "ourTheme" href="">
+
     <!-- Script for changing Theme -->
-    <script src = "/LoneForest/js/changeTheme.js" type="text/javascript"></script>
     <script src = "../js/changeTheme.js"></script>
     <script>changeTheme();</script>
 
@@ -49,36 +60,29 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 
 <body class = "w3-theme-l2 w3-card-3">    
     <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2 w3-theme-l4" style="display:none" id="mySidebar">
-      <button class="w3-bar-item w3-button"
+      <button class="w3-bar-item w3-button w3-hover-theme"
       onclick="w3_close()">Close &times;</button>
-      <a href="home.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
-      <a href="../settings/index.php" class="w3-bar-item w3-button w3-hover-green">Settings</a>
-      <a href="../login/index.php?logout=True" class="w3-bar-item w3-button w3-hover-blue">Logout</a>
+      <a href="home.html" class="w3-bar-item w3-button w3-hover-theme">Home</a>
+      <a href="../settings/index.php" class="w3-bar-item w3-button w3-hover-theme">Settings</a>
+      <a href="../login/index.php?logout=True" class="w3-bar-item w3-button w3-hover-theme">Logout</a>
     </div>
 
     <div zclass="w3-main" id="main">
         <div class="w3-theme-d4">
-            <button class="w3-button w3-theme-d4 w3-xlarge " onclick="w3_open()">&#9776;</button>
+            <button class="w3-button w3-hover-theme w3-xlarge " onclick="w3_open()">&#9776;</button>
             <div class="w3-container">
                 <h1>Lone Forest</h1>
-                <code id="Heading">A Simple Text Adventure about Finding your way back through the forest.</code>
+                <code id="subheading">A Simple Text Adventure about finding your way back through the forest.</code>
                 <br>
             </div>
         </div>
-        <div class="w3-cell-row" style="padding:5px">
+        <div class="w3-cell-row " style="padding:5px">
             <div class="w3-container w3-cell w3-mobile">
                 <h3 id="Location">Location</h3>
                 <code id="Description">Description </code>
             </div>
             <div class="w3-container w3-cell w3-mobile" id="StoryOptions">
-                    <button class="w0-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>
-                    <br>
-                    <button class="w3-btn w3-block w3-theme-d3" value="1" onclick="StoryTeller.update_story_node(this.value)"></button>
-                    <br>
-                    <button class="w3-btn w3-block w3-theme-d3" value="2" onclick="StoryTeller.update_story_node(this.value)"></button>
-                    <br>
-                    <button class="w3-btn w3-block w3-theme-d3" value="3" onclick="StoryTeller.update_story_node(this.value)"></button>
-                    <br>
+                    <!--<button class="w0-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>-->
             </div>
         </div>
     </div>
