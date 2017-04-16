@@ -12,6 +12,7 @@
     <script src="js/user.js"></script>
     <script src="js/helperfunctions.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="Story.json"></script>
 </head>
 <body>
 <p>
@@ -32,12 +33,26 @@
 <div id="test3">
 
 </div>
-<script>
-    var test_object = new StoryTeller();
+<script type="text/javascript">
+    test_object = new StoryTeller();
     document.getElementById('test').innerHTML = test_object.current_story_node.description;
     test_object.update_story_node(1);
     test_object.proceed_to_next_node();
     document.getElementById('test2').innerHTML = test_object.current_story_node.description;
+
+    //$.getJSON("Story.json", function(data){
+    //    document.getElementById('test').innerHTML = JSON.parse(data);
+    //});
+
+
+    //async function get_data(){
+    //    let data = await fetch("Story.json");
+    //    document.getElementById('test2').innerHTML = JSON.parse(data);
+    //}
+    ////document.write("Testing.");
+    ////get_data();
+
+    //$.ajax({url: "Story.json", dataType: "json", success: function(data){document.getElementById('test3').innerHTML = JSON.parse(data);}})
 
 </script>
 
