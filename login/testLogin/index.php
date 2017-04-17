@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
          {
             $_SESSION["logged_in"] = True;
             $_SESSION["username"] = $row[2];
+            $_SESSION["isAdmin"] = $row[8];
             header("Location: ../../game/");
             exit();
          }
