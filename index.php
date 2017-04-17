@@ -23,9 +23,11 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 <!-- W3schools W3.css library -->
 <link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="swal/sweetalert2.min.css">
 
 <!-- Jquery and our JS Libs -->
 <script src="js/jquery.js"></script>
+<script src="swal/sweetalert2.min.js"></script>
 
 
 <!-- Theme colors -->
@@ -46,6 +48,15 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 </head>
 <!--Yo Noah!!!!! change whatever's class color to "w3-theme-d1"" or that last bit to d2/d3/d4/d5/l1/l2/l3/l4/l5 which is darkest to lightest!-->
 <body class = "w3-theme-l1">
+
+<script>
+swal({
+  title: 'Error!',
+  text: 'Do you want to continue',
+  type: 'error',
+  confirmButtonText: 'Cool'
+})
+</script>
 
 <div class="w3-container">
   <h2>Welcome to Lone Forest</h2>
