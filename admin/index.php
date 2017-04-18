@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 {
-  if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == True)
+  if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == "True")
   {
     echo "You are an admin.";
   }
