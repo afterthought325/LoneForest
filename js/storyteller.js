@@ -40,7 +40,7 @@ class StoryTeller{
 
         let result = this.json_story[story_node_uid];
 
-        if (result === null) {
+        if (result == null) {
             // no results found, error
             return false;
 
@@ -59,13 +59,12 @@ class StoryTeller{
             return false;
         }
 
-        this.selected_option = this.current_story_node.story_options[story_option];
+        let chance_of_death = this.current_story_node.story_options[story_option].chance_of_death;
         let death = getRandomInt(0, 100);  // play with fate and determine the death rate
 
-        if (this.selected_option.chance_of_death >= death) {
+        if (chance_of_death >= death) {
             //TODO: need to replace this with a sweetalert
             alert("You died. Restart?");
-            this.create_story_node(0);
             this.selected_option = null;
         }
         return true;
@@ -80,8 +79,21 @@ class StoryTeller{
         this.create_story_node(Number(next_node_id));
     }
 
-    update_page(){
+    update_page(story_option){
         //Inputing the Name into the Header.
-        //$("#subheading").text("Will you survive, "+this.current_user.firstname+"?");
+        $("#subheading").text("Will you survive, "+this.current_user.firstname+"?");
+        $("#Location").text(this.current_story_node.location);   
+        $("#Description").text(this.current_story_node.description);   
+        for (let x = 0; x < this.current_story_node.story_options.length; x++) {
+            let option = this.current_story_node.story_options[x];
+            var btn = $("<button>").text(option.description);
+            btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
+            btn.val(x);
+            $("#StoryOptions").append(btn);
+        }
+        $("#StoryOptions").on("click","> *",function(){
+            ST.update_story_node($(this).value);
+        });
+
     }
 }

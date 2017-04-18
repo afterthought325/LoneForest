@@ -72,17 +72,18 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             <button class="w3-button w3-hover-theme w3-xlarge " onclick="w3_open()">&#9776;</button>
             <div class="w3-container">
                 <h1>Lone Forest</h1>
-                <code id="subheading">A Simple Text Adventure about finding your way back through the forest.</code>
+                <code id="subheading"></code>
+                <!--<code id="subheading">A Simple Text Adventure about finding your way back through the forest.</code>-->
                 <br>
             </div>
         </div>
         <div class="w3-cell-row " style="padding:5px">
             <div class="w3-container w3-cell w3-mobile">
-                <h3 id="Location">Location</h3>
+                <h3 id="Location"></h3>
                 <code id="Description">Description </code>
             </div>
             <div class="w3-container w3-cell w3-mobile" id="StoryOptions">
-                    <!--<button class="w0-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>-->
+                    <!--<button class="w3-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>-->
             </div>
         </div>
     </div>
@@ -90,7 +91,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
     <script>
         $( document ).ready(function() {
             // alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
-            StoryTeller1 = new StoryTeller();
+            ST = new StoryTeller();
         });
     </script>
 </body>

@@ -16,13 +16,11 @@ class User {
         this.current_location = null;
         this.username = null;
 
-        var fore;
         $.get("../js/user.php",{get_forename : true})
             .done(function(data) {
                 console.log("User.js: Received first name : "+ data);
-                fore = data;
+                this.forename = data;
             });
-        this.forename = fore;
 
         $.get("../js/user.php",{get_surname : true})
             .done(function(data) {
