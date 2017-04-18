@@ -77,7 +77,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
                 <br>
             </div>
         </div>
-        <div class="w3-cell-row " style="padding:5px">
+        <div class="w3-cell-row w3-padding-small">
             <div class="w3-container w3-cell w3-mobile">
                 <h3 id="Location"></h3>
                 <code id="Description">Description </code>
