@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
-{
-   header("Location: ../");
-   exit();
-}
+// if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
+// {
+//    header("Location: ../");
+//    exit();
+// }
 ?>
 <style>
   .w3-button{
@@ -66,7 +66,12 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
       <a href="../settings" class="w3-bar-item w3-button w3-hover-theme">Settings</a>
       <a href="../logout" class="w3-bar-item w3-button w3-hover-theme">Logout</a>
     </div>
-
+    <script>
+        $( document ).ready(function() {
+            // alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
+            ST = new StoryTeller();
+        });
+    </script>
     <div zclass="w3-main" id="main">
         <div class="w3-theme-d4">
             <button class="w3-button w3-hover-theme w3-xlarge " onclick="w3_open()">&#9776;</button>
@@ -82,17 +87,12 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
                 <h3 id="Location"></h3>
                 <code id="Description">Description </code>
             </div>
-            <div class="w3-container w3-cell w3-mobile" id="StoryOptions">
+            <div class="w3-container w3-cell w3-mobile" id="StoryOptions" onClick="ST.update_story_node(event);">
                     <!--<button class="w3-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>-->
             </div>
         </div>
     </div>
 
-    <script>
-        $( document ).ready(function() {
-            // alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
-            ST = new StoryTeller();
-        });
-    </script>
+    
 </body>
 </html>
