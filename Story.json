@@ -142,7 +142,7 @@
             "description":"You run and run deeper into the woods. You hit branches, trip on roots, but you keep running until your breath is heavy and you wish you had never quit cross country back in highschool. You trip on a rock and slam your head on another one, blacking out... You come to with light breaking through the trees. You look around, but there's nothing but trees. You're alone.",
             "story_options":[
                 {
-                    "description":"",
+                    "description":"Look Around",
                     "next_node_id": "00000007",
                     "requires":"",
                     "chance_of_death": "0",
