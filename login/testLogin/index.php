@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             header("Location: ../../game/");
             exit();
          }
-         else die("Invalid username/password combination");
+         else die("Invalid username/password combination 1");
       }
-      else die("Invalid username/password combination");
+      else die("Invalid username/password combination 2 $un_temp");
    }
    else
    {

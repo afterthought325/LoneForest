@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 {
-   header("Location: ../login/");
+   header("Location: ../");
    exit();
 }
 ?>
@@ -38,7 +38,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 -->
     <!-- W3schools W3.css library -->
     <link rel="stylesheet" href="../css/w3.css">
-    
+
     <!-- Theme colors -->
 	<link rel="stylesheet" id = "ourTheme" href="">
 
@@ -53,18 +53,18 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
     <script src="../js/storynode.js"></script>
     <script src="../js/storyteller.js"></script>
     <script src="../js/user.js"></script>
-    
-    
+
+
 
 </head>
 
-<body class = "w3-theme-l2 w3-card-3">    
+<body class = "w3-theme-l2 w3-card-3">
     <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2 w3-theme-l4" style="display:none" id="mySidebar">
       <button class="w3-bar-item w3-button w3-hover-theme"
       onclick="w3_close()">Close &times;</button>
-      <a href="home.html" class="w3-bar-item w3-button w3-hover-theme">Home</a>
-      <a href="../settings/index.php" class="w3-bar-item w3-button w3-hover-theme">Settings</a>
-      <a href="../login/index.php?logout=True" class="w3-bar-item w3-button w3-hover-theme">Logout</a>
+      <a href="../" class="w3-bar-item w3-button w3-hover-theme">Home</a>
+      <a href="../settings" class="w3-bar-item w3-button w3-hover-theme">Settings</a>
+      <a href="../logout" class="w3-bar-item w3-button w3-hover-theme">Logout</a>
     </div>
 
     <div zclass="w3-main" id="main">
