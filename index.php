@@ -9,11 +9,6 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 }
 
 ?>
-<?php
-$t=time();
-echo($t . "<br>");
-echo(date("Y-m-d",$t));
-?>
 
 
 <!DOCTYPE html>
@@ -62,6 +57,7 @@ echo(date("Y-m-d",$t));
     <div class="w3-show-inline-block">
       <button id="login" class="w3-button w3-hover-theme w3-theme-d3  w3-large" >Login</button>
       <button id="register" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">Register</button>
+      <button id="register2" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">Register2</button>
       <button id="about" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">About</button>
     </div>
   </div>
