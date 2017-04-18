@@ -24,7 +24,8 @@ class StoryTeller{
         //fetch('../Story.js').then(function(data){
         //    this.json_story = data;
         //});
-        let response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
+        //let response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
+        let response = httpGet("../Story.json");
         if (response) {
             this.json_story = JSON.parse(response);
             return true;
