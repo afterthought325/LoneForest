@@ -10,7 +10,7 @@
   	<link rel="stylesheet" id="ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
   </head>
 <script>changeTheme();</script>
-	<body class="w3-theme-d4 w3-card-3">
+	<body class="w3-theme-l2 w3-card-3">
 
 		<div class="w3-main" >
 			<div class="w3-container w3-theme-d4 w3-card-3">
@@ -18,7 +18,7 @@
 			</div>
 
 <?php
-		echo "<div style='padding:20px' class='w3-cell-row w3-theme-d3'>";
+		echo "<div class='w3-cell-row w3-padding'>";
  		echo "<br><p>Change color theme:
           <select class='w3-theme-d3' id='mySelect' onchange='updateTheme(this.value)'>
           <option class='w3-btn' value='grey'>Grey</option>
@@ -29,10 +29,10 @@
           <option class='w3-btn' value='teal'>Teal</option>
       		<option class='w3-btn' value='cyan'>Cyan</option>
           </select></p>";
-		echo "<button class='w3-theme-d3' type='button'>Restart Progress</button>       ";
-		echo "<button class='w3-theme-d3' type='button'>Delete User Account</button>     ";
-		echo "<button class='w3-theme-d3' type='button'>Change User Password</button>";
-		echo "<br><br><button class='w3-theme-d3' onclick='goBack()'>Go Back</button><br><br>";
+		echo "<button class='w3-theme-d3 w3-btn w3-block w3-section' type='button'>Restart Progress</button>       ";
+		echo "<button class='w3-theme-d3 w3-btn w3-block w3-section' type='button'>Delete User Account</button>     ";
+		echo "<button class='w3-theme-d3 w3-btn w3-block w3-section' type='button'>Change User Password</button>";
+		echo "<br><br><button class='w3-theme-d3 w3-btn w3-block' onclick='goBack()'>Go Back</button><br><br>";
 		echo "</div>";
 ?>
 
