@@ -10,31 +10,34 @@
   	<link rel="stylesheet" id="ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
   </head>
 <script>changeTheme();</script>
-	<body class="w3-theme-l2 w3-card-3">
+	<body class="w3-theme-l4 w3-card-3">
 
 		<div class="w3-main" >
 			<div class="w3-container w3-theme-d4 w3-card-3">
 				<h1>Settings Page</h1>
 			</div>
 
-<?php
-		echo "<div class='w3-cell-row w3-padding'>";
- 		echo "<br><p>Change color theme:
-          <select class='w3-theme-d3' id='mySelect' onchange='updateTheme(this.value)'>
-          <option class='w3-btn' value='grey'>Grey</option>
-      		<option class='w3-btn' value='blue-grey'>Blue-Grey</option>
-          <option class='w3-btn' value='red'>Red</option>
-      		<option class='w3-btn' value='pink'>Pink</option>
-          <option class='w3-btn' value='deep-purple'>Purple</option>
-          <option class='w3-btn' value='teal'>Teal</option>
-      		<option class='w3-btn' value='cyan'>Cyan</option>
-          </select></p>";
-		echo "<button class='w3-theme-d3 w3-btn w3-block w3-section' type='button'>Restart Progress</button>       ";
-		echo "<button class='w3-theme-d3 w3-btn w3-block w3-section' type='button'>Delete User Account</button>     ";
-		echo "<button class='w3-theme-d3 w3-btn w3-block w3-section' type='button'>Change User Password</button>";
-		echo "<br><br><button class='w3-theme-d3 w3-btn w3-block' onclick='goBack()'>Go Back</button><br><br>";
-		echo "</div>";
-?>
+        <br><br>
+		<div id="AllOptions" class='w3-content'>
+            <div id='ThemeOptions' class="w3-row-padding">
+ 		        <div class="w3-large">Select a theme color</div>
+                <div class="w3-theme-l4">
+                  <button class='w3-btn w3-section w3-mobile w3-grey' value='grey' onClick='updateTheme(this.value)'>Grey</button>
+                  <button class='w3-btn w3-section w3-mobile w3-blue-grey' value='blue-grey' onClick='updateTheme(this.value)'>Blue-Grey</button>
+                  <button class='w3-btn w3-section w3-mobile w3-red' value='red' onClick='updateTheme(this.value)'>Red</button>
+                  <button class='w3-btn w3-section w3-mobile w3-pink' value='pink' onClick='updateTheme(this.value)'>Pink</button>
+                  <button class='w3-btn w3-section w3-mobile w3-deep-purple' value='deep-purple' onClick='updateTheme(this.value)'>Deep Purple</button>
+                  <button class='w3-btn w3-section w3-mobile w3-teal' value='teal' onClick='updateTheme(this.value)'>Teal</button>
+                  <button class='w3-btn w3-section w3-mobile w3-cyan' value='cyan' onClick='updateTheme(this.value)'>Cyan</button>
+                </div>
+            </div> 
+            <div class="w3-row-padding">
+		        <button class='w3-theme-d3 w3-btn w3-section w3-mobile' type='button'>Restart Progress</button>
+		        <button class='w3-theme-d3 w3-btn w3-section w3-mobile' type='button'>Delete User Account</button>
+		        <button class='w3-theme-d3 w3-btn w3-section w3-mobile' type='button'>Change User Password</button>
+            </div>
+		    <button class='w3-theme-d3 w3-btn w3-section w3-content w3-block' onclick='goBack()'>Go Back</button><br><br>
+		</div>
 
 	<script>
 		function goBack() {
@@ -49,18 +52,6 @@
 			document.getElementById("ourTheme").href ="https://www.w3schools.com/lib/w3-theme-"+theme+".css";
 			document.cookie = 'theme='+theme+';expires='+now.toGMTString()+';path=/';
 		}
-		function updateSelect(){
-			var val = getCookie("theme");
-			var sel = document.getElementById("mySelect");
-			var opts = sel.options;
-			for (var opt, j = 0; opt = opts[j]; j++) {
-				if (opt.value == val) {
-					sel.selectedIndex = j;
-					break;
-				}
-			}
-		}
-		updateSelect();
 	</script>
 		</div>
 	</div>
