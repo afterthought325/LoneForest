@@ -58,7 +58,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 
 </head>
 
-<body class = "w3-theme-l4 w3-card-3">
+<body class = "w3-theme-l2 w3-card-3">
     <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2 w3-theme-l4" style="display:none" id="mySidebar">
       <button class="w3-bar-item w3-button w3-hover-theme"
       onclick="w3_close()">Close &times;</button>
@@ -73,6 +73,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             <div class="w3-container">
                 <h1>Lone Forest</h1>
                 <code id="subheading"></code>
+                <!--<code id="subheading">A Simple Text Adventure about finding your way back through the forest.</code>-->
                 <br>
             </div>
         </div>
@@ -81,7 +82,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
                 <h3 id="Location"></h3>
                 <code id="Description">Description </code>
             </div>
-            <div class="w3-container w3-cell w3-mobile" id="StoryOptions" onClick="ST.update_story_node(event);">
+            <div class="w3-container w3-cell w3-mobile" id="StoryOptions">
+                    <!--<button class="w3-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>-->
             </div>
         </div>
     </div>
