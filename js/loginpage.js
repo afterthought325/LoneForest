@@ -67,7 +67,7 @@ $('#login').on('click', function ()
     }
     catch(err)
     {
-      swal('Sorry!', 'Error Message: '+JSON.stringify(err), 'error');
+      swal('Sorry!', 'Error Message: ' + err.message, 'error');
     }
   }).catch(swal.noop)
 })
