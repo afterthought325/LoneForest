@@ -4,15 +4,12 @@
   <head>
   		<script src="/LoneForest/js/changeTheme.js" type="text/javascript"></script>
 
-        <meta charset="utf-8">
-        <title>Settings Page</title>
-	<style>
-
-	</style>
-	<link rel="stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" id="ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
-</head>
-	<script>changeTheme();</script>
+      <meta charset="utf-8">
+      <title>Settings Page</title>
+  	<link rel="stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css">
+  	<link rel="stylesheet" id="ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
+  </head>
+<script>changeTheme();</script>
 	<body class="w3-theme-d4 w3-card-3">
 
 		<div class="w3-main" >
@@ -20,11 +17,7 @@
 				<h1>Settings Page</h1>
 			</div>
 
-        <?php
-
-
-        //if (isset($_SESSION["username"]))
-    	//{   =
+<?php
 		echo "<div style='padding:20px' class='w3-cell-row w3-theme-d3'>";
  		echo "<br><p>Change color theme:
           <select class='w3-theme-d3' id='mySelect' onchange='updateTheme(this.value)'>
@@ -41,9 +34,8 @@
 		echo "<button class='w3-theme-d3' type='button'>Change User Password</button>";
 		echo "<br><br><button class='w3-theme-d3' onclick='goBack()'>Go Back</button><br><br>";
 		echo "</div>";
+?>
 
-
-        ?>
 	<script>
 		function goBack() {
     			window.history.back();
@@ -72,5 +64,5 @@
 	</script>
 		</div>
 	</div>
-    </body>
+  </body>
 </html>
