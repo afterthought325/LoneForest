@@ -4,8 +4,12 @@ session_start();
 
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 {
-   header("Location: game/");
-   exit();
+  if (!(isset($_COOKE['reloaded']) && $_COOKE['reloaded'] == "true"))
+  {
+    // setcookie("reloaded", "", time() - 3600);
+    header("Location: game/");
+    exit();
+  }
 }
 
 ?>
@@ -37,7 +41,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 <link rel="stylesheet" id = "ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
 
 <!-- Script for changing Theme -->
-<script src = "/LoneForest/js/changeTheme.js" type="text/javascript"></script>
+<script src = "js/changeTheme.js" type="text/javascript"></script>
 <script>changeTheme();</script>
 
 <style>
@@ -57,7 +61,6 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
     <div class="w3-show-inline-block">
       <button id="login" class="w3-button w3-hover-theme w3-theme-d3  w3-large" >Login</button>
       <button id="register" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">Register</button>
-      <button id="register2" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">Register2</button>
       <button id="about" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">About</button>
     </div>
   </div>

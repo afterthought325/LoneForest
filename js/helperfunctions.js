@@ -43,10 +43,10 @@ function ajaxRequest()
   return request
 }
 
-function createCookie(name,value,days) {
-    if (days) {
+function createCookie(name,value,minutes) {
+    if (minutes) {
         var date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
+        date.setTime(date.getTime()+(minutes*60*1000));
         var expires = "; expires="+date.toUTCString();
     }
     else var expires = "";
