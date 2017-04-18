@@ -11,6 +11,8 @@
 // set_include_path('D:\xampp\htdocs\TestLoneForest\LoneForest');
 require_once '../../login.php';
 
+setcookie("logged_in", "false", time() + (30), "/");
+
 $connection = new mysqli($hn, $un, $pw, $db);
 
 if ($connection->connect_error) die($connection->connect_error);
@@ -33,12 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION["logged_in"] = True;
             $_SESSION["username"] = $row[2];
             $_SESSION["isAdmin"] = $row[8];
+            setcookie("logged_in", "true", time() + (30), "/");
             header("Location: ../../game/");
             exit();
          }
-         else die("Invalid username/password combination 1");
+         else die("Invalid username/password combination");
       }
-      else die("Invalid username/password combination 2 $un_temp");
+      else die("Invalid username/password combination");
    }
    else
    {

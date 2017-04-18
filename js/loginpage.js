@@ -36,23 +36,38 @@ $('#login').on('click', function ()
     try
     {
       httpPost(url, params);
-      // swal('Success!', 'You have logged in.', 'success');
-      swal(
+      var logged_in = getCookie("logged_in");
+      if (logged_in == "true")
       {
-        title: 'Success!',
-        text: 'You have logged in.',
-        type: 'success',
-        showCancelButton: false,
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Lets play!'
-      }).then(function ()
+        swal(
+        {
+          title: 'Success!',
+          text: 'You have logged in.',
+          type: 'success',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Lets play!'
+        }).then(function ()
+        {
+          window.location.reload(false);
+        })
+      }
+      else
       {
-        window.location.reload(false);
-      })
+        swal(
+        {
+          title: 'Sorry!',
+          text: 'Those are the wrong credentials.',
+          type: 'error',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Ok'
+        })
+      }
     }
     catch(err)
     {
-      swal('Sorry!', 'Your username/password combination was incorrect', 'error');
+      swal('Sorry!', 'Error Message: '+JSON.stringify(err), 'error');
     }
   }).catch(swal.noop)
 })

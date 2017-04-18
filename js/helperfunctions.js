@@ -13,15 +13,7 @@ function httpPost(url, params)
   {
     request.open("POST", url, false);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.setRequestHeader("Content-length", params.length);
-    request.setRequestHeader("Connection", "close");
-    // request.onreadystatechange = function()
-    // {//Call a function when the state changes.
-	  //   if(request.readyState == 4 && request.status == 200)
-    //   {
-		//     alert(request.responseText);
-	  //   }
-    // }
+
     request.send(params);
   }
   else
@@ -51,6 +43,21 @@ function ajaxRequest()
   return request
 }
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
 
 function w3_open() {
