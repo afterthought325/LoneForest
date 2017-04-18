@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  		<script src="/LoneForest/js/changeTheme.js" type="text/javascript"></script>
+  		<script src="../js/changeTheme.js" type="text/javascript"></script>
 
       <meta charset="utf-8">
       <title>Settings Page</title>
