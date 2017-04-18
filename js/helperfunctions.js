@@ -11,7 +11,7 @@ function httpPost(url, params)
   var request = ajaxRequest();
   if (request != false)
   {
-    request.open("POST", url, false);
+    request.open("POST", url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     request.send(params);
@@ -41,6 +41,20 @@ function ajaxRequest()
     }
   }
   return request
+}
+
+function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toUTCString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
 }
 
 function getCookie(cname) {

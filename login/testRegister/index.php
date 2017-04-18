@@ -1,7 +1,18 @@
 <?php
 session_start();
-// set_include_path('/home/dcspa/public_html/LoneForest/');
-// set_include_path('D:\xampp\htdocs\TestLoneForest\LoneForest');
+setcookie("account_created", "false", time() + (30), "/");
+setcookie("username_in_use", "false", time() + (30), "/");
+setcookie("empty_fields", "false", time() + (30), "/");
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Register Check</title>
+    </head>
+    <body>
+
+<?php
+
 require_once '../../login.php';
 
 $connection = new mysqli($hn, $un, $pw, $db);
@@ -20,6 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       $sq1_temp = mysql_entities_fix_string($connection, $_POST['security1']);
       $sq2_temp = mysql_entities_fix_string($connection, $_POST['security2']);
 
+      if !(($_POST['firstname'] != '') &&
+      ($_POST['surname'] != '') &&
+      ($_POST['username'] != '') &&
+      ($_POST['password'] != '') &&
+      ($_POST['security1'] != '') &&
+      ($_POST['security2'] != ''))
+      {
+        setcookie("empty_fields", "true", time() + (30), "/");
+        die();
+      }
+
       $query = "SELECT username FROM users";
       $result = $connection->query($query);
       if (!$result) die($connection->error);
@@ -28,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
          foreach($result as $row)
          {
             if ($row['username'] == $un_temp) die("Username already in use.");
+            setcookie("username_in_use", "true", time() + (30), "/");
          }
       }
 
@@ -38,8 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       if (!$result) die($connection->error);
       else
       {
-         echo "User $un_temp created!<br/>Your security question answers were: <br/>";
-         echo "$sq1_temp<br/>and<br/>$sq2_temp";
+         setcookie("account_created", "true", time() + (30), "/");
       }
    }
 }
@@ -57,3 +79,5 @@ function mysql_fix_string($connection, $string)
 
 
 ?>
+</body>
+</html>

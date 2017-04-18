@@ -7,8 +7,7 @@
     </head>
     <body>
 <?php // authenticate passwords
-// set_include_path('/home/dcspa/public_html/LoneForest/');
-// set_include_path('D:\xampp\htdocs\TestLoneForest\LoneForest');
+
 require_once '../../login.php';
 
 setcookie("logged_in", "false", time() + (30), "/");

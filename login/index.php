@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-if (($_SERVER["REQUEST_METHOD"] == "GET") && (isset($_GET['logout'])) && ($_GET['logout'] == True))
-{
-   $_SESSION['logged_in'] = False;
-   $_SESSION['username'] = 'no username';
-}
-
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 {
    header("Location: ../game/");
@@ -20,11 +14,8 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
   <meta charset="UTF-8">
   <title>Login to Lone Forest</title>
 
-
-
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="../css/w3.css">
-
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/w3.css">
 
 </head>
 

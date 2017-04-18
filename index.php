@@ -9,6 +9,11 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 }
 
 ?>
+<?php
+$t=time();
+echo($t . "<br>");
+echo(date("Y-m-d",$t));
+?>
 
 
 <!DOCTYPE html>

@@ -36,6 +36,7 @@ $('#login').on('click', function ()
     try
     {
       httpPost(url, params);
+      console.log(decodeURIComponent(document.cookie));
       var logged_in = getCookie("logged_in");
       if (logged_in == "true")
       {
@@ -49,6 +50,7 @@ $('#login').on('click', function ()
           confirmButtonText: 'Lets play!'
         }).then(function ()
         {
+          eraseCookie("logged_in");
           window.location.reload(false);
         })
       }
@@ -110,7 +112,107 @@ $('#register').on('click', function ()
     }
   }).then(function (result)
   {
-    swal(JSON.stringify(result))
+    var values = {'firstname': result[0],
+    'surname': result[1],
+    'username': result[2],
+    'password': result[3],
+    'security1': result[4],
+    'security2': result[5]};
+    var params = "firstname=" + values.firstname +
+    "&surname=" + values.surname +
+    "&username=" + values.username +
+    "&password=" + values.password +
+    "&security1=" + values.security1 +
+    "&security2=" + values.security2;
+    console.log(params);
+    var url = "login/testRegister/index.php";
+    try
+    {
+      httpPost(url, params);
+      console.log(decodeURIComponent(document.cookie));
+      var account_created = getCookie("account_created");
+      if (account_created == "true")
+      {
+        swal(
+        {
+          title: 'Success!',
+          text: 'Your account is now active!',
+          type: 'success',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Let me log in!'
+        }).then(function ()
+        {
+          eraseCookie("account_created");
+          eraseCookie("username_in_use");
+          eraseCookie("empty_fields");
+          window.location.reload(false);
+        })
+      }
+      else
+      {
+        var username_in_use = getCookie("username_in_use");
+        if (username_in_use == "true")
+        {
+          swal(
+          {
+            title: 'Sorry!',
+            text: 'That username is taken! Please try another.',
+            type: 'error',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok'
+          }).then(function ()
+          {
+            eraseCookie("account_created");
+            eraseCookie("username_in_use");
+            eraseCookie("empty_fields");
+          })
+        }
+        else
+        {
+          var empty_fields = getCookie("empty_fields");
+          if (empty_fields == "true")
+          {
+            swal(
+            {
+              title: 'Hey!',
+              text: 'You need to fill out all of the fields.',
+              type: 'error',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Of Course'
+            }).then(function ()
+            {
+              eraseCookie("account_created");
+              eraseCookie("username_in_use");
+              eraseCookie("empty_fields");
+            })
+          }
+          else
+          {
+            swal(
+            {
+              title: 'Sorry!',
+              text: 'Something went wrong with creating your account. Please try again.',
+              type: 'error',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Ok'
+            }).then(function ()
+            {
+              eraseCookie("account_created");
+              eraseCookie("username_in_use");
+              eraseCookie("empty_fields");
+            })
+          }
+        }
+      }
+    }
+    catch(err)
+    {
+      swal('Sorry!', 'Error Message: ' + err.message, 'error');
+    }
   }).catch(swal.noop)
 })
 
@@ -125,5 +227,4 @@ $('#about').on('click', function () {
     confirmButtonText: 'Cool'
   })
 })
-
 });
