@@ -6,6 +6,51 @@ function httpGet(theUrl)  // TODO: I feel like we can probably find a better way
     return xmlHttp.responseText;
 }
 
+function httpPost(url, params)
+{
+  var request = ajaxRequest();
+  if (request != false)
+  {
+    request.open("POST", url, false);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.setRequestHeader("Content-length", params.length);
+    request.setRequestHeader("Connection", "close");
+    // request.onreadystatechange = function()
+    // {//Call a function when the state changes.
+	  //   if(request.readyState == 4 && request.status == 200)
+    //   {
+		//     alert(request.responseText);
+	  //   }
+    // }
+    request.send(params);
+  }
+  else
+  {
+    throw console.error("Unable to perform ajax request");
+  }
+}
+
+function ajaxRequest()
+{
+  try // Non IE Browser?
+  { var request = new XMLHttpRequest() }
+  catch(e1)
+  {
+    try // IE 6+?
+    { request = new ActiveXObject("Msxml2.XMLHTTP") }
+    catch(e2)
+    {
+      try // IE 5?
+      { request = new ActiveXObject("Microsoft.XMLHTTP") }
+      catch(e3) // There is no AJAX Support
+      {
+        request = false
+      }
+    }
+  }
+  return request
+}
+
 
 
 function w3_open() {
