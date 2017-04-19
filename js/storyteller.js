@@ -69,7 +69,7 @@ class StoryTeller {
             //TODO: need to replace this with a sweetalert
             swal({
                 title: "The End...",
-                text: this.selected_option.death_description ,
+                text: this.selected_option.death_description,
                 imageUrl: "../images/death.jpeg"
             });
             this.selected_option = null;
@@ -87,8 +87,7 @@ class StoryTeller {
             let next_node_id = 0;
             console.log("Restarting Game. At node: " + next_node_id);
             this.create_story_node(Number(next_node_id));
-        }
-        else{
+        } else {
             let next_node_id = this.selected_option.next_node_id;
             console.log("moving to Node" + next_node_id);
             this.create_story_node(Number(next_node_id));
@@ -106,15 +105,17 @@ class StoryTeller {
         for (let x = 0; x < this.current_story_node.story_options.length; x++) {
             let option = this.current_story_node.story_options[x];
             //TODO: This is a workaround till we implement inventory
-            if (option.requires != null && option.not_requires != null) {
+            if (false) //(option.requires != null && option.not_requires != null) 
+            {
                 //TODO: IMPLEMENT INVENTORY 
             } else {
                 var btn = $("<button>").text(option.description);
                 btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
                 btn.val(x);
                 $("#StoryOptions").append(btn);
-                $("#StoryOptions").hide().delay(2000).fadeIn(500);
+
             }
         }
+        $("#StoryOptions").hide().delay(2000).fadeIn(500);
     }
 }
