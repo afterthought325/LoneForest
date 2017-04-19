@@ -112,6 +112,6 @@ class User {
 }
 
 async function get_data(request) {
-    let data = await fetch("../js/user.php?" + request)
+    let data = await fetch("../js/user.php?" + request);
     return data.text();
 }

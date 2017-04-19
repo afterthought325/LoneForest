@@ -38,15 +38,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             header("Location: ../../game/");
             exit();
          }
-         else die("Invalid username/password combination");
+         else
+         {
+           setcookie("logged_in", "false", time() + (30), "/");
+           setcookie("login", "true", time() + (30), "/");
+           setcookie("reloaded", "true", time() + (2), "/");
+           header("Location: ../../");
+           exit();
+         }
       }
-      else die("Invalid username/password combination");
+      else
+      {
+        setcookie("logged_in", "false", time() + (30), "/");
+        setcookie("login", "true", time() + (30), "/");
+        setcookie("reloaded", "true", time() + (2), "/");
+        header("Location: ../../");
+        exit();
+      }
    }
    else
    {
       header('WWW-Authenticate: Basic realm="Restricted Section"');
       header('HTTP/1.0 401 Unauthorized');
-      die ("Please enter your username and password");
+      die ("There is nothing to see here");
    }
 }
 

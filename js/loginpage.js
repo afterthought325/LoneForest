@@ -94,38 +94,19 @@ $('#login').on('click', function ()
   swal(
   {
     title: 'Login',
-    type: 'question',
     html:
-      'Username: <input id="swal-input1" class="swal2-input" placeholder="username">' +
-      'Password: <input id="swal-input2" class="swal2-input" placeholder="password" type="password">',
-    showCancelButton: true,
-    allowOutsideClick: false,
-    confirmButtonText: 'Login',
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    preConfirm: function ()
-    {
-      return new Promise(function (resolve)
-      {
-        resolve([
-          $('#swal-input1').val(),
-          $('#swal-input2').val()
-        ])
-      })
-    },
+      '<form method="post" action="login/testLogin/">'+
+        'Username:<input id="swal-input1" class="swal2-input" type="text" placeholder="username" name="username" required/>'+
+        'Password:<input id="swal-input2" class="swal2-input" type="password" placeholder="password" name="password" required/>'+
+        '<button type="submit" class="confirm-button">Login</button>'+
+      '</form>',
+    showConfirmButton: false,
+    showCancelButton: false,
+    allowOutsideClick: true,
     onOpen: function ()
     {
       $('#swal-input1').focus()
     }
-  }).then(function (result)
-  {
-    var values = {'username': result[0], 'password': result[1]};
-    var params = "username=" + values.username + "&password=" + values.password;
-    var url = "login/testLogin/index.php";
-    httpPost(url, params);
-    createCookie("reloaded", "true", 0.025);
-    createCookie("login", "true", 1);
-    window.location.reload(false);
 }).catch(swal.noop)
 })
 
@@ -134,19 +115,19 @@ $('#register').on('click', function ()
   swal(
   {
     title: 'Register for an account',
-    type: 'question',
     html:
-      'First Name: <input id="swal-input1" class="swal2-input" placeholder="First Name">' +
-      'Last Name: <input id="swal-input2" class="swal2-input" placeholder="Last Name">' +
-      'Username: <input id="swal-input3" class="swal2-input" placeholder="username">' +
-      'Password: <input id="swal-input4" class="swal2-input" placeholder="password" type="password">' +
-      'What is your mother\'s maiden name? <input id="swal-input5" class="swal2-input" placeholder="Security Question 1">' +
-      'What street did you grow up on? <input id="swal-input6" class="swal2-input" placeholder="Security Question 2">',
-    showCancelButton: true,
-    allowOutsideClick: false,
-    confirmButtonText: 'Register',
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    '<form method="post" action="login/testRegister/" class="register-form">' +
+      'First Name:<input type="text" id="swal-input1" class="swal2-input" placeholder="first name" name="firstname" required/>' +
+      'Last Name:<input type="text" id="swal-input2" class="swal2-input" placeholder="last name" name="surname" required/>' +
+      'Username:<input type="text" id="swal-input3" class="swal2-input" placeholder="username" name="username" required/>' +
+      'Password<input type="password" id="swal-input4" class="swal2-input" placeholder="password" name="password" required/>' +
+      'What is your mother\'s maiden name?<input type="text" id="swal-input5" class="swal2-input" placeholder="Security Question 1" name="security1" required/>' +
+      'What street did you grow up on?<input type="text" id="swal-input6" class="swal2-input" placeholder="Security Question 2" name="security2" required/>' +
+      '<button type="submit" class="confirm-button">Register</button>' +
+    '</form>',
+    showConfirmButton: false,
+    showCancelButton: false,
+    allowOutsideClick: true,
     preConfirm: function ()
     {
       return new Promise(function (resolve)
@@ -164,45 +145,6 @@ $('#register').on('click', function ()
     onOpen: function ()
     {
       $('#swal-input1').focus()
-    }
-  }).then(function (result)
-  {
-    var values = {
-      'firstname': result[0],
-      'surname': result[1],
-      'username': result[2],
-      'password': result[3],
-      'security1': result[4],
-      'security2': result[5]
-      };
-    var params = "" +
-    "firstname=" + values.firstname +
-    "&surname=" + values.surname +
-    "&username=" + values.username +
-    "&password=" + values.password +
-    "&security1=" + values.security1 +
-    "&security2=" + values.security2;
-    var url = "login/testRegister/index.php";
-    try
-    {
-      if ((values.firstname == '') ||
-      (values.surname == '') ||
-      (values.username == '') ||
-      (values.password == '') ||
-      (values.security1 == '') ||
-      (values.security2 == ''))
-      {
-        throw "You need to fill out all of the fields.";
-      }
-      httpPost(url, params);
-      createCookie("reloaded", "true", 0.025);
-      createCookie("register", "true", 1);
-      window.location.reload(false);
-
-    }
-    catch(err)
-    {
-      swal('Sorry!', err, 'error');
     }
   }).catch(swal.noop)
 })

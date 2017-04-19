@@ -27,6 +27,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 <!-- W3schools W3.css library -->
 <link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/loginpage.css">
 <link rel="stylesheet" href="swal/sweetalert2.min.css">
 
 <!-- Jquery and our JS Libs -->
