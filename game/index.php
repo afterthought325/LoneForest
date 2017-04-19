@@ -88,6 +88,7 @@ session_start();
         <div class="w3-cell-row w3-padding-small">
             <div class="w3-container w3-cell w3-mobile w3-twothird">
                 <h3 id="Location"></h3>
+                <code id="Description">Description </code> 
             </div>
             <div class="w3-container w3-cell w3-mobile" id="StoryOptions" onClick="ST.update_story_node(event);">
                     <!--<button class="w3-btn w3-block w3-theme-d3" value="0" onclick="StoryTeller.update_story_node(this.value)"></button>-->
