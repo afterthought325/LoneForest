@@ -47,7 +47,7 @@
     {
         "id": "00000002",
         "location": "Outside of car",
-        "description": "You turn on the light and check your surroundings. The forest is quite with no signs of life. You hear a scraping noise. You shine the light over the road and your car, but nothing's there.",
+        "description": "You turn on the light and check your surroundings. The forest is quiet with no signs of life. You hear a scraping noise. You shine the light over the road and your car, but nothing's there.",
         "story_options": [{
                 "description": "Investigate tire with light",
                 "next_node_id": "00000005",
