@@ -90,11 +90,10 @@ class StoryTeller {
     update_page() {
         //Inputing the Name into the Header.
         $("#subheading").text("Will you survive, " + this.current_user.firstname + "?");
-
         $("#Location").text(this.current_story_node.location);
-        $("#Location").hide().fadeIn(2000);
         $("#Description").text(this.current_story_node.description);
-        $("#Description").hide().delay(2000).fadeIn(2000);
+        $("#locationDescription").hide().fadeIn(1500);
+        //$("#Description").hide().delay(1500).fadeIn(1500);
         $("#StoryOptions").empty();
         for (let x = 0; x < this.current_story_node.story_options.length; x++) {
             let option = this.current_story_node.story_options[x];
@@ -106,7 +105,7 @@ class StoryTeller {
                 btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
                 btn.val(x);
                 $("#StoryOptions").append(btn);
-                $("#StoryOptions").hide().delay(5000).fadeIn(2000);
+                $("#StoryOptions").hide().delay(1500).fadeIn(1500);
             }
         }
     }
