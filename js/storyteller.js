@@ -21,9 +21,9 @@ class StoryTeller {
     }
 
     get_json_story() {
-        //fetch('../Story.js').then(function(data){
+        //fetch('../Story.json').then(function(data){
         //    this.json_story = data;
-        //});
+        //}.bind(this));
         //let response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
         let response = httpGet("../Story.json");
         if (response) {
@@ -67,12 +67,16 @@ class StoryTeller {
 
         if (chance_of_death >= death) {
             //TODO: need to replace this with a sweetalert
-            alert("You died. Restart?");
+            swal({
+                title: "The End...",
+                text: this.selected_option.death_description ,
+                imageUrl: "../images/death.jpeg"
+            });
             this.selected_option = null;
             this.current_node == 0;
         }
         this.proceed_to_next_node();
-        this.update_page();
+        this.update_page()
         return true;
 
 
@@ -80,20 +84,24 @@ class StoryTeller {
 
     proceed_to_next_node() {
         if (this.selected_option === null) {
-            return false;
+            let next_node_id = 0;
+            console.log("Restarting Game. At node: " + next_node_id);
+            this.create_story_node(Number(next_node_id));
         }
-        let next_node_id = this.selected_option.next_node_id;
-        console.log("moving to Node" + next_node_id);
-        this.create_story_node(Number(next_node_id));
+        else{
+            let next_node_id = this.selected_option.next_node_id;
+            console.log("moving to Node" + next_node_id);
+            this.create_story_node(Number(next_node_id));
+        }
     }
 
     update_page() {
         //Inputing the Name into the Header.
         $("#subheading").text("Will you survive, " + this.current_user.firstname + "?");
         $("#Location").text(this.current_story_node.location);
+        $("#Location").hide().fadeIn(1000);
         $("#Description").text(this.current_story_node.description);
-        $("#locationDescription").hide().fadeIn(1500);
-        //$("#Description").hide().delay(1500).fadeIn(1500);
+        $("#Description").hide().delay(1000).fadeIn(1000);
         $("#StoryOptions").empty();
         for (let x = 0; x < this.current_story_node.story_options.length; x++) {
             let option = this.current_story_node.story_options[x];
@@ -105,7 +113,7 @@ class StoryTeller {
                 btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
                 btn.val(x);
                 $("#StoryOptions").append(btn);
-                $("#StoryOptions").hide().delay(1500).fadeIn(1500);
+                $("#StoryOptions").hide().delay(2000).fadeIn(500);
             }
         }
     }

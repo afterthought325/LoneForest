@@ -16,35 +16,39 @@ class User {
         this.current_location = null;
         this.username = null;
 
+        //fetch("../js/user.php?get_forename=true").then(function(data).bind(this){
+        //    console.log("User.js: Received first name : "+ data);
+        //    this.forename = data;
+        //}
         $.get("../js/user.php",{get_forename : true})
             .done(function(data) {
                 console.log("User.js: Received first name : "+ data);
                 this.forename = data;
-            });
+            }.bind(this));
 
         $.get("../js/user.php",{get_surname : true})
             .done(function(data) {
                 console.log("User.js: Received Last name : "+ data);
                 this.surname = data;
-            });
+            }.bind(this));
 
         this.username = $.get("../js/user.php", {get_username : true})
             .done(function(data) {
                 console.log("User.js: Received username : "+ data);
                 this.username = data;
-            });
+            }.bind(this));
 
         this.current_location = $.get("../js/user.php", {get_current_location : true})
             .done(function(data) {
                 console.log("User.js: Received Current Location : "+data);
                 this.current_location = data;
-            });
+            }.bind(this));
 
         this.inventory_list = $.get("../js/user.php", {get_inventory : true})
             .done(function(data) {
                 console.log("User.js: Received Inventory List : "+data);
                 this.inventory_list = data;
-            });
+            }.bind(this));
 
     }
 

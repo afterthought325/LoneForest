@@ -38,6 +38,8 @@ session_start();
 -->
     <!-- W3schools W3.css library -->
     <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" type="text/css" href="../swal/sweetalert2.min.css">
+
 
     <!-- Theme colors -->
 	<link rel="stylesheet" id = "ourTheme" href="">
@@ -46,9 +48,10 @@ session_start();
     <script src = "../js/changeTheme.js"></script>
     <script>changeTheme();</script>
 
-    <!-- Jquery and our JS Libs -->
+    <!-- Jquery, SweetAlert, and our JS Libs -->
     <script src="../js/jquery.js"></script>
     <script src="../js/helperfunctions.js"></script>
+    <script src="../swal/sweetalert2.min.js"></script>
     <script src="../Story.json"></script>
     <script src="../js/storynode.js"></script>
     <script src="../js/storyteller.js"></script>
@@ -83,8 +86,7 @@ session_start();
             </div>
         </div>
         <div class="w3-cell-row w3-padding-small">
-            <div class="w3-container w3-cell w3-mobile">
-            <div id="locationDescription"class="w3-container w3-cell w3-mobile">
+            <div class="w3-container w3-cell w3-mobile w3-twothird">
                 <h3 id="Location"></h3>
             </div>
             <div class="w3-container w3-cell w3-mobile" id="StoryOptions" onClick="ST.update_story_node(event);">

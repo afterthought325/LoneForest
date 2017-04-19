@@ -52,8 +52,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 </style>
 </head>
-<!--Yo Noah!!!!! change whatever's class color to "w3-theme-d1"" or that last bit to d2/d3/d4/d5/l1/l2/l3/l4/l5 which is darkest to lightest!-->
-<body class = "w3-theme-l1">
+<body class = "w3-theme-l5">
 
 <div class="w3-container w3-center">
   <div class="w3-display-middle">
