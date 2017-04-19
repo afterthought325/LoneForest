@@ -52,7 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             if ($row['username'] == $un_temp)
             {
               setcookie("username_in_use", "true", time() + (30), "/");
-              die("Username already in use.");
+              setcookie("register", "true", time() + (30), "/");
+              setcookie("reloaded", "true", time() + (2), "/");
+              header("Location: ../../");
+              exit();
             }
          }
       }
@@ -65,6 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       else
       {
          setcookie("account_created", "true", time() + (30), "/");
+         setcookie("register", "true", time() + (30), "/");
+         setcookie("reloaded", "true", time() + (2), "/");
+         header("Location: ../../");
+         exit();
       }
    }
 }
