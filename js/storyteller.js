@@ -105,8 +105,8 @@ class StoryTeller {
         for (let x = 0; x < this.current_story_node.story_options.length; x++) {
             let option = this.current_story_node.story_options[x];
             //TODO: This is a workaround till we implement inventory
-            if (false) //(option.requires != null && option.not_requires != null) 
-            {
+            if ((option.requires != undefined && option.requires != "") || (option.not_requires != undefined && option.not_requires != "")) {
+
                 //TODO: IMPLEMENT INVENTORY 
             } else {
                 var btn = $("<button>").text(option.description);
