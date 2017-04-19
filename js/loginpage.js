@@ -96,36 +96,18 @@ $('#login').on('click', function ()
     title: 'Login',
     type: 'question',
     html:
-      'Username: <input id="swal-input1" class="swal2-input" placeholder="username">' +
-      'Password: <input id="swal-input2" class="swal2-input" placeholder="password" type="password">',
-    showCancelButton: true,
+      '<form method="post" action="login/testLogin/">'+
+        '<input id="swal-input1" class="swal2-input" type="text" placeholder="username" name="username" required/>'+
+        '<input id="swal-input2" class="swal2-input" type="password" placeholder="password" name="password" required/>'+
+        '<button type="submit" class="confirm-button">Login</button>'+
+      '</form>',
+    showConfirmButton: false,
+    showCancelButton: false,
     allowOutsideClick: false,
-    confirmButtonText: 'Login',
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    preConfirm: function ()
-    {
-      return new Promise(function (resolve)
-      {
-        resolve([
-          $('#swal-input1').val(),
-          $('#swal-input2').val()
-        ])
-      })
-    },
     onOpen: function ()
     {
       $('#swal-input1').focus()
     }
-  }).then(function (result)
-  {
-    var values = {'username': result[0], 'password': result[1]};
-    var params = "username=" + values.username + "&password=" + values.password;
-    var url = "login/testLogin/index.php";
-    httpPost(url, params);
-    createCookie("reloaded", "true", 0.025);
-    createCookie("login", "true", 1);
-    window.location.reload(false);
 }).catch(swal.noop)
 })
 
