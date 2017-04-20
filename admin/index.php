@@ -4,8 +4,25 @@
 		padding: 1em 1em 1em 1em;
 	 }
  </style>
+ <head>
+ <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+ <script>
+    function confirmDeletion(userName){
+        $.post('deletepage.php', { userName:userName }, function(data){
+            alert(data);
+            location.reload();
+        }); 
+    }
+</script>
+</head>
 <?php
 session_start();
+//php function for deleting
+
+
+//php function for resetting password to default
+
+
 
 if (true)//(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 {
@@ -29,8 +46,8 @@ if (true)//(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
           $result->data_seek($j);
           $row = $result->fetch_array(MYSQLI_ASSOC);
           echo "<tr>";
-          echo "<td><h4 id='".$j."'>".$row['username']."</h4s></td>";
-          echo "<td><button value='".$j."'>Delete Account</button></td>";
+          echo "<td><h4 id='".$j."'>".$row['username']."</h4></td>";
+          echo "<td><button onclick='confirmDeletion(\"".$row['username']."\")'>Delete Account</button></td>";
           //add onclick="delete" 
           echo "<td><button value='".$j."'>Reset Password</button></td>"; 
           //add onclick="reset password"
