@@ -38,6 +38,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 -->
     <!-- W3schools W3.css library -->
     <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/gamepage.css">
     <link rel="stylesheet" type="text/css" href="../swal/sweetalert2.min.css">
 
 
@@ -80,7 +81,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             </div>
         </div>
         <div class="w3-row-padding">
-            <div class="w3-container w3-half">
+            <div class="w3-container w3-threequarter">
                 <h3 id="Location"></h3>
                 <code id="Description">Description </code>
             </div>

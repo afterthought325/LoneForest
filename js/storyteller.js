@@ -1,6 +1,6 @@
 /*
 storynode.js
-Holds the StoryTeller class 
+Holds the StoryTeller class
 This is where all the magic happens, The creation of this class pulls down the Story and User data,
 Instantiates the user's current story node, and begins assembling the page.
 Trey Franklin
@@ -109,10 +109,10 @@ class StoryTeller {
             //TODO: This is a workaround till we implement inventory
             if ((option.requires != undefined && option.requires != "") || (option.not_requires != undefined && option.not_requires != "")) {
 
-                //TODO: IMPLEMENT INVENTORY 
+                //TODO: IMPLEMENT INVENTORY
             } else {
                 var btn = $("<div></div>").text(option.description);
-                btn.addClass("w3-container w3-mobile w3-section w3-theme-d3");
+                btn.addClass("w3-container w3-mobile w3-section w3-theme-d3 options-buttons");
                 btn.css("width:100%");
                 btn.val(x);
                 $("#StoryOptions").append(btn);
