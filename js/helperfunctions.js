@@ -1,7 +1,7 @@
-function httpGet(theUrl)  // TODO: I feel like we can probably find a better way to do this, but this does 'work' -TF
+function httpGet(theUrl,sync)  // TODO: I feel like we can probably find a better way to do this, but this does 'work' -TF
 {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.open( "GET", theUrl, sync ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }

@@ -75,8 +75,8 @@ if(isset($_GET['get_inventory'])){
 }
 
 //Request Current Location upon request
-if(isset($_GET['get_current_location'])){
-    $status = $_GET['get_current_location'];
+if(isset($_GET['get_location'])){
+    $status = $_GET['get_location'];
     if($status == "true"){
         $query = "SELECT location FROM `users` WHERE username='$username';";
         $result = $connection->query($query);
@@ -97,13 +97,13 @@ if(isset($_POST['set_inventory'])){
     echo "true";
 }
 
-//updates inventory upon request
-if(isset($_POST['set_current_location'])){
-    $location = $_POST['set_current_location'];
-    $query = "UPDATE users SET location=$current_location WHERE username='$username';";
+//updates location upon request
+if(isset($_POST['set_location'])){
+    $location = $_POST['set_location'];
+    $query = "UPDATE users SET location=$location WHERE username='$username';";
     $result = $connection->query($query);
     if(!$result) die($connection->error);
-    echo "true";
+    echo "$location";
 }
 
 

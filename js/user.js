@@ -12,65 +12,23 @@ class User {
         this.surname = null;
         this.hash_pass = null;
         this.inventory_list = [];
-        this.admin_access_enabled = null;
-        this.current_location = null;
+        this.location = null;
         this.username = null;
+        this.is_admin = null;
 
-        //fetch("../js/user.php?get_forename=true").then(function(data).bind(this){
-        //    console.log("User.js: Received first name : "+ data);
-        //    this.forename = data;
-        //}
-        $.get("../js/user.php",{get_forename : true})
-            .done(function(data) {
-                console.log("User.js: Received first name : "+ data);
-                this.forename = data;
-            }.bind(this));
-
-        $.get("../js/user.php",{get_surname : true})
-            .done(function(data) {
-                console.log("User.js: Received Last name : "+ data);
-                this.surname = data;
-            }.bind(this));
-
-        this.username = $.get("../js/user.php", {get_username : true})
-            .done(function(data) {
-                console.log("User.js: Received username : "+ data);
-                this.username = data;
-            }.bind(this));
-
-        this.current_location = $.get("../js/user.php", {get_current_location : true})
-            .done(function(data) {
-                console.log("User.js: Received Current Location : "+data);
-                this.current_location = data;
-            }.bind(this));
-
-        this.inventory_list = $.get("../js/user.php", {get_inventory : true})
-            .done(function(data) {
-                console.log("User.js: Received Inventory List : "+data);
-                this.inventory_list = data;
-            }.bind(this));
-
-    }
-
-
-
-    get_first_name() {
-        return this.firstname;
-    }
-
-    get_last_name() {
-        return this.surname
-    }
-
-    get_inventory () {
-            return this.inventory_list;
+        this.is_admin = httpGet("../js/user.php?is_admin=true",false);
+        this.forename = httpGet("../js/user.php?get_forename=true",false);
+        this.surname = httpGet("../js/user.php?get_surname=true",false);
+        this.username = httpGet("../js/user.php?get_username=true",false);
+        this.location = httpGet("../js/user.php?get_location=true",false);
+        this.inventory_list = httpGet("../js/user.php?get_inventory=true",false);
     }
 
     override_inventory (inventory) {
         $.post("../js/user.php", {set_inventory : inventory})
             .done(function(data) {
                 console.log("User.js: Inventory List Update == "+data);
-                return data;
+                return true;
             })
     }
 
@@ -90,28 +48,11 @@ class User {
     }
 
     update_location (locationID) {
-        this.current_location = locationID;
-        $.post("../js/user.php",{update_location : locationID})
+        this.location = locationID;
+        $.post("../js/user.php",{set_location : locationID})
             .done(function(data){
-                console.log("User.js : Current Location Update == "+data);
-                return data;
+                console.log("User.js : Current Location Update == "+ data);
+                return true
             })
     }
-
-    is_admin () {
-        $.post("../js/user.php",{is_admin : true})
-            .done(function(data){
-                console.log("User.js : Is User? == " + data);
-                return data;
-            })
-    }
-
-    get_current_location () {
-        return this.current_location;
-    }
-}
-
-async function get_data(request) {
-    let data = await fetch("../js/user.php?" + request);
-    return data.text();
 }
