@@ -13,6 +13,12 @@
             location.reload();
         }); 
     }
+    function confirmPasswordChange(userName){
+        $.post('changepassword.php', { userName:userName }, function(data){
+            alert(data);
+            location.reload();
+        }); 
+    }
 </script>
 </head>
 <?php
@@ -49,7 +55,7 @@ if (true)//(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
           echo "<td><h4 id='".$j."'>".$row['username']."</h4></td>";
           echo "<td><button onclick='confirmDeletion(\"".$row['username']."\")'>Delete Account</button></td>";
           //add onclick="delete" 
-          echo "<td><button value='".$j."'>Reset Password</button></td>"; 
+          echo "<td><button onclick='confirmPasswordChange(\"".$row['username']."\")'>Reset Password</button></td>"; 
           //add onclick="reset password"
           echo "</tr>";
         }
