@@ -111,10 +111,12 @@ class StoryTeller {
 
                 //TODO: IMPLEMENT INVENTORY 
             } else {
-                var btn = $("<button>").text(option.description);
-                btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
+                var btn = $("<div></div>").text(option.description);
+                btn.addClass("w3-container w3-mobile w3-section w3-theme-d3");
+                btn.css("width:100%");
                 btn.val(x);
                 $("#StoryOptions").append(btn);
+                //$("#StoryOptions").append($("<br>"));
 
             }
         }
