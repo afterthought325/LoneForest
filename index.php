@@ -59,9 +59,9 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
   <div class="w3-display-middle">
     <h2>Welcome to Lone Forest</h2><br/><br/><br/>
     <div class="w3-show-inline-block">
-      <button id="login" class="w3-button w3-hover-theme w3-theme-d3  w3-large" >Login</button>
-      <button id="register" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">Register</button>
-      <button id="about" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large">About</button>
+      <button id="login" class="w3-button w3-hover-theme w3-theme-d3  w3-large options-buttons" >Login</button>
+      <button id="register" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large options-buttons">Register</button>
+      <button id="about" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large options-buttons">About</button>
     </div>
   </div>
 </div>
