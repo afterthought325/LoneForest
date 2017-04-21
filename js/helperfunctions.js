@@ -73,6 +73,11 @@ function getCookie(cname) {
     return "";
 }
 
+function getSessionVar(variable)
+{
+  return httpGet('../getSessionVariables.php?s_var='+variable, false);
+}
+
 
 function w3_open() {
   document.getElementById("main").style.marginLeft = "200px";

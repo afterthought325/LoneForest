@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
          {
             $_SESSION["logged_in"] = True;
             $_SESSION["username"] = $row[2];
+            setcookie("username", $row[2], time() + 86400*365, "/");
             $_SESSION["isAdmin"] = $row[8];
             setcookie("logged_in", "true", time() + (30), "/");
             header("Location: ../../game/");

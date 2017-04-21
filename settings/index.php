@@ -1,18 +1,30 @@
-<?php session_start(); ?>
+<?php session_start();
+if (!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True))
+{
+  header("Location: ../");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
-  		<script src="../js/changeTheme.js" type="text/javascript"></script>
+    <title>Settings Page</title>
+    <meta charset="utf-8">
 
-      <meta charset="utf-8">
-      <title>Settings Page</title>
+    <script src="../js/jquery.js"></script>
+		<script src="../js/changeTheme.js" type="text/javascript"></script>
+		<script src="../js/settingspage.js" type="text/javascript"></script>
+    <script src="../js/helperfunctions.js"></script>
+    <script src="../swal/sweetalert2.min.js"></script>
+
   	<link rel="stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css">
   	<link rel="stylesheet" id="ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
     <link rel="stylesheet" href="../css/settingspage.css">
+    <link rel="stylesheet" href="../swal/sweetalert2.min.css">
   </head>
-<script>changeTheme();</script>
-	<body class="w3-theme-l4 w3-card-3">
 
+	<body class="w3-theme-l4 w3-card-3">
+    <script>changeTheme();</script>
 		<div class="w3-main" >
 			<div class="w3-container w3-theme-d4 w3-card-3">
 				<h1>Settings Page</h1>
@@ -22,9 +34,9 @@
   		<div id="AllOptions" class='w3-content'>
         <div class="w3-xlarge w3-center">Account Options</div>
         <div class="w3-center w3-row">
-          <button class='w3-theme-d3 w3-col s12 m6 l3 w3-btn w3-section options-buttons' type='button'>Restart Progress</button>
-          <button class='w3-theme-d3 w3-col s12 m6 l3 w3-btn w3-section options-buttons' type='button'>Delete User Account</button>
-          <button class='w3-theme-d3 w3-col s12 m6 l3 w3-btn w3-section options-buttons' type='button'>Change User Password</button>
+          <button class='w3-theme-d3 w3-col s12 m6 l3 w3-btn w3-section options-buttons' type='button' id='restart-progress'>Restart Progress</button>
+          <button class='w3-theme-d3 w3-col s12 m6 l3 w3-btn w3-section options-buttons' type='button' id='delete-account'>Delete User Account</button>
+          <button class='w3-theme-d3 w3-col s12 m6 l3 w3-btn w3-section options-buttons' type='button' id='change-password'>Change User Password</button>
         </div>
         <div id='ThemeOptions' class="w3-center">
           <div class="w3-xlarge">Select a theme color</div>
@@ -39,24 +51,9 @@
           </div>
         </div>
         <div class="w3-row">
-          <button class='w3-theme-d3 w3-col s8 m4 l4 w3-btn w3-section w3-content w3-block options-buttons italics' onclick='goBack()'>Go Back</button><br><br>
+          <a class='w3-theme-d3 w3-col s8 m4 l4 w3-btn w3-section w3-content w3-block options-buttons italics' href="../game/">Back to game</a><br><br>
         </div>
   		</div>
-
-    	<script>
-    		function goBack() {
-        			window.history.back();
-    		}
-    		function updateTheme(theme) {
-    			var now = new Date();
-    			var time = now.getTime();
-    			var expireTime = time + 1000*360000;
-    			now.setTime(expireTime);
-    			var tempExp = 'Wed, 31 Oct 2012 08:50:17 GMT';
-    			document.getElementById("ourTheme").href ="https://www.w3schools.com/lib/w3-theme-"+theme+".css";
-    			document.cookie = 'theme='+theme+';expires='+now.toGMTString()+';path=/';
-    		}
-    	</script>
 		</div>
   </body>
 </html>
