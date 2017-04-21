@@ -38,4 +38,21 @@ Story Help:
 
 36: Inside Cave: 15, 37
 37: Deepest part of Cave: 15
-38: 
+38: Inside Cabin: 39, 40
+39: Kitchen: 41, 42
+40: Upstairs: 43, 44
+
+41: 
+42: Cellar door: 
+
+
+44: Upstairs
+45: Bedroom
+46: 
+47:
+48: Long hallway: 49, 41
+49: Door to Right: 48, 50, 51
+50: Wolf room: 53/, 49
+51: Last door: 49, 52
+52: Arena: FINAL BOSS! death or winner screen.
+53: Chest: 50

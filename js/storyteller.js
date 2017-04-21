@@ -108,8 +108,8 @@ class StoryTeller {
         for (let x = 0; x < this.story_node.story_options.length; x++) {
             let option = this.story_node.story_options[x];
             //TODO: This is a workaround till we implement inventory
-            if ((option.recieves != undefined && option.recieves != "")) {
-                this.user.add_item(option.recieves);
+            if ((option.receives != undefined && option.receives != "")) {
+                this.user.add_item(option.receives);
             }
             if (option.not_requires != undefined && option.not_requires != "") {
                 let inv = this.user.get_inventory();
