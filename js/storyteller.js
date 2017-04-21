@@ -39,7 +39,7 @@ class StoryTeller {
             return false;
         }
 
-        let result = this.json_story[story_node_uid];
+        let result = this.json_story[parseInt(story_node_uid)];
 
         if (result == null) {
             // no results found, error
