@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
   if (isset($_GET['restart']) && $_GET['restart'] == "true")
   {
     $un_temp = $_SESSION["username"];
-    $query = "UPDATE users SET location=1,inventory='[]' WHERE username='$un_temp'";
+    $query = "UPDATE users SET location=0,inventory='[]' WHERE username='$un_temp'";
     $connection->query($query);
     $_SESSION["restart_progress"] = True;
     setcookie("reloaded", "true", time() + (30), "/");
