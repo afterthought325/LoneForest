@@ -91,7 +91,8 @@ if(isset($_GET['get_location'])){
 //updates inventory upon request
 if(isset($_POST['set_inventory'])){
     $inventory = $_POST['set_inventory'];
-    $query = "UPDATE users SET inventory=$inventory WHERE username='$username';";
+    $invEncode = json_encode($inventory);
+    $query = "UPDATE users SET inventory='$invEncode' WHERE username='$username';";
     $result = $connection->query($query);
     if(!$result) die($connection->error);
     echo "true";

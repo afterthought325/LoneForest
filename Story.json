@@ -52,6 +52,7 @@
                 "description": "Investigate tire with light",
                 "next_node_id": "00000005",
                 "requires": "flashlight",
+                "recieves": "flashlight",
                 "chance_of_death": "05",
                 "death_description": "As you stoop down next to the tire, you're stabbed in the calf with a long knife. The old man crawls out, pulls out the knife, and plunges it into your chest. You die from infection."
             },
@@ -536,7 +537,7 @@
                 "description": "Wait! There's a backpack! Investigate?",
                 "next_node_id": "00000034",
                 "requires": "",
-                "not_requires": "flareGun",
+                "not_requires": "flaregun",
                 "chance_of_death": "02",
                 "death_description": "Inside the bag is a flaregun which you accidentally look down the barrel while you accidentally pull the trigger while you accidentally die."
             }
@@ -1024,6 +1025,7 @@
             "description": "Go back",
             "next_node_id": "00000018",
             "requires": "",
+            "recieves": "flaregun",
             "chance_of_death": "0",
             "death_description": ""
         }]
@@ -1036,6 +1038,7 @@
             "description": "Go back",
             "next_node_id": "00000021",
             "requires": "",
+            "recieves": "knife",
             "chance_of_death": "0",
             "death_description": ""
         }]

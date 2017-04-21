@@ -107,7 +107,33 @@ class StoryTeller {
         for (let x = 0; x < this.story_node.story_options.length; x++) {
             let option = this.story_node.story_options[x];
             //TODO: This is a workaround till we implement inventory
-            if ((option.requires != undefined && option.requires != "") || (option.not_requires != undefined && option.not_requires != "")) {
+            if ((option.recieves != undefined && option.recieves != "")) {
+                this.user.add_item(option.recieves);
+            }
+            if (option.not_requires != undefined && option.not_requires != "") {
+                let inv = this.user.get_inventory();
+                let invLength = inv.length;
+                let dontDisplay = false;
+                for (var i = 0; i < invLength; i++) {
+                    if (inv[i] == option.not_requires) {
+                        dontDisplay = true;
+                        break;
+                    }
+                }
+                if (dontDisplay) break;
+            }
+            if (option.requires != undefined && option.requires != "") {
+                let inv = this.user.get_inventory();
+                let invLength = inv.length;
+                for (var i = 0; i < invLength; i++) {
+                    if (inv[i] == option.requires) {
+                        var btn = $("<button>").text(option.description);
+                        btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
+                        btn.val(x);
+                        $("#StoryOptions").append(btn);
+                        break;
+                    }
+                }
 
                 //TODO: IMPLEMENT INVENTORY
             } else {
