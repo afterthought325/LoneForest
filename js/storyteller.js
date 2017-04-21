@@ -63,7 +63,7 @@ class StoryTeller {
         this.selected_option = this.story_node.story_options[story_option];
 
         let chance_of_death = this.selected_option.chance_of_death;
-        let death = getRandomInt(0, 100); // play with fate and determine the death rate
+        let death = getRandomInt(1, 100); // play with fate and determine the death rate
 
         if (chance_of_death >= death) {
             //TODO: need to replace this with a sweetalert
