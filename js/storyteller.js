@@ -100,17 +100,22 @@ class StoryTeller {
     update_page() {
         //Inputing the Name into the Header.
         $("#subheading").text("Will you survive, " + this.user.forename + "?");
+        //Adding Location
         $("#Location").text(this.story_node.location);
         $("#Location").hide().fadeIn(1000);
+        //Adding Description
         $("#Description").text(this.story_node.description);
         $("#Description").hide().delay(1000).fadeIn(1000);
+        //Removing Previous Story Options
         $("#StoryOptions").empty();
+        // Adding Story Options
         for (let x = 0; x < this.story_node.story_options.length; x++) {
             let option = this.story_node.story_options[x];
-            //TODO: This is a workaround till we implement inventory
+            //Give User Item
             if ((option.recieves != undefined && option.recieves != "")) {
                 this.user.add_item(option.recieves);
             }
+            //Check if there is a not_requires parameter to option, then check if it can be displayed
             if (option.not_requires != undefined && option.not_requires != "") {
                 let inv = this.user.get_inventory();
                 let invLength = inv.length;
@@ -123,27 +128,27 @@ class StoryTeller {
                 }
                 if (dontDisplay) break;
             }
+            //Check if there is a requires parameter to option, then check if it can be displayed
             if (option.requires != undefined && option.requires != "") {
                 let inv = this.user.get_inventory();
                 let invLength = inv.length;
                 for (var i = 0; i < invLength; i++) {
                     if (inv[i] == option.requires) {
-                        var btn = $("<button>").text(option.description);
-                        btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
+                        var btn = $("<div></div>").text(option.description);
+                        btn.addClass("w3-btn w3-block w3-theme-d3 w3-section options-buttons");
+                        btn.css("width:100%");
                         btn.val(x);
                         $("#StoryOptions").append(btn);
                         break;
                     }
                 }
-
-                //TODO: IMPLEMENT INVENTORY
+            //Else display standard options
             } else {
                 var btn = $("<div></div>").text(option.description);
                 btn.addClass("w3-container w3-mobile w3-section w3-theme-d3 options-buttons");
                 btn.css("width:100%");
                 btn.val(x);
                 $("#StoryOptions").append(btn);
-                //$("#StoryOptions").append($("<br>"));
 
             }
         }
