@@ -72,6 +72,7 @@ class StoryTeller {
                 text: this.selected_option.death_description,
                 imageUrl: "../images/death.jpeg"
             });
+            this.user.clear_inventory();
             this.selected_option = null;
             this.story_node_uid == 0;
         }

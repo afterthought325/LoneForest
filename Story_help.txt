@@ -34,4 +34,8 @@ Story Help:
 33: In cave: Die (DOES NOT EXIST YET)
 34: MasterSword: PullSword&lose all hearts, 17
 35: Investigate backpack(flaregun): 19
-36: Investigate shining object(knife): 22
+
+
+36: Inside Cave: 15, 37
+37: Deepest part of Cave: 15
+38: 

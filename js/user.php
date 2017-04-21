@@ -97,6 +97,12 @@ if(isset($_POST['set_inventory'])){
     if(!$result) die($connection->error);
     echo "true";
 }
+if(isset($_POST['clear_inventory'])){
+    $query = "UPDATE users SET inventory=\"[]\" WHERE username='$username';";
+    $result = $connection->query($query);
+    if(!$result) die($connection->error);
+    echo "true";
+}
 
 //updates location upon request
 if(isset($_POST['set_location'])){

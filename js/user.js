@@ -38,6 +38,13 @@ class User {
     get_inventory() {
         return this.inventory_list;
     }
+    clear_inventory() {
+        $.post("../js/user.php", { clear_inventory: "value" })
+            .done(function(data) {
+                console.log("User.js: Inventory List cleared");
+                return true;
+            })
+    }
 
     add_item(item) {
         this.inventory_list.push(item);

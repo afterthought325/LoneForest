@@ -120,7 +120,7 @@
                 "description": "Soil self",
                 "requires": "",
                 "chance_of_death": "100",
-                "death_description": "After soiling yourself, the man crawls out from underneath the car and whiffs the air. His face turns from disgusted to enraged as he slams the axe down on your neck."
+                "death_description": "After soiling yourself, the man crawls out from underneath the car and whiffs the air. His face turns from disgust to rage as he slams the axe down on your neck."
             },
             {
                 "description": "Run deeply into the woods",
