@@ -6,7 +6,7 @@
         <title>Account Deletion</title>
     </head>
     <body>
-<?php // authenticate passwords
+<?php
 
 require_once '../login.php';
 

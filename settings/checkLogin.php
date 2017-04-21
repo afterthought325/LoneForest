@@ -6,7 +6,7 @@
         <title>Login Check</title>
     </head>
     <body>
-<?php // authenticate passwords
+<?php
 
 require_once '../login.php';
 

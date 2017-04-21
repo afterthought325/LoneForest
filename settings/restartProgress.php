@@ -6,7 +6,7 @@
         <title>Restart Progress</title>
     </head>
     <body>
-<?php // authenticate passwords
+<?php
 
 require_once '../login.php';
 

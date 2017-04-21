@@ -35,7 +35,6 @@ function clearCookies()
 $(document).ready(function(){
 
 var reloaded = getCookie("reloaded");
-console.log(reloaded);
 if (reloaded == "true")
 {
   try
@@ -48,7 +47,6 @@ if (reloaded == "true")
    var logged_in = getSessionVar("pwd_check");
    var account_del = getSessionVar("account_del");
    var restart_progress = getSessionVar("restart_progress");
-   console.log(account_del);
    if (logged_in == 1 && login == "true")
    {
       swal(
