@@ -28,7 +28,6 @@ function clearCookies()
   eraseCookie("reloaded");
   eraseCookie("is_sure");
   eraseCookie("pwd_changed");
-  eraseCookie("restart_progress");
   eraseCookie("delete_account");
   eraseCookie("change_password");
 }
@@ -48,6 +47,7 @@ if (reloaded == "true")
    var change_password = getCookie("change_password");
    var logged_in = getSessionVar("pwd_check");
    var account_del = getSessionVar("account_del");
+   var restart_progress = getSessionVar("restart_progress");
    console.log(account_del);
    if (logged_in == 1 && login == "true")
    {
@@ -115,6 +115,20 @@ if (reloaded == "true")
          window.location.reload(false);
        })
      }
+     else if (restart_progress == 1)
+     {
+       clearCookies();
+       swal(
+         {
+           title: 'Done!',
+           text: 'Your story progress has been reset.',
+           type: 'success',
+           showConfirmButton: true,
+           showCancelButton: false,
+           confirmButtonText: 'Thank you'
+         }
+       )
+     }
    }
    else if (pwd_changed == "true")
    {
@@ -159,12 +173,18 @@ $('#restart-progress').on('click', function ()
 {
   swal(
   {
-    title: 'Hold up!',
-    text: 'Enter your password, bub.',
-    type: 'warning',
-    showCancelButton: false,
-    confirmButtonColor: '#3085d6',
-    confirmButtonText: 'Ok'
+     title: 'Are you sure?',
+     text: 'This will be permanent.',
+     type: 'warning',
+     showCancelButton: true,
+     confirmButtonColor: '#3085d6',
+     confirmButtonText: 'I\'m 100% sure!',
+     cancelButtonText: 'Nevermind...'
+  }).then(function ()
+  {
+    createCookie("is_sure", "true", 0.025);
+    httpGet("restartProgress.php?restart=true", false);
+    window.location.reload(false);
   })
 })
 

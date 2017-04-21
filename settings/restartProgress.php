@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Account Deletion</title>
+        <title>Restart Progress</title>
     </head>
     <body>
 <?php // authenticate passwords
@@ -15,19 +15,19 @@ $connection = new mysqli($hn, $un, $pw, $db);
 if ($connection->connect_error) die($connection->connect_error);
 if ($_SERVER["REQUEST_METHOD"] == "GET")
 {
-  if (isset($_GET['delete']) && $_GET['delete'] == "true")
+  if (isset($_GET['restart']) && $_GET['restart'] == "true")
   {
     $un_temp = $_SESSION["username"];
-    $query = "DELETE FROM users WHERE username='$un_temp'";
+    $query = "UPDATE users SET location=1,inventory='' WHERE username='$un_temp'";
     $connection->query($query);
-    $_SESSION["account_del"] = True;
+    $_SESSION["restart_progress"] = True;
     setcookie("reloaded", "true", time() + (30), "/");
     header("Location: ../settings/");
     exit();
   }
   else
   {
-    unset($_SESSION["account_del"]);
+    unset($_SESSION["restart_progress"]);
     header("Location: ../game/");
     exit();
   }
