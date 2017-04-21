@@ -61,6 +61,11 @@ class StoryTeller {
             return false;
         }
         this.selected_option = this.story_node.story_options[story_option];
+        //Give User Item if it exists with option
+        if ((this.selected_option.recieves != undefined && this.selected_option.recieves != "")) {
+            this.user.add_item(this.selected_option.recieves);
+            console.log("Item Added to Inventory: " + this.selected_option.recieves);
+        }
 
         let chance_of_death = this.selected_option.chance_of_death;
         let death = getRandomInt(1, 100); // play with fate and determine the death rate
@@ -111,10 +116,6 @@ class StoryTeller {
         // Adding Story Options
         for (let x = 0; x < this.story_node.story_options.length; x++) {
             let option = this.story_node.story_options[x];
-            //Give User Item
-            if ((option.recieves != undefined && option.recieves != "")) {
-                this.user.add_item(option.recieves);
-            }
             //Check if there is a not_requires parameter to option, then check if it can be displayed
             if (option.not_requires != undefined && option.not_requires != "") {
                 let inv = this.user.get_inventory();

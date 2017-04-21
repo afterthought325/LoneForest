@@ -24,36 +24,32 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Lone Forest - A Simple Text Adventure</title>
 
     <meta name="description" content="A simple text adventure about finding your way back through the forest.">
     <meta name="author" content="DCSP Spring 2017 Group A">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--  Nice Web Font -->
-<!--
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
--->
-    <!-- W3schools W3.css library -->
+    <!-- CSS libraries -->
     <link rel="stylesheet" href="../css/w3.css">
     <link rel="stylesheet" href="../css/gamepage.css">
     <link rel="stylesheet" type="text/css" href="../swal/sweetalert2.min.css">
 
 
-    <!-- Theme colors -->
+    <!-- Theme to be filled in by changeTheme() below -->
 	<link rel="stylesheet" id = "ourTheme" href="">
 
     <!-- Script for changing Theme -->
     <script src = "../js/changeTheme.js"></script>
     <script>changeTheme();</script>
 
-    <!-- Jquery, SweetAlert, and our JS Libs -->
+    <!-- JS Libs -->
     <script src="../js/jquery.js"></script>
     <script src="../js/helperfunctions.js"></script>
     <script src="../swal/sweetalert2.min.js"></script>
-    <script src="../Story.json"></script>
+    //<script src="../Story.json"></script>
     <script src="../js/storynode.js"></script>
     <script src="../js/storyteller.js"></script>
     <script src="../js/user.js"></script>
