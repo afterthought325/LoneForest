@@ -28,17 +28,17 @@
         "location": "Investigating Tire",
         "description": "It's dark, but you can feel an object lodged into the tire. You try to get a feel for it, but you can't place what it is.",
         "story_options": [{
-                "description": "Get back in the car and wait for another car to come by",
+                "description": "Wait in the car for help",
                 "next_node_id": "00000003",
                 "requires": "",
-                "chance_of_death": "05",
+                "chance_of_death": "20",
                 "death_description": "Just as you're getting in the door, a hand grabs your ankle and yanks. You're slammed into the ground, forcing the air out of your lungs. A dark figure stands up next to you, raises an axe, and decapitates you."
             },
             {
-                "description": "Start walking along the road back to town",
+                "description": "Walk down the road to town",
                 "next_node_id": "00000004",
                 "requires": "",
-                "chance_of_death": "05",
+                "chance_of_death": "35",
                 "death_description": "You feel a sharp pain in your leg and fall to the ground. Looking down you see an arrow all the way through your knee. A dark figure approaches, pulls back a bow, and finishes you off."
             }
         ]
@@ -54,7 +54,7 @@
                 "requires": "flashlight",
                 "receives": "flashlight",
                 "chance_of_death": "05",
-                "death_description": "As you stoop down next to the tire, you're stabbed in the calf with a long knife. The old man crawls out, pulls out the knife, and plunges it into your chest. You die from infection."
+                "death_description": "As you stoop down next to the tire, you're stabbed in the calf with a long knife. The old man crawls out, pulls out the knife, and plunges it into your chest. He chuckles with a look victory on his face. "
             },
             {
                 "description": "Check under the car",
@@ -160,7 +160,7 @@
                 "requires": "",
                 "not_requires": "",
                 "chance_of_death": "02",
-                "death_description": "A meteorite fragment collides with your head, ending it's billion year journey. It ends your journey too."
+                "death_description": "A meteorite fragment collides with your head, ending it's billion year journey. It ends your journey too. ;)"
             },
             {
                 "description": "Go south",

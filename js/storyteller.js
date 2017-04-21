@@ -61,9 +61,14 @@ class StoryTeller {
             return false;
         }
         this.selected_option = this.story_node.story_options[story_option];
+        //Give User Item if it exists with option
+        if ((this.selected_option.recieves != undefined && this.selected_option.recieves != "")) {
+            this.user.add_item(this.selected_option.recieves);
+            console.log("Item Added to Inventory: " + this.selected_option.recieves);
+        }
 
         let chance_of_death = this.selected_option.chance_of_death;
-        let death = getRandomInt(0, 100); // play with fate and determine the death rate
+        let death = getRandomInt(1, 100); // play with fate and determine the death rate
 
         if (chance_of_death >= death) {
             //TODO: need to replace this with a sweetalert
@@ -100,17 +105,18 @@ class StoryTeller {
     update_page() {
         //Inputing the Name into the Header.
         $("#subheading").text("Will you survive, " + this.user.forename + "?");
+        //Adding Location
         $("#Location").text(this.story_node.location);
         $("#Location").hide().fadeIn(1000);
+        //Adding Description
         $("#Description").text(this.story_node.description);
         $("#Description").hide().delay(1000).fadeIn(1000);
+        //Removing Previous Story Options
         $("#StoryOptions").empty();
+        // Adding Story Options
         for (let x = 0; x < this.story_node.story_options.length; x++) {
             let option = this.story_node.story_options[x];
-            //TODO: This is a workaround till we implement inventory
-            if ((option.receives != undefined && option.receives != "")) {
-                this.user.add_item(option.receives);
-            }
+            //Check if there is a not_requires parameter to option, then check if it can be displayed
             if (option.not_requires != undefined && option.not_requires != "") {
                 let inv = this.user.get_inventory();
                 let invLength = inv.length;
@@ -123,27 +129,27 @@ class StoryTeller {
                 }
                 if (dontDisplay) break;
             }
+            //Check if there is a requires parameter to option, then check if it can be displayed
             if (option.requires != undefined && option.requires != "") {
                 let inv = this.user.get_inventory();
                 let invLength = inv.length;
                 for (var i = 0; i < invLength; i++) {
                     if (inv[i] == option.requires) {
-                        var btn = $("<button>").text(option.description);
-                        btn.addClass("w3-btn w3-block w3-theme-d3 w3-section");
+                        var btn = $("<div></div>").text(option.description);
+                        btn.addClass("w3-btn w3-block w3-theme-d3 w3-section options-buttons");
+                        btn.css("width:100%");
                         btn.val(x);
                         $("#StoryOptions").append(btn);
                         break;
                     }
                 }
-
-                //TODO: IMPLEMENT INVENTORY
+            //Else display standard options
             } else {
                 var btn = $("<div></div>").text(option.description);
                 btn.addClass("w3-container w3-mobile w3-section w3-theme-d3 options-buttons");
                 btn.css("width:100%");
                 btn.val(x);
                 $("#StoryOptions").append(btn);
-                //$("#StoryOptions").append($("<br>"));
 
             }
         }
