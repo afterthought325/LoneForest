@@ -22,19 +22,34 @@ function check(input)
     input.setCustomValidity('');
   }
 }
+function clearCookies()
+{
+  eraseCookie("login");
+  eraseCookie("reloaded");
+  eraseCookie("is_sure");
+  eraseCookie("pwd_changed");
+  eraseCookie("restart_progress");
+  eraseCookie("delete_account");
+  eraseCookie("change_password");
+}
 
 $(document).ready(function(){
 
 var reloaded = getCookie("reloaded");
+console.log(reloaded);
 if (reloaded == "true")
 {
   try
   {
    var login = getCookie("login");
-   var logged_in = getSessionVar("pwd_check");
    var is_sure = getCookie("is_sure");
    var pwd_changed = getCookie("pwd_changed");
-   if (logged_in == true && login == "true")
+   var delete_account = getCookie("delete_account");
+   var change_password = getCookie("change_password");
+   var logged_in = getSessionVar("pwd_check");
+   var account_del = getSessionVar("account_del");
+   console.log(account_del);
+   if (logged_in == 1 && login == "true")
    {
       swal(
       {
@@ -50,6 +65,7 @@ if (reloaded == "true")
         eraseCookie("login");
         createCookie("reloaded", "true", 0.025);
         createCookie("is_sure", "true", 0.025);
+        createCookie("delete_account", "true", 0.025);
         window.location.reload(false);
       })
    }
@@ -57,9 +73,8 @@ if (reloaded == "true")
    {
      throw 'Those are the wrong credentials.';
    }
-   else if (reloaded == "true" && is_sure == "true")
+   else if (is_sure == "true")
    {
-     var change_password = getCookie("change_password");
      if (change_password == "true")
      {
        swal(
@@ -82,25 +97,51 @@ if (reloaded == "true")
            }
          })
      }
+     else if (delete_account == "true")
+     {
+       swal(
+         {
+           title: 'I am giving you power.',
+           text: 'This is your final warning. Your account will be lost forever and you will be logged out.',
+           type: 'warning',
+           showConfirmButton: true,
+           showCancelButton: true,
+           confirmButtonText: 'Nuke it.',
+           cancelButtonText: 'I was just joking'
+         }
+       ).then(function() {
+         clearCookies();
+         httpGet("deleteAccount.php?delete=true", false);
+         window.location.reload(false);
+       })
+     }
    }
    else if (pwd_changed == "true")
    {
+     clearCookies();
      swal(
        'Success!',
        'Your password has been changed!',
        'success'
      )
    }
+   else if (account_del == 1)
+   {
+     swal(
+       {
+         title: 'Success!',
+         text: 'Your account has been deleted!',
+         type: 'success',
+         confirmButtonText: 'Goodbye'
+       }
+     ).then(function () {
+       clearCookies();
+       window.location.replace("../logout");
+     })
+   }
   }
   catch(err)
   {
-   eraseCookie("login");
-   eraseCookie("reloaded");
-   eraseCookie("is_sure");
-   eraseCookie("pwd_changed");
-   eraseCookie("restart_progress");
-   eraseCookie("delete_account");
-   eraseCookie("change_password");
    swal(
      {
        title:'Sorry!',
@@ -108,6 +149,7 @@ if (reloaded == "true")
        type: 'error'
      }).then(function()
      {
+       clearCookies();
        window.location.reload(false);
      })
   }
@@ -130,13 +172,23 @@ $('#delete-account').on('click', function ()
 {
   swal(
   {
-    title: 'Hold up!',
-    text: 'Enter your password, bub.',
-    type: 'warning',
+    title: 'Please Confirm Your Password',
+    html:
+      '<form method="post" action="checkLogin.php">'+
+        'Username:<input id="swal-input1" class="swal2-input" type="text" value="'+
+        getSessionVar("username")+
+        '" name="username" readonly/>'+
+        'Password:<input id="swal-input2" class="swal2-input" type="password" placeholder="password" name="password" required/>'+
+        '<button type="submit" class="confirm-button">Continue</button>'+
+      '</form>',
+    showConfirmButton: false,
     showCancelButton: false,
-    confirmButtonColor: '#3085d6',
-    confirmButtonText: 'Ok'
-  })
+    allowOutsideClick: true,
+    onOpen: function ()
+    {
+      $('#swal-input2').focus()
+    }
+}).catch(swal.noop)
 })
 
 $('#change-password').on('click', function ()

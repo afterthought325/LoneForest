@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION["pwd_check"] = True;
             $_SESSION["username"] = $row[2];
             $_SESSION["isAdmin"] = $row[8];
-            $_SESSION["passConfirm"] = True;
             setcookie("login", "true", time() + (30), "/");
             setcookie("reloaded", "true", time() + (2), "/");
             header("Location: ../settings/");
