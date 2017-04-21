@@ -62,9 +62,9 @@ class StoryTeller {
         }
         this.selected_option = this.story_node.story_options[story_option];
         //Give User Item if it exists with option
-        if ((this.selected_option.recieves != undefined && this.selected_option.recieves != "")) {
-            this.user.add_item(this.selected_option.recieves);
-            console.log("Item Added to Inventory: " + this.selected_option.recieves);
+        if ((this.selected_option.receives != undefined && this.selected_option.receives != "")) {
+            this.user.add_item(this.selected_option.receives);
+            console.log("Item Added to Inventory: " + this.selected_option.receives);
         }
 
         let chance_of_death = this.selected_option.chance_of_death;
@@ -127,7 +127,7 @@ class StoryTeller {
                         break;
                     }
                 }
-                if (dontDisplay) break;
+                if (dontDisplay) continue;
             }
             //Check if there is a requires parameter to option, then check if it can be displayed
             if (option.requires != undefined && option.requires != "") {
@@ -143,7 +143,7 @@ class StoryTeller {
                         break;
                     }
                 }
-            //Else display standard options
+                //Else display standard options
             } else {
                 var btn = $("<div></div>").text(option.description);
                 btn.addClass("w3-container w3-mobile w3-section w3-theme-d3 options-buttons");

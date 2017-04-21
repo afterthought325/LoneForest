@@ -49,7 +49,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
     <script src="../js/jquery.js"></script>
     <script src="../js/helperfunctions.js"></script>
     <script src="../swal/sweetalert2.min.js"></script>
-    //<script src="../Story.json"></script>
+    <script src="../Story.json"></script>
     <script src="../js/storynode.js"></script>
     <script src="../js/storyteller.js"></script>
     <script src="../js/user.js"></script>

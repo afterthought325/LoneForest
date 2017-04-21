@@ -16,6 +16,7 @@
                 "description": "Get flashlight",
                 "next_node_id": "00000002",
                 "requires": "",
+                "receives": "flashlight",
                 "chance_of_death": "05",
                 "death_description": "Opening the door to your car, an arrow pierces your hand, attaching it to the door. You scream out in pain as a figure slowly walks towards you. You see a beard and an axe. You plead for mercy but you get hacked to death instead."
             }
@@ -52,7 +53,6 @@
                 "description": "Investigate tire with light",
                 "next_node_id": "00000005",
                 "requires": "flashlight",
-                "receives": "flashlight",
                 "chance_of_death": "05",
                 "death_description": "As you stoop down next to the tire, you're stabbed in the calf with a long knife. The old man crawls out, pulls out the knife, and plunges it into your chest. He chuckles with a look victory on his face. "
             },
@@ -275,7 +275,7 @@
             {
                 "description": "Go west",
                 "requires": "",
-                "chance_of_death": "100",
+                "chance_of_death": "02",
                 "death_description": "You see an irrestibly, shining object in a bottle lodged in the ground. You reach in and grab it, what joy!...but you can't pull your fist out. You're not going to leave without it, so you die of dehydration."
             }
         ]
@@ -433,6 +433,7 @@
             },
             {
                 "description": "Enter the cave",
+                "next_node_id": "00000036",
                 "requires": "flashlight",
                 "not_requires": "heartpiece1",
                 "chance_of_death": "0",
@@ -554,6 +555,7 @@
                 "next_node_id": "00000034",
                 "requires": "",
                 "not_requires": "flaregun",
+                "receives": "flaregun",
                 "chance_of_death": "02",
                 "death_description": "Inside the bag is a flaregun which you accidentally look down the barrel while you accidentally pull the trigger while you accidentally die."
             }
@@ -650,6 +652,7 @@
                 "next_node_id": "00000035",
                 "requires": "",
                 "not_requires": "knife",
+                "receives": "knife",
                 "chance_of_death": "05",
                 "death_description": "As you approach the object, you see it's a knife with the blade up. You get excited to get ahold of a weapon and run towards it. You trip and would've caught yourself except you were running like a ninja with your arms out behind you. The knife may or may not have cut your esophogus, and you may or may not have suffocated."
             }
@@ -1046,7 +1049,7 @@
                 "next_node_id": "00000056",
                 "requires": "heartpiece1",
                 "not_requires": "",
-                "chance_of_death": "100",
+                "chance_of_death": "00",
                 "death_description": "You tug at the sword, but you feel the life drain out of you as you do. It decreases all of your heart containers until your die."
             }
         ]
@@ -1059,7 +1062,7 @@
             "description": "Go back",
             "next_node_id": "00000018",
             "requires": "",
-            "receives": "flaregun",
+
             "chance_of_death": "0",
             "death_description": ""
         }]
@@ -1072,7 +1075,7 @@
             "description": "Go back",
             "next_node_id": "00000021",
             "requires": "",
-            "receives": "knife",
+
             "chance_of_death": "0",
             "death_description": ""
         }]
@@ -1092,6 +1095,7 @@
                 "description": "Punt the turtle",
                 "next_node_id": "00000037",
                 "requires": "",
+                "receives": "heartpiece1",
                 "chance_of_death": "02",
                 "death_description": "Right before you punt the turtle, a figure Charlie Brown's ya' and you fall unto the ground. You die of shame and an axe to your throat."
             }
@@ -1105,7 +1109,6 @@
             "description": "Moonwalk out of the cave",
             "next_node_id": "00000015",
             "requires": "",
-            "receives": "heartpiece1",
             "chance_of_death": "02",
             "death_description": "As you moonwalk away, you bump into a warm wall...and by a warm wall I mean a human being with the intent to murder you...and by the intent to murder you I mean he murders you."
         }]
@@ -1144,6 +1147,7 @@
                 "description": "Hide in the pantry",
                 "next_node_id": "00000040",
                 "requires": "",
+                "receives": "rustyspoon",
                 "chance_of_death": "00",
                 "death_description": "As you moonwalk away, you bump into a warm wall...and by a warm wall I mean a human being with the intent to murder you...and by the intent to murder you I mean he murders you."
             },
@@ -1170,7 +1174,7 @@
             "description": "Leave the pantry",
             "next_node_id": "00000041",
             "requires": "",
-            "receives": "rustyspoon",
+
             "chance_of_death": "00",
             "death_description": "As you moonwalk away, you bump into a warm wall...and by a warm wall I mean a human being with the intent to murder you...and by the intent to murder you I mean he murders you."
         }]
@@ -1181,7 +1185,7 @@
         "description": "An empty room with an empty bowl in front of an empty chair.",
         "story_options": [{
                 "description": "Enter Cellar",
-                "next_node_id": "00000042",
+                "next_node_id": "00000048",
                 "requires": "flashlight",
                 "chance_of_death": "00",
                 "death_description": "As you moonwalk away, you bump into a warm wall...and by a warm wall I mean a human being with the intent to murder you...and by the intent to murder you I mean he murders you."
@@ -1197,7 +1201,7 @@
     },
     {
         "id": "00000042",
-        "location": "Inside Cellar",
+        "location": "Inside Cellar Unused",
         "description": "Mounted animals encompass every wall with pelts lining the floor and covering the single chair in the room. Something smells...good",
         "story_options": [{
                 "description": "Leave",
@@ -1224,7 +1228,7 @@
     {
         "id": "00000043",
         "location": "Inside Cabin",
-        "description": "Mounted animals encompass every wall with pelts lining the floor and covering the single chair in the room. Something smells...good",
+        "description": "Mounted animals encompass every wall with pelts lining the floor and covering the single chair in the room.",
         "story_options": [{
                 "description": "Enter kitchen",
                 "next_node_id": "00000041",
@@ -1233,7 +1237,7 @@
                 "death_description": ""
             },
             {
-                "description": "Go up the stairs",
+                "description": "Go upstairs",
                 "next_node_id": "00000044",
                 "requires": "",
                 "chance_of_death": "02",
@@ -1297,6 +1301,7 @@
                 "description": "Pry open with a knife",
                 "next_node_id": "00000047",
                 "requires": "knife",
+                "receives": "heartpiece2",
                 "chance_of_death": "00",
                 "death_description": ""
             },
@@ -1317,14 +1322,14 @@
             "description": "Put chest back under the bed.",
             "next_node_id": "00000045",
             "requires": "",
-            "receives": "heartpiece2",
+
             "chance_of_death": "00",
             "death_description": "As you moonwalk away, you bump into a warm wall...and by a warm wall I mean a human being with the intent to murder you...and by the intent to murder you I mean he murders you."
         }]
     },
     {
         "id": "00000048",
-        "location": "Inside Cellar",
+        "location": "Cellar Hallway",
         "description": "It's a long, dark hallway. The old man is no where in sight.",
         "story_options": [{
                 "description": "Go farther in",
@@ -1349,7 +1354,7 @@
     },
     {
         "id": "00000049",
-        "location": "Inside Cellar",
+        "location": "Cellar Hallway",
         "description": "You come across a door to your right",
         "story_options": [{
                 "description": "Enter in",
@@ -1374,7 +1379,7 @@
                 "death_description": ""
             },
             {
-                "description": "Go farther in",
+                "description": "Continue down the hallway",
                 "next_node_id": "00000051",
                 "chance_of_death": "00",
                 "death_description": "The grammar police burst in yelling something like \"Further\" is for metaphorical distance and \"farther\" is for physical distance. They kill you on the spot."
@@ -1394,6 +1399,7 @@
         "description": "You shine your light on a wolf in the middle of the room. Growling it charges towards you, but you pistol-whip your flaregun and shoot it. As it smolders and dies, it fades out, and a chest fades in.",
         "story_options": [{
             "description": "Open chest",
+            "receives": "heartpiece3",
             "next_node_id": "00000053",
             "chance_of_death": "00",
             "death_description": "A wolf greets you on the other side and lunges on you, digging deeply into your throat. He then proceeds to wolf down his dinner."
@@ -1401,7 +1407,7 @@
     },
     {
         "id": "00000051",
-        "location": "Inside Cellar",
+        "location": "Cellar Hallway",
         "description": "You reach the end of the hallway. There's a door with light shining near the bottom. You can hear people from the other side.",
         "story_options": [{
                 "description": "Go back",
@@ -1478,8 +1484,8 @@
         "description": "You open the chest to see a mason jar containing a heart. You can't help but give a hearty laugh and take it.",
         "story_options": [{
             "description": "Leave the room",
-            "next_node_id": "00000050",
-            "receives": "heartpiece3",
+            "next_node_id": "00000049",
+
             "chance_of_death": "00",
             "death_description": "A wolf greets you on the other side and lunges on you, digging deeply into your throat. He then proceeds to wolf down his dinner."
         }]
@@ -1541,6 +1547,7 @@
                 "description": "Continue pulling",
                 "next_node_id": "00000058",
                 "requires": "heartpiece3",
+                "receives": "mastersword",
                 "chance_of_death": "00",
                 "death_description": "The life completely drains from you"
             }
@@ -1549,12 +1556,12 @@
     {
         "id": "00000058",
         "location": "Opening in woods",
-        "description": "YThe sword pulls out, and you fist pump both hands into the air yelling \"I am the master commander!!\".",
+        "description": "The sword pulls out, and you fist pump both hands into the air yelling \"I am the master commander!!\".",
         "story_options": [{
             "description": "Leave like a boss",
             "next_node_id": "00000016",
             "not_requires": "heartpiece3",
-            "receives": "mastersword",
+
             "chance_of_death": "100",
             "death_description": "The life completely drains from you as you crumple on the forest floor."
         }]
