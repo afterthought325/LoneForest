@@ -274,8 +274,9 @@
             },
             {
                 "description": "Go west",
+                "next_node_id": "00000011",
                 "requires": "",
-                "chance_of_death": "02",
+                "chance_of_death": "100",
                 "death_description": "You see an irrestibly, shining object in a bottle lodged in the ground. You reach in and grab it, what joy!...but you can't pull your fist out. You're not going to leave without it, so you die of dehydration."
             }
         ]
@@ -394,9 +395,10 @@
             },
             {
                 "description": "Go west",
+                "next_node_id": "00000008",
                 "requires": "",
-                "chance_of_death": "100",
-                "death_description": "You fall into a pit full of spikes.  Yes, the cliche pit of spikes. And yes, you die falling into the pit of cliche spikes."
+                "chance_of_death": "02",
+                "death_description": "You hear banjo music and then an arrow shoots into your eye. Bullseye!"
             }
         ]
     },
@@ -980,10 +982,10 @@
     {
         "id": "00000031",
         "location": "Town",
-        "description": "You run into the town. Smeared in dirt and covered in bruises, you grab a startled townsfolk, yelling at them to call the police. They come and pick you up, hear your story, and give you a place to stay for the night. Congratulations, you didn't die.",
+        "description": "You run into the town. Smeared in dirt and covered in bruises, you grab a startled townsfolk, yelling at them to call the police. In hindsight, they probably would've called the police anyways. They come and pick you up, hear your story, and give you a place to stay for the night. Congratulations, you didn't die.",
         "story_options": [{
-            "description": "Drive Home",
-            "next_node_id": "00000000",
+            "description": "Sleep for the night",
+            "next_node_id": "00000060",
             "requires": "",
             "chance_of_death": "00",
             "death_description": ""
@@ -1104,7 +1106,7 @@
     {
         "id": "00000037",
         "location": "By oddly hatted fellow",
-        "description": "As the turtle flew throught the air, you realize it was paper mache #noanimalcruelity.  The fellow looks at you and says\"THANK YOU! BUT OUR PRINCESS IS IN ANOTHER CASTLE! HERE'S A HEART IN A JAR AS A CONSOLATION!\"",
+        "description": "As the turtle flew throught the air, you realize it was paper mache (#noanimalcruelity).  The fellow looks at you and says\"THANK YOU! BUT OUR PRINCESS IS IN ANOTHER CASTLE! HERE'S A HEART IN A JAR AS A CONSOLATION!\"",
         "story_options": [{
             "description": "Moonwalk out of the cave",
             "next_node_id": "00000015",
@@ -1496,7 +1498,7 @@
         "description": "Just an empty room with an opened chest. Smells like burnt fur...",
         "story_options": [{
             "description": "Leave the room",
-            "next_node_id": "00000050",
+            "next_node_id": "00000049",
             "chance_of_death": "00",
             "death_description": "A wolf greets you on the other side and pounces on you, digging deeply into your throat. He then proceeds to wolf down his dinner."
         }]
@@ -1507,7 +1509,7 @@
         "description": "The old man lunges at you, swinging the axe down from above. You barrel roll to the left and stab him through with the sword. The crowd gets up and merges towards you. Taking the crown from the old man's head, they place it on yours. Congratulations King.",
         "story_options": [{
             "description": "Play again?",
-            "next_node_id": "00000050",
+            "next_node_id": "00000000",
             "chance_of_death": "00",
             "death_description": "A wolf greets you on the other side and pounces on you, digging deeply into your throat. He then proceeds to wolf down his dinner."
         }]
@@ -1560,9 +1562,7 @@
         "story_options": [{
             "description": "Leave like a boss",
             "next_node_id": "00000016",
-            "not_requires": "heartpiece3",
-
-            "chance_of_death": "100",
+            "chance_of_death": "0",
             "death_description": "The life completely drains from you as you crumple on the forest floor."
         }]
     },
@@ -1575,6 +1575,18 @@
             "next_node_id": "00000016",
             "requires": "",
             "chance_of_death": "02",
+            "death_description": "Your foot hits a trip-wire causing a log to swing into your skull. You bleed to death on the cold forest floor. Boo hoo."
+        }]
+    },
+    {
+        "id": "00000060",
+        "location": "Lone forest",
+        "description": "You sit up. The blinding light hits your eyes making you realize you have a splitting headache. After your eyes adjust you look around to see the woods again... You look down at your belly to see a scar... they took your kidney.",
+        "story_options": [{
+            "description": "Get up",
+            "next_node_id": "00000007",
+            "requires": "",
+            "chance_of_death": "00",
             "death_description": "Your foot hits a trip-wire causing a log to swing into your skull. You bleed to death on the cold forest floor. Boo hoo."
         }]
     }

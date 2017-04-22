@@ -39,6 +39,7 @@ class User {
         return this.inventory_list;
     }
     clear_inventory() {
+        this.inventory_list = [];
         $.post("../js/user.php", { clear_inventory: "value" })
             .done(function(data) {
                 console.log("User.js: Inventory List cleared");
