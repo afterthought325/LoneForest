@@ -110,6 +110,17 @@ class StoryTeller {
         //Adding Description
         $("#Description").text(this.story_node.description);
         $("#Description").hide().delay(1000).fadeIn(1000);
+        let inv_list = this.user.inventory_list;
+        if (inv_list.length > 0){
+            $('#InventoryTab').empty();
+            for (let x = 0; x < inv_list.length; x++){
+                let item = inv_list[x];
+                let item_el = $("<code></code>").text(item);
+                item_el.addClass("Inventory");
+                $('#InventoryTab').append(item_el);
+                $("#InventoryTab").append($("<br>"));
+            }
+        }
         //Removing Previous Story Options
         $("#StoryOptions").empty();
         // Adding Story Options
