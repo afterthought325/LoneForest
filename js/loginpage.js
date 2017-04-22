@@ -1,3 +1,16 @@
+function check(input)
+{
+    if (input.value != document.getElementById('swal-input4').value)
+    {
+        input.setCustomValidity('Password Must be Matching.');
+    }
+    else
+    {
+        // input is valid -- reset the error message
+        input.setCustomValidity('');
+    }
+}
+
 $(document).ready(function(){
 
 var reloaded = getCookie("reloaded");
@@ -108,7 +121,7 @@ $('#login').on('click', function ()
       $('#swal-input1').focus()
     }
 }).catch(swal.noop)
-})
+});
 
 $('#register').on('click', function ()
 {
@@ -121,8 +134,9 @@ $('#register').on('click', function ()
       'Last Name:<input type="text" id="swal-input2" class="swal2-input" placeholder="last name" name="surname" required/>' +
       'Username:<input type="text" id="swal-input3" class="swal2-input" placeholder="username" name="username" required/>' +
       'Password<input type="password" id="swal-input4" class="swal2-input" placeholder="password" name="password" required/>' +
-      'What is your mother\'s maiden name?<input type="text" id="swal-input5" class="swal2-input" placeholder="Security Question 1" name="security1" required/>' +
-      'What street did you grow up on?<input type="text" id="swal-input6" class="swal2-input" placeholder="Security Question 2" name="security2" required/>' +
+      'Re-type Password:<input type="password" id="swal-input5" class="swal2-input" placeholder="password" name="passwordconfirm" oninput="check(this)" required/>' +
+      'What is your mother\'s maiden name?<input type="text" id="swal-input6" class="swal2-input" placeholder="Security Question 1" name="security1" required/>' +
+      'What street did you grow up on?<input type="text" id="swal-input7" class="swal2-input" placeholder="Security Question 2" name="security2" required/>' +
       '<button type="submit" class="confirm-button">Register</button>' +
     '</form>',
     showConfirmButton: false,
@@ -138,7 +152,8 @@ $('#register').on('click', function ()
           $('#swal-input3').val(),
           $('#swal-input4').val(),
           $('#swal-input5').val(),
-          $('#swal-input6').val()
+          $('#swal-input6').val(),
+            $('#swal-input7').val()
         ])
       })
     },
@@ -147,13 +162,13 @@ $('#register').on('click', function ()
       $('#swal-input1').focus()
     }
   }).catch(swal.noop)
-})
+});
 
 $('#about').on('click', function () {
   swal(
   {
     title: 'Hello!',
-    text: 'Lone Forest is a text-based adventure game where you must find your way through the forest. Log in or Register an account to begin playing.',
+    text: 'Lone Forest is a text-based adventure game where you must find your way through the forest, created by DCSP Group A. Log in or Register an account to begin playing.',
     type: 'info',
     showCancelButton: false,
     confirmButtonColor: '#3085d6',

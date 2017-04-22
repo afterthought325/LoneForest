@@ -28,6 +28,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
       <input type="text" placeholder="last name" name="surname" required/>
       <input type="text" placeholder="username" name="username" required/>
       <input type="password" placeholder="password" name="password" required/>
+      <input type="password" placeholder="password" name="passwordconfirm" required/>
       <input type="text" placeholder="What is your mother's maiden name?" name="security1" required/>
       <input type="text" placeholder="What street did you grow up on?" name="security2" required/>
       <button>create</button>
