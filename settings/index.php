@@ -48,6 +48,7 @@ if (!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True))
             <button class='options-buttons w3-col s12 m6 l3 w3-btn w3-section w3-mobile w3-deep-purple' value='deep-purple' onClick='updateTheme(this.value)'>Deep Purple</button>
             <button class='options-buttons w3-col s12 m6 l3 w3-btn w3-section w3-mobile w3-teal' value='teal' onClick='updateTheme(this.value)'>Teal</button>
             <button class='options-buttons w3-col s12 m6 l3 w3-btn w3-section w3-mobile w3-cyan' value='cyan' onClick='updateTheme(this.value)'>Cyan</button>
+            <button class='options-buttons w3-col s12 m6 l3 w3-btn w3-section w3-mobile w3-black' value='black' onClick='updateTheme(this.value)'>Black</button>
           </div>
         </div>
         <div class="w3-row">

@@ -71,7 +71,6 @@ class StoryTeller {
         let death = getRandomInt(1, 100); // play with fate and determine the death rate
 
         if (chance_of_death >= death) {
-            //TODO: need to replace this with a sweetalert
             swal({
                 title: "The End...",
                 text: this.selected_option.death_description,
@@ -79,10 +78,10 @@ class StoryTeller {
             });
             this.user.clear_inventory();
             this.selected_option = null;
-            this.story_node_uid == 0;
+            this.story_node_uid = 0;
         }
         this.proceed_to_next_node();
-        this.update_page()
+        this.update_page();
         return true;
 
 
