@@ -1,6 +1,6 @@
-function check(input)
+function check(input, where)
 {
-    if (input.value != document.getElementById('swal-input4').value)
+    if (input.value != document.getElementById(where).value)
     {
         input.setCustomValidity('Password Must be Matching.');
     }
@@ -9,6 +9,14 @@ function check(input)
         // input is valid -- reset the error message
         input.setCustomValidity('');
     }
+}
+function clearCookies()
+{
+  eraseCookie("login");
+  eraseCookie("reloaded");
+  eraseCookie("logged_in");
+  eraseCookie("pwd_changed");
+  eraseCookie("account_created");
 }
 
 $(document).ready(function(){
@@ -20,6 +28,9 @@ if (reloaded == "true")
   {
    var login = getCookie("login");
    var logged_in = getCookie("logged_in");
+   var pwd_changed = getCookie("pwd_changed");
+   var sq_check = getSessionVar("sq_check", "getSessionVariables.php");
+   console.log(sq_check);
    if (logged_in == "true" && login == "true")
    {
       swal(
@@ -32,18 +43,41 @@ if (reloaded == "true")
          confirmButtonText: 'Lets play!'
       }).then(function ()
       {
-        eraseCookie("logged_in");
-        eraseCookie("login");
-        eraseCookie("account_created");
-        eraseCookie("username_in_use");
-        eraseCookie("register");
-        eraseCookie("reloaded");
+        clearCookies();
         window.location.reload(false);
       })
    }
-   else if (login == "true")
+   else if ((login == "true") && !(sq_check == 1))
    {
      throw 'Those are the wrong credentials.';
+   }
+   if (sq_check == 1)
+   {
+     swal(
+       {
+         title: 'Please enter your new password',
+         html: ''+
+         '<form method="post" action="changePassword.php">'+
+         'Password:<input class="swal2-input" type="password" placeholder="password" name="newpwd" id="password" required/>'+
+         'Re-Type Password:<input class="swal2-input" type="password" placeholder="password" name="password_confirm" oninput="check(this, "password")" required/>'+
+         '<button type="submit" class="confirm-button">Reset</button>'+
+         '</form>',
+         showCancelButton: false,
+         showConfirmButton: false,
+         onOpen: function ()
+         {
+           $('#password').focus()
+         }
+       })
+   }
+   if (pwd_changed == "true")
+   {
+     clearCookies();
+     swal(
+       'Success!',
+       'Your password has been changed!',
+       'success'
+     )
    }
    var account_created = getCookie("account_created");
    var register = getCookie("register");
@@ -59,12 +93,7 @@ if (reloaded == "true")
        confirmButtonText: 'Let me log in!'
      }).then(function ()
      {
-       eraseCookie("logged_in");
-       eraseCookie("login");
-       eraseCookie("account_created");
-       eraseCookie("username_in_use");
-       eraseCookie("register");
-       eraseCookie("reloaded");
+       clearCookies();
        window.location.reload(false);
      })
    }
@@ -83,12 +112,7 @@ if (reloaded == "true")
   }
   catch(err)
   {
-   eraseCookie("logged_in");
-   eraseCookie("login");
-   eraseCookie("account_created");
-   eraseCookie("username_in_use");
-   eraseCookie("register");
-   eraseCookie("reloaded");
+   clearCookies();
    swal(
      {
        title:'Sorry!',
@@ -134,7 +158,7 @@ $('#register').on('click', function ()
       'Last Name:<input type="text" id="swal-input2" class="swal2-input" placeholder="last name" name="surname" required/>' +
       'Username:<input type="text" id="swal-input3" class="swal2-input" placeholder="username" name="username" required/>' +
       'Password<input type="password" id="swal-input4" class="swal2-input" placeholder="password" name="password" required/>' +
-      'Re-type Password:<input type="password" id="swal-input5" class="swal2-input" placeholder="password" name="passwordconfirm" oninput="check(this)" required/>' +
+      'Re-type Password:<input type="password" id="swal-input5" class="swal2-input" placeholder="password" name="passwordconfirm" oninput="check(this, "swal-input4")" required/>' +
       'What is your mother\'s maiden name?<input type="text" id="swal-input6" class="swal2-input" placeholder="Security Question 1" name="security1" required/>' +
       'What street did you grow up on?<input type="text" id="swal-input7" class="swal2-input" placeholder="Security Question 2" name="security2" required/>' +
       '<button type="submit" class="confirm-button">Register</button>' +
@@ -174,5 +198,28 @@ $('#about').on('click', function () {
     confirmButtonColor: '#3085d6',
     confirmButtonText: 'Cool'
   })
+})
+
+$('#reset').on('click', function () {
+  swal(
+  {
+    title: 'Confirm your identity',
+    html: ''+
+    '<form method="post" action="checkSecurity.php">'+
+      'Username:<input id="swal-input1" class="swal2-input" type="text"name="username" required/>'+
+      'What is your mother\'s maiden name?<input id="swal-input2" class="swal2-input" type="text" placeholder="Security Question 1" name="security1" required/>'+
+      'What street did you grow up on?<input id="swal-input3" class="swal2-input" type="text" placeholder="Security Question 1" name="security2" required/>'+
+      '<button type="submit" class="confirm-button">Continue</button>'+
+    '</form>',
+    showConfirmButton: false,
+    showCancelButton: false,
+    onOpen: function ()
+    {
+      $('#swal-input1').focus()
+    }
+  }).then(function ()
+{
+  window.location.reload(false);
+})
 })
 });

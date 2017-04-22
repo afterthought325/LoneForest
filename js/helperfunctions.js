@@ -73,9 +73,9 @@ function getCookie(cname) {
     return "";
 }
 
-function getSessionVar(variable)
+function getSessionVar(variable, loc = '../getSessionVariables.php')
 {
-  return httpGet('../getSessionVariables.php?s_var='+variable, false);
+  return httpGet(loc+'?s_var='+variable, false);
 }
 
 
