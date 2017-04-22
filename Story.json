@@ -1433,25 +1433,25 @@
                 "description": "Flashlight",
                 "requires": "flashlight",
                 "chance_of_death": "100",
-                "death_description": ""
+                "death_description": "The flashlight was actually a gun. While inspecting its batteries you shoot yourself in the face as the crowd looks on in confusion."
             },
             {
                 "description": "Flaregun",
                 "requires": "flaregun",
                 "chance_of_death": "100",
-                "death_description": ""
+                "death_description": "You shoot the flaregun at the old man, which illuminates his charge as he rolls and removes your head with his axe."
             },
             {
                 "description": "Knife",
                 "requires": "knife",
                 "chance_of_death": "100",
-                "death_description": ""
+                "death_description": "The knife looks really small in comparison to his axe. You throw the knife at him and he catches it by the handle. He throws it back into your heart, and you die."
             },
             {
                 "description": "Rusty Spoon",
                 "requires": "rustyspoon",
                 "chance_of_death": "100",
-                "death_description": ""
+                "death_description": "Though it looks humble, you sense something ancient about this spoon. As the old man swings his axe at you, you close your eyes and hold the spoon up. You block his axe, and gain confidence. The old man is on the defensive. You look at your hand and see that it is bleeding from the spoon, you have tetanous. The old man laughs at you and leaves you to slowly die."
             },
             {
                 "description": "Heart container 1",
