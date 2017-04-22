@@ -113,5 +113,27 @@ if(isset($_POST['set_location'])){
     echo "$location";
 }
 
+//updates death count
+if(isset($_POST['set_deaths'])){
+    $query = "UPDATE statistics SET deaths=deaths+1;";
+    $result = $connection->query($query);
+    if(!$result) die($connection->error);
+    echo "true";
+}
+//updates win count
+if(isset($_POST['set_wins'])){
+    $query = "UPDATE statistics SET wins=wins+1;";
+    $result = $connection->query($query);
+    if(!$result) die($connection->error);
+    echo "true";
+}
+//updates kidneys donated
+if(isset($_POST['set_kidneys'])){
+    $query = "UPDATE statistics SET kidneys=kidneys+1;";
+    $result = $connection->query($query);
+    if(!$result) die($connection->error);
+    echo "true";
+}
+
 
 ?>

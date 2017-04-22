@@ -63,6 +63,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
       <button class="w3-bar-item w3-button w3-hover-theme"
       onclick="w3_close()">Close &times;</button>
       <a href="../" class="w3-bar-item w3-button w3-hover-theme">Home</a>
+      <a href="../statistics" class="w3-bar-item w3-button w3-hover-theme">Statistics</a>
       <a href="../settings" class="w3-bar-item w3-button w3-hover-theme">Settings</a>
       <a href="../logout" class="w3-bar-item w3-button w3-hover-theme">Logout</a>
     </div>

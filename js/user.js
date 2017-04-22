@@ -70,4 +70,27 @@ class User {
                 return true
             })
     }
+    add_death() {
+        $.post("../js/user.php", { set_deaths: "value" })
+            .done(function(data) {
+                console.log("User.js: Death added == " + data);
+                return true;
+            })
+    }
+    add_win() {
+        $.post("../js/user.php", { set_wins: "value" })
+            .done(function(data) {
+                console.log("User.js: win added == " + data);
+                return true;
+            })
+    }
+    add_kidney() {
+        $.post("../js/user.php", { set_kidneys: "value" })
+            .done(function(data) {
+                console.log("User.js: kidney added == " + data);
+                return true;
+            })
+    }
+
+
 }

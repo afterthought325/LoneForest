@@ -76,6 +76,7 @@ class StoryTeller {
                 text: this.selected_option.death_description,
                 imageUrl: "../images/death.jpeg"
             });
+            this.user.add_death();
             $('#InventoryTab').empty();
             $('#InventoryTab').append("<code>You do not have anything in your Inventory</code>");
             this.user.clear_inventory();
@@ -110,6 +111,9 @@ class StoryTeller {
         $("#Location").text(this.story_node.location);
         $("#Location").hide().fadeIn(1000);
         //Adding Description
+        if (this.story_node.id == "00000060") {
+            this.user.add_kidney();
+        }
         if (this.story_node.id == "00000055") {
             // if (this.story_node.id != null) {
             var string = this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
@@ -126,6 +130,7 @@ class StoryTeller {
                 }
             }, 1000);
             this.user.clear_inventory();
+            this.user.add_win();
         } else {
             $("#Description").text(this.story_node.description);
             $("#Description").hide().delay(1000).fadeIn(1000);
