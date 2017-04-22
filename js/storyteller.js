@@ -76,6 +76,8 @@ class StoryTeller {
                 text: this.selected_option.death_description,
                 imageUrl: "../images/death.jpeg"
             });
+            $('#InventoryTab').empty();
+            $('#InventoryTab').append("<code>You do not have anything in your Inventory</code>");
             this.user.clear_inventory();
             this.selected_option = null;
             this.story_node_uid = 0;
@@ -109,12 +111,12 @@ class StoryTeller {
         $("#Location").hide().fadeIn(1000);
         //Adding Description
         if (this.story_node.id == "00000055") {
-        // if (this.story_node.id != null) {
+            // if (this.story_node.id != null) {
             var string = this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
             var dest = $('#Description');
             dest.text("");
             var c = 0;
-            var j = setInterval(function () {
+            var j = setInterval(function() {
                 if (c >= string.length) {
                     clearInterval(j);
                     //dest.text(string);
@@ -123,14 +125,15 @@ class StoryTeller {
                     c += 1;
                 }
             }, 1000);
+            this.user.clear_inventory();
         } else {
             $("#Description").text(this.story_node.description);
             $("#Description").hide().delay(1000).fadeIn(1000);
         }
         let inv_list = this.user.inventory_list;
-        if (inv_list.length > 0){
+        if (inv_list.length > 0) {
             $('#InventoryTab').empty();
-            for (let x = 0; x < inv_list.length; x++){
+            for (let x = 0; x < inv_list.length; x++) {
                 let item = inv_list[x];
                 let item_el = $("<code></code>").text(item);
                 item_el.addClass("Inventory");
@@ -180,7 +183,7 @@ class StoryTeller {
 
             }
         }
-        if (this.story_node.id == "00000055"){
+        if (this.story_node.id == "00000055") {
             $("#StoryOptions").hide().delay(this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length * 1000).fadeIn(500);
         } else {
             $("#StoryOptions").hide().delay(2000).fadeIn(500);
