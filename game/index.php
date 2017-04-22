@@ -78,8 +78,17 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
         </div>
         <div class="w3-row-padding">
             <div class="w3-container w3-threequarter">
-                <h3 id="Location"></h3>
-                <code id="Description">Description </code>
+                <div class="w3-bar ">
+                    <button class="w3-bar-item w3-theme-l1 w3-button" onclick="openTab('DescriptionTab')">Description</button>
+                    <button class="w3-bar-item w3-theme-l1 w3-button" onclick="openTab('InventoryTab')">Inventory</button>
+                </div>
+                <div id="DescriptionTab" class="tab">
+                    <h3 id="Location"></h3>
+                    <code id="Description">Description </code>
+                </div>
+                <div id="InventoryTab" class="tab" style="display:none">
+                    <code id="Inventory">You do not have anything in your Inventory</code>
+                </div>
             </div>
             <br>
             <div class="w3-container w3-rest" id="StoryOptions" onClick="ST.update_story_node(event);">
@@ -91,6 +100,15 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             //alert('"Man is the most dangerous animal of all to kill." \n - The Most Dangerous Game');
             ST = new StoryTeller();
         });
+
+        function openTab(tabName) {
+            var i;
+            var x = document.getElementsByClassName("tab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        }
     </script>
 </body>
 </html>
