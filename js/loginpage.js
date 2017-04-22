@@ -1,6 +1,6 @@
 function check(input)
 {
-    if (input.value != document.getElementById('password').value)
+    if (input.value != document.getElementById('swal-input4').value)
     {
         input.setCustomValidity('Password Must be Matching.');
     }
@@ -133,7 +133,7 @@ $('#register').on('click', function ()
       'First Name:<input type="text" id="swal-input1" class="swal2-input" placeholder="first name" name="firstname" required/>' +
       'Last Name:<input type="text" id="swal-input2" class="swal2-input" placeholder="last name" name="surname" required/>' +
       'Username:<input type="text" id="swal-input3" class="swal2-input" placeholder="username" name="username" required/>' +
-      'Password<input type="password" id="swal-input4" class="swal2-input" placeholder="password" name="password" id="password" required/>' +
+      'Password<input type="password" id="swal-input4" class="swal2-input" placeholder="password" name="password" required/>' +
       'Re-type Password:<input type="password" id="swal-input5" class="swal2-input" placeholder="password" name="passwordconfirm" oninput="check(this)" required/>' +
       'What is your mother\'s maiden name?<input type="text" id="swal-input6" class="swal2-input" placeholder="Security Question 1" name="security1" required/>' +
       'What street did you grow up on?<input type="text" id="swal-input7" class="swal2-input" placeholder="Security Question 2" name="security2" required/>' +
