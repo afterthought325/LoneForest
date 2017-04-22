@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
 <?php
 session_start();
@@ -15,8 +17,6 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 ?>
 
 
-<!DOCTYPE html>
-<html>
 <meta name="description" content="A simple text adventure about finding your way back through the forest.">
 <meta name="author" content="DCSP Spring 2017 Group A">
 
