@@ -108,8 +108,25 @@ class StoryTeller {
         $("#Location").text(this.story_node.location);
         $("#Location").hide().fadeIn(1000);
         //Adding Description
-        $("#Description").text(this.story_node.description);
-        $("#Description").hide().delay(1000).fadeIn(1000);
+        if (this.story_node.id == "00000055") {
+        // if (this.story_node.id != null) {
+            var string = this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
+            var dest = $('#Description');
+            dest.text("");
+            var c = 0;
+            var j = setInterval(function () {
+                if (c >= string.length) {
+                    clearInterval(j);
+                    //dest.text(string);
+                } else {
+                    $('<span>').text(string[c]).appendTo(dest).hide().fadeIn(1000);
+                    c += 1;
+                }
+            }, 1000);
+        } else {
+            $("#Description").text(this.story_node.description);
+            $("#Description").hide().delay(1000).fadeIn(1000);
+        }
         //Removing Previous Story Options
         $("#StoryOptions").empty();
         // Adding Story Options
@@ -152,6 +169,10 @@ class StoryTeller {
 
             }
         }
-        $("#StoryOptions").hide().delay(2000).fadeIn(500);
+        if (this.story_node.id == "00000055"){
+            $("#StoryOptions").hide().delay(this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length * 1000).fadeIn(500);
+        } else {
+            $("#StoryOptions").hide().delay(2000).fadeIn(500);
+        }
     }
 }
