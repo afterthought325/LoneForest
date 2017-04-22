@@ -350,7 +350,7 @@
                 "requires": "",
                 "not_requires": "",
                 "chance_of_death": "100",
-                "death_description": "You start crossing the freezing river, but you're adament and keep crossing. An electrical current is sent into the water current. You die, shockingly."
+                "death_description": "You start crossing the freezing river, but you're adamant and keep crossing. An electrical current is sent into the water current. You die, shockingly."
             },
             {
                 "description": "Go south",
