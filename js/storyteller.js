@@ -77,7 +77,7 @@ class StoryTeller {
                 imageUrl: "../images/death.jpeg"
             });
             $('#InventoryTab').empty();
-            $('#InventoryTab').append("<code>You do not have anything in your Inventory</code>");
+            $('#InventoryTab').append("<br><code>You do not have anything in your inventory.</code>");
             this.user.clear_inventory();
             this.selected_option = null;
             this.story_node_uid = 0;
@@ -135,7 +135,7 @@ class StoryTeller {
             $('#InventoryTab').empty();
             for (let x = 0; x < inv_list.length; x++) {
                 let item = inv_list[x];
-                let item_el = $("<code></code>").text(item);
+                let item_el = $("<br><code></code>").text(item);
                 item_el.addClass("Inventory");
                 $('#InventoryTab').append(item_el);
                 $("#InventoryTab").append($("<br>"));

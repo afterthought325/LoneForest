@@ -78,18 +78,12 @@ function getSessionVar(variable, loc = '../getSessionVariables.php')
   return httpGet(loc+'?s_var='+variable, false);
 }
 
-
 function w3_open() {
-  document.getElementById("main").style.marginLeft = "200px";
-  document.getElementById("mySidebar").style.width = "200px";
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("openNav").style.display = 'none';
+    document.getElementById("mySidebar").style.display = "block";
 }
 function w3_close() {
-  document.getElementById("main").style.marginLeft = "0%";
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("openNav").style.display = "inline-block";
-}
+    document.getElementById("mySidebar").style.display = "none";
+} 
 
 /**
  * Returns a random integer between min (inclusive) and max (inclusive)
