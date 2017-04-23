@@ -5,28 +5,34 @@ if (!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True))
   exit();
 }
 ?>
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Statistics Page</title>
+    <title>Settings Page</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="../js/jquery.js"></script>
-	<script src="../js/changeTheme.js" type="text/javascript"></script>
+		<script src="../js/changeTheme.js" type="text/javascript"></script>
+		<script src="../js/settingspage.js" type="text/javascript"></script>
     <script src="../js/helperfunctions.js"></script>
     <script src="../swal/sweetalert2.min.js"></script>
 
   	<link rel="stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css">
   	<link rel="stylesheet" id="ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
+    <link rel="stylesheet" href="../css/settingspage.css">
     <link rel="stylesheet" href="../swal/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-	<body class="w3-theme-l4 w3-card-3">
+	<body class="w3-theme-l2 w3-card-3">
     <script>changeTheme();</script>
 		<div class="w3-main" >
-			<div class="w3-container w3-theme-d4 w3-card-3">
-				<h1>Statistics Page</h1>
-			</div>
+			<div class="w3-theme-d4">
+                <a class="w3-btn w3-large" href="../game/"><i class="fa fa-arrow-left"></i></a>
+			    <div class="w3-container">
+			    	<h1 class="w3-cell-middle">Settings Page</h1>
+        	    </div>
+            </div>
 <?php
 
 require_once '../login.php';
@@ -48,6 +54,5 @@ $connection->close();
 
 ?>
 
-<div class="w3-row">
-          <a class='w3-theme-d3 w3-col s8 m4 l4 w3-btn w3-section w3-content w3-block options-buttons italics' href="../game/">Back to game</a><br><br>
-</div>
+
+</html>

@@ -25,7 +25,7 @@ if (!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True))
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-	<body class="w3-theme-l4 w3-card-3">
+	<body class="w3-theme-l2 w3-card-3">
     <script>changeTheme();</script>
 		<div class="w3-main" >
             <div class="w3-theme-d4">
@@ -44,7 +44,7 @@ if (!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True))
             </div>
             <div id='ThemeOptions' class="w3-center w3-row-padding">
               <div class="w3-xlarge">Select a theme color</div>
-              <div class="w3-theme-l4 w3-row">
+              <div class="w3-theme-l2 w3-row">
                 <button class='options-buttons w3-col s12 m6 l3 w3-btn w3-section w3-mobile w3-grey' value='grey' onClick='updateTheme(this.value)'>Grey</button>
                 <button class='options-buttons w3-col s12 m6 l3 w3-btn w3-section w3-mobile w3-blue-grey' value='blue-grey' onClick='updateTheme(this.value)'>Blue-Grey</button>
                 <button class='options-buttons w3-col s12 m6 l3 w3-btn w3-section w3-mobile w3-red' value='red' onClick='updateTheme(this.value)'>Red</button>
