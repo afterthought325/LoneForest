@@ -78,7 +78,7 @@ class StoryTeller {
             });
             this.user.add_death();
             $('#InventoryTab').empty();
-            $('#InventoryTab').append("<code>You do not have anything in your Inventory</code>");
+            $('#InventoryTab').append("<br><code>You do not have anything in your inventory.</code>");
             this.user.clear_inventory();
             this.selected_option = null;
             this.story_node_uid = 0;
@@ -125,10 +125,10 @@ class StoryTeller {
                     clearInterval(j);
                     //dest.text(string);
                 } else {
-                    $('<span>').text(string[c]).appendTo(dest).hide().fadeIn(1000);
+                    $('<span>').html(string[c]+'<br />').appendTo(dest).hide().fadeIn(1000);
                     c += 1;
                 }
-            }, 1000);
+            }, 2000);
             this.user.clear_inventory();
             this.user.add_win();
         } else {
@@ -140,7 +140,7 @@ class StoryTeller {
             $('#InventoryTab').empty();
             for (let x = 0; x < inv_list.length; x++) {
                 let item = inv_list[x];
-                let item_el = $("<code></code>").text(item);
+                let item_el = $("<br><code></code>").text(item);
                 item_el.addClass("Inventory");
                 $('#InventoryTab').append(item_el);
                 $("#InventoryTab").append($("<br>"));
@@ -171,7 +171,7 @@ class StoryTeller {
                 for (var i = 0; i < invLength; i++) {
                     if (inv[i] == option.requires) {
                         var btn = $("<div></div>").text(option.description);
-                        btn.addClass("w3-btn w3-block w3-theme-d3 w3-section options-buttons");
+                        btn.addClass("w3-container w3-mobile w3-theme-d3 w3-section options-buttons");
                         btn.css("width:100%");
                         btn.val(x);
                         $("#StoryOptions").append(btn);
@@ -189,7 +189,7 @@ class StoryTeller {
             }
         }
         if (this.story_node.id == "00000055") {
-            $("#StoryOptions").hide().delay(this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length * 1000).fadeIn(500);
+            $("#StoryOptions").hide().delay(this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length * 2200).fadeIn(500);
         } else {
             $("#StoryOptions").hide().delay(2000).fadeIn(500);
         }

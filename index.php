@@ -22,8 +22,6 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--  Nice Web Font -->
-<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 <!-- W3schools W3.css library -->
 <link rel="stylesheet" href="css/w3.css">
@@ -62,6 +60,10 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
       <button id="login" class="w3-button w3-hover-theme w3-theme-d3  w3-large options-buttons w3-section w3-mobile" >Login</button>
       <button id="register" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large options-buttons w3-section w3-mobile">Register</button>
       <button id="about" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large options-buttons w3-section w3-mobile">About</button>
+      <button id="reset" class="w3-button w3-hover-theme w3-theme-d3 w3-hover-theme:hover w3-large options-buttons w3-section w3-mobile">Reset Password</button>
+    </div>
+    <div class="w3-show-inline-block">
+
     </div>
   </div>
 </div>

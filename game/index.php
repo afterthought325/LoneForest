@@ -59,17 +59,16 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
 </head>
 
 <body class = "w3-theme-l2 w3-card-3">
-    <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2 w3-theme-l4" style="display:none" id="mySidebar">
-      <button class="w3-bar-item w3-button w3-hover-theme"
-      onclick="w3_close()">Close &times;</button>
-      <a href="../" class="w3-bar-item w3-button w3-hover-theme">Home</a>
+    <div class="w3-sidebar w3-bar-block w3-animate-left w3-card-2 w3-theme-l3" style="display:none" id="mySidebar">
+      <button class="w3-bar-item w3-button w3-hover-theme" onclick="w3_close()">Close &times;</button>
+      <a href="../" class="w3-bar-item w3-button w3-hover-theme w3-section">Home</a>
       <a href="../statistics" class="w3-bar-item w3-button w3-hover-theme">Statistics</a>
-      <a href="../settings" class="w3-bar-item w3-button w3-hover-theme">Settings</a>
-      <a href="../logout" class="w3-bar-item w3-button w3-hover-theme">Logout</a>
+      <a href="../settings" class="w3-bar-item w3-button w3-hover-theme w3-section">Settings</a>
+      <a href="../logout" class="w3-bar-item w3-button w3-hover-theme w3-section">Logout</a>
     </div>
     <div zclass="w3-main" id="main">
         <div class="w3-theme-d4">
-            <button class="w3-button w3-hover-theme w3-xlarge " onclick="w3_open()">&#9776;</button>
+            <button class="w3-btn w3-hover-theme w3-xlarge" onclick="w3_open()">&#9776;</button>
             <div class="w3-container">
                 <h1>Lone Forest</h1>
                 <code id="subheading"></code>
@@ -79,20 +78,25 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
         </div>
         <div class="w3-row-padding">
             <div class="w3-container w3-threequarter">
-                <div class="w3-bar ">
-                    <button class="w3-bar-item w3-theme-l1 w3-button" onclick="openTab('DescriptionTab')">Description</button>
-                    <button class="w3-bar-item w3-theme-l1 w3-button" onclick="openTab('InventoryTab')">Inventory</button>
+                <div class="w3-row">
+                    <a href="javascript:void(0)" onclick="openTab(event,'DescriptionTab');">
+                        <div class="w3-col tablink w3-border-black w3-bottombar w3-padding" style="width:50%">Description</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openTab(event,'InventoryTab');">
+                        <div class="w3-col tablink w3-bottombar w3-padding" style="width:50%">Inventory</div>
+                    </a>
                 </div>
-                <div id="DescriptionTab" class="tab">
+                <div id="DescriptionTab" class="tab" style="display:block">
                     <h3 id="Location"></h3>
-                    <code id="Description">Description </code>
+                    <code id="Description">Loading Story</code>
                 </div>
                 <div id="InventoryTab" class="tab" style="display:none">
-                    <code id="Inventory">You do not have anything in your Inventory</code>
+                    <code id="Inventory">You do not have anything in your inventory.</code>
                 </div>
             </div>
             <br>
             <div class="w3-container w3-rest" id="StoryOptions" onClick="ST.update_story_node(event);">
+
             </div>
         </div>
     </div>
@@ -102,13 +106,18 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             ST = new StoryTeller();
         });
 
-        function openTab(tabName) {
-            var i;
-            var x = document.getElementsByClassName("tab");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(tabName).style.display = "block";
+        function openTab(evt, tabName) {
+          var i, x, tablinks;
+          x = document.getElementsByClassName("tab");
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+             tablinks[i].className = tablinks[i].className.replace("w3-border-black", "");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.firstElementChild.className += " w3-border-black";
         }
     </script>
 </body>
