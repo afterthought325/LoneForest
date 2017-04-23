@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
       $token = hash($algo, "$salt1$pw_temp$salt2");
 
-      $query = "INSERT INTO users VALUES('$fn_temp', '$sn_temp', '$un_temp', '$token', '$sq1_temp', '$sq2_temp', 0, '', 'False')";
+      $query = "INSERT INTO users VALUES('$fn_temp', '$sn_temp', '$un_temp', '$token', '$sq1_temp', '$sq2_temp', 0, '[]', 'False')";
       $result = $connection->query($query);
       if (!$result) die($connection->error);
       else

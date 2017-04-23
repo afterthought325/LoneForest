@@ -1,4 +1,4 @@
-<style>	
+<style>
 	td{
 		border: 1px solid black;
 		padding: 1em 1em 1em 1em;
@@ -6,18 +6,19 @@
  </style>
  <head>
  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+ <link rel="stylesheet" href="../css/settingspage.css">
  <script>
     function confirmDeletion(userName){
         $.post('deletepage.php', { userName:userName }, function(data){
             alert(data);
             location.reload();
-        }); 
+        });
     }
     function confirmPasswordChange(userName){
         $.post('changepassword.php', { userName:userName }, function(data){
             alert(data);
             location.reload();
-        }); 
+        });
     }
 </script>
 </head>
@@ -30,9 +31,9 @@ session_start();
 
 
 
-if (true)//(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
+if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 {
-  if (true) //(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == "True")
+  if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == "True")
   {
     echo "<h1>You!...are an admin.</h1>";
     require_once '../login.php';
@@ -45,25 +46,26 @@ if (true)//(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
     $rows = $result->num_rows;
 
     $row = $result->fetch_array(MYSQLI_NUM);
+		echo "<button class='options-buttons italics' onclick=\"location.href='../game/'\">Go back home</button><br/><br/>";
     echo "<table>";
-    echo "<th>Username</th>"; 
+    echo "<th>Username</th>";
     for ($j = 0 ; $j < $rows ; ++$j)
-        {	
+        {
           $result->data_seek($j);
           $row = $result->fetch_array(MYSQLI_ASSOC);
           echo "<tr>";
           echo "<td><h4 id='".$j."'>".$row['username']."</h4></td>";
-          echo "<td><button onclick='confirmDeletion(\"".$row['username']."\")'>Delete Account</button></td>";
-          //add onclick="delete" 
-          echo "<td><button onclick='confirmPasswordChange(\"".$row['username']."\")'>Reset Password</button></td>"; 
+          echo "<td><button class='options-buttons' onclick='confirmDeletion(\"".$row['username']."\")'>Delete Account</button></td>";
+          //add onclick="delete"
+          echo "<td><button class='options-buttons' onclick='confirmPasswordChange(\"".$row['username']."\")'>Reset Password</button></td>";
           //add onclick="reset password"
           echo "</tr>";
         }
-    
+
     echo "</table>";
     $result->close();
     $connection->close();
-    
+
   }
   else
   {
