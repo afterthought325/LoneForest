@@ -46,7 +46,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
     $rows = $result->num_rows;
 
     $row = $result->fetch_array(MYSQLI_NUM);
-		echo "<button class='options-buttons italics' href='../game/'>Go back home</button><br/><br/>";
+		echo "<button class='options-buttons italics' onclick=\"location.href='../game/'\">Go back home</button><br/><br/>";
     echo "<table>";
     echo "<th>Username</th>";
     for ($j = 0 ; $j < $rows ; ++$j)
