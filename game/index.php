@@ -88,7 +88,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
                 </div>
                 <div id="DescriptionTab" class="tab" style="display:block">
                     <h3 id="Location"></h3>
-                    <code id="Description">Description </code>
+                    <code id="Description">Loading Story</code>
                 </div>
                 <div id="InventoryTab" class="tab" style="display:none">
                     <code id="Inventory">You do not have anything in your Inventory</code>
