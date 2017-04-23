@@ -121,10 +121,10 @@ class StoryTeller {
                     clearInterval(j);
                     //dest.text(string);
                 } else {
-                    $('<span>').text(string[c]).appendTo(dest).hide().fadeIn(1000);
+                    $('<span>').html(string[c]+'<br />').appendTo(dest).hide().fadeIn(1000);
                     c += 1;
                 }
-            }, 1000);
+            }, 2000);
             this.user.clear_inventory();
         } else {
             $("#Description").text(this.story_node.description);
@@ -184,7 +184,7 @@ class StoryTeller {
             }
         }
         if (this.story_node.id == "00000055") {
-            $("#StoryOptions").hide().delay(this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length * 1000).fadeIn(500);
+            $("#StoryOptions").hide().delay(this.story_node.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length * 2200).fadeIn(500);
         } else {
             $("#StoryOptions").hide().delay(2000).fadeIn(500);
         }
