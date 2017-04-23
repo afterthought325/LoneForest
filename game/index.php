@@ -64,6 +64,12 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
       <a href="../" class="w3-bar-item w3-button w3-hover-theme w3-section">Home</a>
       <a href="../settings" class="w3-bar-item w3-button w3-hover-theme w3-section">Settings</a>
       <a href="../logout" class="w3-bar-item w3-button w3-hover-theme w3-section">Logout</a>
+      <?php
+      if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == "True")
+      {
+        echo '<a href="../admin" class="w3-bar-item w3-button w3-hover-theme w3-section">Admin Settings</a>';
+      }
+      ?>
     </div>
     <div zclass="w3-main" id="main">
         <div class="w3-theme-d4">
