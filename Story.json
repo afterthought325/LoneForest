@@ -415,7 +415,7 @@
             },
             {
                 "description": "Go south",
-                "next_node_id": "00000013",
+                "next_node_id": "00000014",
                 "requires": "",
                 "chance_of_death": "02",
                 "death_description": "You take another step and fall through the leaves. You land in a warm pit of snakes. Yes. It's a legitimate pit of snakes. No, you do not live."
@@ -982,7 +982,7 @@
     {
         "id": "00000031",
         "location": "Town",
-        "description": "You run into the town. Smeared in dirt and covered in bruises, you grab a startled townsfolk, yelling at them to call the police. In hindsight, they probably would've called the police anyways. They come and pick you up, hear your story, and give you a place to stay for the night. Congratulations, you didn't die.",
+        "description": "You run into the town. Smeared in dirt and covered in bruises, you grab a startled townsfolk, yelling at them to call the police. In hindsight, they probably would've called the police anyway. They come and pick you up, hear your story, and give you a place to stay for the night. Congratulations, you didn't die.",
         "story_options": [{
             "description": "Sleep for the night",
             "next_node_id": "00000060",

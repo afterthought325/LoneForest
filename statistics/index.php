@@ -30,7 +30,7 @@ if (!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True))
 			<div class="w3-theme-d4">
                 <a class="w3-btn w3-large" href="../game/"><i class="fa fa-arrow-left"></i></a>
 			    <div class="w3-container">
-			    	<h1 class="w3-cell-middle">Settings Page</h1>
+			    	<h1 class="w3-cell-middle">Statistics Page</h1>
         	    </div>
             </div>
 <?php
