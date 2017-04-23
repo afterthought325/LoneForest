@@ -22,8 +22,6 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === True)
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--  Nice Web Font -->
-<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 <!-- W3schools W3.css library -->
 <link rel="stylesheet" href="css/w3.css">

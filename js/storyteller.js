@@ -166,7 +166,7 @@ class StoryTeller {
                 for (var i = 0; i < invLength; i++) {
                     if (inv[i] == option.requires) {
                         var btn = $("<div></div>").text(option.description);
-                        btn.addClass("w3-btn w3-block w3-theme-d3 w3-section options-buttons");
+                        btn.addClass("w3-container w3-mobile w3-theme-d3 w3-section options-buttons");
                         btn.css("width:100%");
                         btn.val(x);
                         $("#StoryOptions").append(btn);

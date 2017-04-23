@@ -78,11 +78,15 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
         </div>
         <div class="w3-row-padding">
             <div class="w3-container w3-threequarter">
-                <div class="w3-bar ">
-                    <button class="w3-bar-item w3-theme-l1 w3-button" onclick="openTab('DescriptionTab')">Description</button>
-                    <button class="w3-bar-item w3-theme-l1 w3-button" onclick="openTab('InventoryTab')">Inventory</button>
+                <div class="w3-row">
+                    <a href="javascript:void(0)" onclick="openTab(event,'DescriptionTab');">
+                        <div class="w3-col tablink w3-border-red w3-bottombar w3-padding" style="width:50%">Description</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openTab(event,'InventoryTab');">
+                        <div class="w3-col tablink w3-bottombar w3-padding" style="width:50%">Inventory</div>
+                    </a>
                 </div>
-                <div id="DescriptionTab" class="tab">
+                <div id="DescriptionTab" class="tab" style="display:block">
                     <h3 id="Location"></h3>
                     <code id="Description">Description </code>
                 </div>
@@ -92,6 +96,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             </div>
             <br>
             <div class="w3-container w3-rest" id="StoryOptions" onClick="ST.update_story_node(event);">
+
             </div>
         </div>
     </div>
@@ -101,13 +106,18 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             ST = new StoryTeller();
         });
 
-        function openTab(tabName) {
-            var i;
-            var x = document.getElementsByClassName("tab");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(tabName).style.display = "block";
+        function openTab(evt, tabName) {
+          var i, x, tablinks;
+          x = document.getElementsByClassName("tab");
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+             tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.firstElementChild.className += " w3-border-red";
         }
     </script>
 </body>
