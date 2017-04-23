@@ -36,6 +36,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
     <link rel="stylesheet" href="../css/w3.css">
     <link rel="stylesheet" href="../css/gamepage.css">
     <link rel="stylesheet" type="text/css" href="../swal/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Theme to be filled in by changeTheme() below -->
@@ -73,7 +74,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
     </div>
     <div zclass="w3-main" id="main">
         <div class="w3-theme-d4">
-            <button class="w3-btn w3-hover-theme w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <button class="w3-btn w3-hover-theme w3-xlarge" onclick="w3_open()"><i class="fa fa-bars"></i></button>
             <div class="w3-container">
                 <h1>Lone Forest</h1>
                 <code id="subheading"></code>
