@@ -46,10 +46,11 @@ $result = $connection->query($query);
 if(!$result) die($connection->error);
 $result->data_seek(0);
 $row = $result->fetch_array(MYSQLI_ASSOC);
-echo "<br><div class='w3-xlarge'>Death Count: ".$row["deaths"]."</div><br>";
-echo "<div class='w3-xlarge'>Victory Count: ".$row["wins"]."</div><br>";
-echo "<div class='w3-xlarge'>Kidney's donated: ".$row["kidneys"]."</div><br>";
-
+echo "<div class='w3-container'>";
+echo "<br><div class='w3-cell-middle w3-xlarge'>Death Count: ".$row["deaths"]."</div><br>";
+echo "<div class='w3-cell-middle w3-xlarge'>Victory Count: ".$row["wins"]."</div><br>";
+echo "<div class='w3-cell-middle w3-xlarge'>Kidney's donated: ".$row["kidneys"]."</div><br>";
+echo "</div>";
 $connection->close();
 
 ?>
