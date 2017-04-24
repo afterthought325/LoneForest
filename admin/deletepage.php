@@ -10,9 +10,9 @@ if(isset($_POST['userName'])){
         $result = $connection->query($query);
     }
     if($result){
-        echo "Record deleted successfully";
+        echo "True";
     }else{
-        echo "Sorry, record could not be deleted";
+        echo "False";
     }
 }
 $connection->close();

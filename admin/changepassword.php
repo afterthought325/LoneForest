@@ -11,9 +11,9 @@ if(isset($_POST['userName'])){
         $result = $connection->query($query);
     }
     if($result){
-        echo "Password has been changed for the better";
+        echo "True";
     } else {
-        echo "Sorry, that password did not change at all...";
+        echo "False";
     }
 }
 $connection->close();

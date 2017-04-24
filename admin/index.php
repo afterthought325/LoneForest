@@ -18,7 +18,7 @@
     <script>
         function confirmDeletion(userName){
             $.post('deletepage.php', { userName:userName }, function(data){
-                if (data === "Record deleted successfully") {
+                if (data == "True") {
                     swal(
                         {
                             title: 'Success!',
@@ -45,7 +45,7 @@
         }
         function confirmPasswordChange(userName){
             $.post('changepassword.php', { userName:userName }, function(data){
-                if (data === "Password has been changed for the better") {
+                if (data == "True") {
                     swal(
                         {
                             title:'Success!',
