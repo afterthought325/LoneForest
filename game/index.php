@@ -121,10 +121,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
           }
           tablinks = document.getElementsByClassName("tablink");
           for (i = 0; i < x.length; i++) {
-             tablinks[i].className = tablinks[i].className.replace("w3-border-black", "");
+             tablinks[i].className = tablinks[i].className.replace("w3-border-theme", "");
           }
           document.getElementById(tabName).style.display = "block";
-          evt.currentTarget.firstElementChild.className += " w3-border-black";
+          evt.currentTarget.firstElementChild.className += " w3-border-theme";
         }
     </script>
 </body>
