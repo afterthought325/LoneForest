@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script>
+        let patt = new RegExp("True");
         function confirmDeletion(userName){
             $.post('deletepage.php', { userName:userName }, function(data){
-                if (data == "True") {
+                if (patt.test(data)) {
                     swal(
                         {
                             title: 'Success!',
@@ -45,7 +46,7 @@
         }
         function confirmPasswordChange(userName){
             $.post('changepassword.php', { userName:userName }, function(data){
-                if (data == "True") {
+                if (patt.test(data)) {
                     swal(
                         {
                             title:'Success!',
