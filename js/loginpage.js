@@ -198,7 +198,7 @@ $('#about').on('click', function () {
     confirmButtonColor: '#3085d6',
     confirmButtonText: 'Cool'
   })
-})
+});
 
 $('#reset').on('click', function () {
   swal(

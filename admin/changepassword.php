@@ -12,7 +12,7 @@ if(isset($_POST['userName'])){
     }
     if($result){
         echo "Password has been changed for the better";
-    }else{
+    } else {
         echo "Sorry, that password did not change at all...";
     }
 }
