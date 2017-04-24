@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../js/jquery.js"></script>
     <script src="../js/changeTheme.js" type="text/javascript"></script>
     <script  src="../js/changeTheme.js"type="text/javascript"></script>
     <script src="../swal/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="../css/w3.css">
     <link rel="stylesheet" href="../css/adminpage.css">
-    <link rel="stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" id="ourTheme" href="https://www.w3schools.com/lib/w3-theme-grey.css">
     <link rel="stylesheet" href="../swal/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
