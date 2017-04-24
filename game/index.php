@@ -87,10 +87,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
             <div class="w3-container w3-threequarter">
                 <div class="w3-row">
                     <a href="javascript:void(0)" onclick="openTab(event,'DescriptionTab');">
-                        <div class="w3-col tablink w3-bottombar w3-padding" style="width:50%">Description</div>
+                        <div class="w3-col tablink w3-bottombar w3-border-theme w3-padding" style="width:50%">Description</div>
                     </a>
                     <a href="javascript:void(0)" onclick="openTab(event,'InventoryTab');">
-                        <div class="w3-col tablink w3-bottombar w3-padding" style="width:50%">Inventory</div>
+                        <div class="w3-col tablink w3-bottombar w3-border-white w3-padding" style="width:50%">Inventory</div>
                     </a>
                 </div>
                 <div id="DescriptionTab" class="tab " style="display:block">
@@ -121,7 +121,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] === False)
           }
           tablinks = document.getElementsByClassName("tablink");
           for (i = 0; i < x.length; i++) {
-             tablinks[i].className = tablinks[i].className.replace("w3-border-theme", "");
+             tablinks[i].className = tablinks[i].className.replace("w3-border-theme", "w3-border-white");
           }
           document.getElementById(tabName).style.display = "block";
           evt.currentTarget.firstElementChild.className += " w3-border-theme";
