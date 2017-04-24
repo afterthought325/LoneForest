@@ -1044,7 +1044,7 @@
                 "requires": "",
                 "not_requires": "heartpiece1",
                 "chance_of_death": "100",
-                "death_description": "You tug at the sword, but you feel the life drain out of you as you do. It decreases all of your heart containers until your die."
+                "death_description": "You tug at the sword, but you feel the life drain out of you as you do. It decreases all of your heart containers until you die."
             },
             {
                 "description": "Pick up the sword",
