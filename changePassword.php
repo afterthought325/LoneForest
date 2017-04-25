@@ -2,7 +2,7 @@
 session_start();
 require_once 'login.php';
 
-if (isset($_SESSION['sq_check']) && $_SESSION['sq_check'] == True)
+if (isset($_COOKIE['sq_check']) && $_COOKIE['sq_check'] == "true")
 {
   $connection = new mysqli($hn, $un, $pw, $db);
 
@@ -16,7 +16,7 @@ if (isset($_SESSION['sq_check']) && $_SESSION['sq_check'] == True)
         $token = hash($algo, "$salt1$pw_temp$salt2");
         $query = "UPDATE users SET password = '$token' WHERE username='$un_temp'";
         $connection->query($query);
-        unset($_SESSION['sq_check']);
+        setcookie("sq_check", "false", time() + 2, "/");
         setcookie("login", "false", time() + 2, "/");
         setcookie("reloaded", "true", time() + 2, "/");
         setcookie("pwd_changed", "true", time() + 2, "/");
