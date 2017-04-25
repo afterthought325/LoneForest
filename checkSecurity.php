@@ -31,16 +31,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
          $result->close();
          if (($sq1_temp == $row[4]) && ($sq2_temp == $row[5]))
          {
-            $_SESSION["sq_check"] = True;
             $_SESSION["username"] = $row[2];
             setcookie("login", "true", time() + (30), "/");
+            setcookie("sq_check", "true", time() + (2), "/");
             setcookie("reloaded", "true", time() + (2), "/");
             header("Location: ../LoneForest/");
             exit();
          }
          else
          {
-           $_SESSION["sq_check"] = False;
+           setcookie("sq_check", "false", time() + (2), "/");
            setcookie("login", "true", time() + (30), "/");
            setcookie("reloaded", "true", time() + (2), "/");
            header("Location: ../LoneForest/");
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       }
       else
       {
-        $_SESSION["sq_check"] = False;
+        setcookie("sq_check", "false", time() + (2), "/");
         setcookie("login", "true", time() + (30), "/");
         setcookie("reloaded", "true", time() + (2), "/");
         header("Location: ../LoneForest/");
@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
    }
    else
    {
+      $_SESSION["sq_check"] = False;
       header('WWW-Authenticate: Basic realm="Restricted Section"');
       header('HTTP/1.0 401 Unauthorized');
       die ("There is nothing to see here");

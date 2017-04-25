@@ -29,7 +29,7 @@ if (reloaded == "true")
    var login = getCookie("login");
    var logged_in = getCookie("logged_in");
    var pwd_changed = getCookie("pwd_changed");
-   var sq_check = getSessionVar("sq_check", "getSessionVariables.php");
+   var sq_check = getCookie("sq_check");
    console.log(sq_check);
    if (logged_in == "true" && login == "true")
    {
@@ -47,11 +47,11 @@ if (reloaded == "true")
         window.location.reload(false);
       })
    }
-   else if ((login == "true") && !(sq_check == 1))
+   else if ((login == "true") && !(sq_check == "true"))
    {
      throw 'Those are the wrong credentials.';
    }
-   if (sq_check == 1)
+   if (sq_check == "true")
    {
      swal(
        {
