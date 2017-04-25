@@ -20,7 +20,7 @@ if (isset($_SESSION['sq_check']) && $_SESSION['sq_check'] == True)
         setcookie("login", "false", time() + 2, "/");
         setcookie("reloaded", "true", time() + 2, "/");
         setcookie("pwd_changed", "true", time() + 2, "/");
-        header("Location: ../LoneForest/");
+        header("Location: index.php");
         exit();
      }
      else

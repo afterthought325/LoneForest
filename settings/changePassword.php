@@ -18,7 +18,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == True)
         $connection->query($query);
         setcookie("reloaded", "true", time() + 2, "/");
         setcookie("pwd_changed", "true", time() + 2, "/");
-        header("Location: ../settings/");
+        header("Location: index.php");
         exit();
      }
      else

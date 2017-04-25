@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
     $connection->query($query);
     $_SESSION["account_del"] = True;
     setcookie("reloaded", "true", time() + (30), "/");
-    header("Location: ../settings/");
+    header("Location: index.php");
     exit();
   }
   else

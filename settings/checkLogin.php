@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION["isAdmin"] = $row[8];
             setcookie("login", "true", time() + (30), "/");
             setcookie("reloaded", "true", time() + (2), "/");
-            header("Location: ../settings/");
+            header("Location: index.php");
             exit();
          }
          else
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
            $_SESSION["pwd_check"] = False;
            setcookie("login", "true", time() + (30), "/");
            setcookie("reloaded", "true", time() + (2), "/");
-           header("Location: ../settings/");
+           header("Location: index.php");
            exit();
          }
       }
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         setcookie("logged_in", "false", time() + (30), "/");
         setcookie("login", "true", time() + (30), "/");
         setcookie("reloaded", "true", time() + (2), "/");
-        header("Location: ../settings/");
+        header("Location: index.php");
         exit();
       }
    }

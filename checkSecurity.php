@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             setcookie("login", "true", time() + (30), "/");
             setcookie("sq_check", "true", time() + (2), "/");
             setcookie("reloaded", "true", time() + (2), "/");
-            header("Location: ../LoneForest/");
+            header("Location: index.php");
             exit();
          }
          else
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
            setcookie("sq_check", "false", time() + (2), "/");
            setcookie("login", "true", time() + (30), "/");
            setcookie("reloaded", "true", time() + (2), "/");
-           header("Location: ../LoneForest/");
+           header("Location: index.php");
            exit();
          }
       }
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         setcookie("sq_check", "false", time() + (2), "/");
         setcookie("login", "true", time() + (30), "/");
         setcookie("reloaded", "true", time() + (2), "/");
-        header("Location: ../LoneForest/");
+        header("Location: index.php");
         exit();
       }
    }
