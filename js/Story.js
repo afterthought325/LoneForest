@@ -1,5 +1,4 @@
-[
-
+var TheStory = [
     {
         "id": "00000000",
         "location": "Side of the road",

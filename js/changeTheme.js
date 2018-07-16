@@ -1,7 +1,7 @@
 function changeTheme() {
     let theme = getCookie("theme");
     if (theme == "") {
-        theme = "grey";
+        theme = "black";
     } 
     document.getElementById("ourTheme").href = "https://www.w3schools.com/lib/w3-theme-" + theme + ".css";
 }

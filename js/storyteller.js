@@ -10,28 +10,13 @@ Chaise Farrar
 class StoryTeller {
 
     constructor() {
-        this.json_story = null;
+        this.json_story = TheStory;
         this.user = new User();
         this.story_node = null;
         this.story_node_uid = null;
         this.selected_option = null;
-        this.get_json_story();
         this.create_story_node(this.user.location);
         this.update_page();
-    }
-
-    get_json_story() {
-        //fetch('../Story.json').then(function(data){
-        //    this.json_story = data;
-        //}.bind(this));
-        //let response = httpGet("https://raw.githubusercontent.com/afterthought325/LoneForest/master/Story.json");
-        let response = httpGet("../Story.json", false);
-        if (response) {
-            this.json_story = JSON.parse(response);
-            return true;
-        } else {
-            return false;
-        }
     }
 
     create_story_node(story_node_uid) {
@@ -106,7 +91,7 @@ class StoryTeller {
 
     update_page() {
         //Inputing the Name into the Header.
-        $("#subheading").text("Will you survive, " + this.user.forename + "?");
+        $("#subheading").text("Will you survive?");
         //Adding Location
         $("#Location").text(this.story_node.location);
         $("#Location").hide().fadeIn(1000);
@@ -135,15 +120,17 @@ class StoryTeller {
             $("#Description").text(this.story_node.description);
             $("#Description").hide().delay(1000).fadeIn(1000);
         }
-        let inv_list = this.user.inventory_list;
-        if (inv_list.length > 0) {
-            $('#InventoryTab').empty();
-            for (let x = 0; x < inv_list.length; x++) {
-                let item = inv_list[x];
-                let item_el = $("<br><code></code>").text(item);
-                item_el.addClass("Inventory");
-                $('#InventoryTab').append(item_el);
-                $("#InventoryTab").append($("<br>"));
+        let inv_list = this.user.get_inventory();
+        if(inv_list != null) {
+            if (inv_list.length > 0) {
+                $('#InventoryTab').empty();
+                for (let x = 0; x < inv_list.length; x++) {
+                    let item = inv_list[x];
+                    let item_el = $("<br><code></code>").text(item);
+                    item_el.addClass("Inventory");
+                    $('#InventoryTab').append(item_el);
+                    $("#InventoryTab").append($("<br>"));
+                }
             }
         }
         //Removing Previous Story Options

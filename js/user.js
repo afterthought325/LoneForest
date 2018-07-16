@@ -5,51 +5,65 @@ Van Kingma
 4/3/17
 */
 
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key) {
+    return JSON.parse(this.getItem(key));
+}
+
 class User {
 
     constructor() {
-        this.forename = null;
-        this.surname = null;
-        this.hash_pass = null;
-        this.inventory_list = [];
         this.location = null;
-        this.username = null;
-        this.is_admin = null;
-
-        this.is_admin = httpGet("../js/user.php?is_admin=true", false);
-        this.forename = httpGet("../js/user.php?get_forename=true", false);
-        this.surname = httpGet("../js/user.php?get_surname=true", false);
-        this.username = httpGet("../js/user.php?get_username=true", false);
-        this.location = httpGet("../js/user.php?get_location=true", false);
-        this.temp_inventory_list = httpGet("../js/user.php?get_inventory=true", false);
-        if (this.temp_inventory_list == [] || this.temp_inventory_list == "") {
-            this.temp_inventory_list = "[]";
+        this.inventory_list = [];
+        this.deaths = null;
+        this.kidneys = null;
+        this.wins = null;
+        
+        this.location = localStorage.getItem('location');
+        if (this.location == null) {
+            this.update_location(0);
         }
-        this.inventory_list = jQuery.parseJSON(this.temp_inventory_list);
+        
+        this.inventory_list = localStorage.getItem('inventory')
+        if (this.inventory_list == null){
+            this.clear_inventory();
+        }
+        
+        this.deaths = localStorage.getItem('deaths')
+        if (this.deaths == null) {
+            localStorage.setItem('deaths', 0);
+        }
+        
+        this.kidneys = localStorage.getItem('kidneys')
+        if (this.kidneys == null) {
+            localStorage.setItem('kidneys', 0);
+        }
+        
+        this.wins = localStorage.getItem('wins')
+        if (this.wins == null) {
+            localStorage.setItem('wins', 0);
+        }
     }
 
-    override_inventory(inventory) {
-        $.post("../js/user.php", { set_inventory: inventory })
-            .done(function(data) {
-                console.log("User.js: Inventory List Update == " + data);
-                return true;
-            })
+    override_inventory() {
+        localStorage.setItem('inventory',this.inventory_list);
+        return true
     }
     get_inventory() {
         return this.inventory_list;
     }
     clear_inventory() {
         this.inventory_list = [];
-        $.post("../js/user.php", { clear_inventory: "value" })
-            .done(function(data) {
-                console.log("User.js: Inventory List cleared");
-                return true;
-            })
+        localStorage.setItem('inventory','[]')
+        return true
     }
 
     add_item(item) {
         this.inventory_list.push(item);
-        return this.override_inventory(this.inventory_list);
+        return this.override_inventory();
     }
 
     remove_item(item) {
@@ -59,37 +73,28 @@ class User {
         //have more than one of the same.
         let index = this.inventory_list.indexOf(item);
         if (index > -1) this.inventory_list.splice(index, 1);
-        return this.override_inventory(this.inventory_list);
+        return this.override_inventory();
     }
 
     update_location(locationID) {
         this.location = locationID;
-        $.post("../js/user.php", { set_location: locationID })
-            .done(function(data) {
-                console.log("User.js : Current Location Update == " + data);
-                return true
-            })
+        localStorage.setItem('location', locationID)
+        return true
     }
     add_death() {
-        $.post("../js/user.php", { set_deaths: "value" })
-            .done(function(data) {
-                console.log("User.js: Death added == " + data);
-                return true;
-            })
+        this.wins = this.wins + 1;
+        localStorage.setItem("deaths", this.deaths);
+        return true
     }
     add_win() {
-        $.post("../js/user.php", { set_wins: "value" })
-            .done(function(data) {
-                console.log("User.js: win added == " + data);
-                return true;
-            })
+        this.wins = this.wins + 1;
+        localStorage.setItem("wins", this.wins);
+        return true
     }
     add_kidney() {
-        $.post("../js/user.php", { set_kidneys: "value" })
-            .done(function(data) {
-                console.log("User.js: kidney added == " + data);
-                return true;
-            })
+        this.kidneys = this.kidneys + 1;
+        localStorage.setItem("kidneys", this.kidneys);
+        return true
     }
 
 
